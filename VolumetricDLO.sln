@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VolumetricDLO", "VolumetricDLO\VolumetricDLO.vcxproj", "{BB1A793A-0D88-444B-8DC1-01A9EE94AE20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB1A793A-0D88-444B-8DC1-01A9EE94AE20}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BB1A793A-0D88-444B-8DC1-01A9EE94AE20}.Debug|Win32.Build.0 = Debug|Win32
+		{BB1A793A-0D88-444B-8DC1-01A9EE94AE20}.Release|Win32.ActiveCfg = Release|Win32
+		{BB1A793A-0D88-444B-8DC1-01A9EE94AE20}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
