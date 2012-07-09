@@ -7,9 +7,16 @@ namespace Filum
 	{
 	private:
 
+		/// tetrahedron corners
 		MassPoint *pi, *pj, *pk, *pl;
 
+		/// volumetric spring stiffness coefficient
+		Real kV;
+		/// linear spring stiffness coefficient
+		Real kL;
 	public:
+		void UpdateForces();
+
 		Real Volume()
 		{
 			 return ComputeVolume(pi->r, pj->r, pk->r, pl->r);
@@ -18,6 +25,7 @@ namespace Filum
 		{
 			return ComputeVolume(pi->r0, pj->r0, pk->r0, pl->r0);
 		}
+
 		vec3<Real> Fvpi(Real V, Real V0)
 		{
 			return FVol(.1, V, V0, pi->r, pj->r, pk->r, pl->r);

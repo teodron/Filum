@@ -11,4 +11,9 @@ namespace Filum
 	{
 		return kV / (6.0*V0*V0) * (V - V0) * cross(pj - pl, pk - pl);
 	}
+
+	inline vec3<Real> FLin(Real kL, Real D, Real D0, const vec3<Real>& pi, const vec3<Real>& pj)
+	{
+		return kL / (D0*D0) * (D - D0) * (pi - pj) / D;
+	}
 }
