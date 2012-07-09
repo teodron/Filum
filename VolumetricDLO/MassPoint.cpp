@@ -3,6 +3,7 @@
 
 using namespace Filum;
 
+
 MassPoint::MassPoint(vec3<Real> pos)
 {
 	// initialize

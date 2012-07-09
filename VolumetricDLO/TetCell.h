@@ -20,12 +20,11 @@ namespace Filum
 		}
 		vec3<Real> Fvpi(Real V, Real V0)
 		{
-			return FVol(5, V, V0, pi->r, pj->r, pk->r, pl->r);
+			return FVol(.1, V, V0, pi->r, pj->r, pk->r, pl->r);
 		}
 		void Move(vec3<Real> dr)
 		{
 			pi->r += dr;
-			cout<<pi->r.x << " "<<pi->r.y << " "<<pi->r.z<<endl;
 		}
 		TetCell(MassPoint * pi0, MassPoint * pj0, MassPoint * pk0, MassPoint * pl0);
 
