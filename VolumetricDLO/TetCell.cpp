@@ -13,9 +13,11 @@ TetCell::TetCell(MassPoint * pi0, MassPoint * pj0, MassPoint * pk0, MassPoint * 
 
 void TetCell::UpdateForces()
 {
+
 	// linear forces
 	Real D = 0, D0 = 0;
 	vec3<Real> force;
+	/**/
 	// pi - pj
 	D = length(pi->r - pj->r); D0 = length(pi->r0 - pj->r0);
 	force = FLin(kL, D, D0, pi->r, pj->r);
@@ -46,4 +48,20 @@ void TetCell::UpdateForces()
 	force = FLin(kL, D, D0, pk->r, pl->r);
 	pk->f += force;
 	pl->f += -force;
+	/**/
+	/**
+	// volumetric forces
+	Real V = 0, V0 = 0;
+	V = this->Volume();
+	V0 = this->InitialVolume();
+	// pi
+	pi->f += Fvpi(V, V0);
+	// pj
+	pj->f += Fvpj(V, V0);
+	// pk
+	pk->f += Fvpk(V, V0);
+	// pl
+	pl->f += Fvpl(V, V0);
+	/**/
+	
 }

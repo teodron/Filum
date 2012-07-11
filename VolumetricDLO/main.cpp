@@ -11,12 +11,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	MassPoint* pk = new MassPoint(vec3<Real>(0,1,0));
 	MassPoint* pl = new MassPoint(vec3<Real>(0,0,1));
 	TetCell tet(pi, pj, pk, pl);
-	tet.Move(vec3<Real>(0,0,-2));
-	Real V = tet.Volume(), V0 = tet.InitialVolume();
-	vec3<Real> force = tet.Fvpl(V, V0);
-	cout<<tet.Volume()<<" * ";
-	tet.Move(force);
-	cout<< tet.Volume()<< " " << tet.InitialVolume()<<" "<< force.x<<" "<<force.y<< " "<<force.z<<endl;
+	tet.SetKl(0.3); tet.SetKv(0.1);
+
+	tet.Move(vec3<Real>(1.2,1.2,1.2));
+	cout<< tet.InitialVolume() << "  " <<tet.Volume() <<endl;
+	tet.UpdateForces();
+	tet.UpdatePos();
+	cout<< tet.InitialVolume() << "  " <<tet.Volume() <<endl;
 	cin.get();
 	return 0;
 }
