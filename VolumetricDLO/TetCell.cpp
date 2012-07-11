@@ -9,6 +9,23 @@ TetCell::TetCell(MassPoint * pi0, MassPoint * pj0, MassPoint * pk0, MassPoint * 
 	pj = (pj0);
 	pk = (pk0);
 	pl = (pl0);
+	if (this->InitialVolume() < 0)
+	{
+		cout << "negative volume " << endl;
+		MassPoint* swapPtr = pi;
+		pi = pj;
+		pj = swapPtr;
+	}
+}
+
+TetCell::TetCell(const TetCell& src)
+{
+	pi = src.pi;
+	pj = src.pj;
+	pk = src.pk;
+	pl = src.pl;
+	kL = src.kL;
+	kV = src.kV;
 }
 
 void TetCell::UpdateForces()

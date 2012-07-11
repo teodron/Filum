@@ -72,6 +72,10 @@ namespace Filum
 		* tetrahedron corner/vertex.
 		*/
 		TetCell(MassPoint * pi0, MassPoint * pj0, MassPoint * pk0, MassPoint * pl0);
+
+		TetCell() { pi = pj = pk = pl = NULL; }
+
+		TetCell(const TetCell& src);
 		
 		/// setter method for the linear spring constant
 		void SetKl(Real value) { kL = value;}

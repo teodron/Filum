@@ -21,10 +21,12 @@ int _tmain(int argc, _TCHAR* argv[])
 	tet.UpdatePos();
 	cout<< tet.InitialVolume() << "  " <<tet.Volume() <<endl;
 	*/
+
 	int n = 50;
 	vector<vec3<Real> > r;
 	for (int idx = 0; idx <n; ++idx)
 		r.push_back(vec3<Real>(cos(idx / 10.), sin(idx / 10.), idx / 20));
+
 	VolumetricDOO dlo(r, 0.1);
 
 	cin.get();

@@ -64,9 +64,20 @@ VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius)
 		P[idx] = MassPoint(points[idx] + p0 / length(p0) * cathetus);
 	}
 	
+	cells = new TetCell[nPoints - 1][3];
+	// add tetrahedral cells
+	for (int idx = 0; idx < nPoints - 1; ++idx)
+	{
+		cells[idx][0] = TetCell(&R[idx+1], &P[idx], &Q[idx], &R[idx]);
+		cells[idx][1] = TetCell(&R[idx+1], &Q[idx+1], &Q[idx], &P[idx]);
+		cells[idx][2] = TetCell(&R[idx+1], &P[idx], &P[idx+1], &Q[idx+1]);
+
+		cout<<cells[idx][0].InitialVolume()<<" "<<cells[idx][1].InitialVolume()<<" "<<cells[idx][2].InitialVolume()<<endl;
+	}
 }
 
 
 VolumetricDOO::~VolumetricDOO(void)
 {
+	delete[] cells;
 }
