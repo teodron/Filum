@@ -4,6 +4,10 @@
 using namespace Filum;
 
 
+MassPoint::MassPoint()
+{
+
+}
 MassPoint::MassPoint(vec3<Real> pos)
 {
 	// initialize
@@ -12,7 +16,13 @@ MassPoint::MassPoint(vec3<Real> pos)
 	dr = f = vRes = zeroVec;
 }
 
-
+MassPoint::MassPoint(const MassPoint& src)
+{
+	// copy 
+	r = src.r; r0 = src.r0; rMinus = src.rMinus; rPlus = src.rPlus;
+	v = src.v; v0 = src.v0; vMinus = src.vMinus; vPlus = src.vPlus;
+	dr = src.dr; f = src.f; vRes = src.vRes;
+}
 MassPoint::~MassPoint(void)
 {
 }

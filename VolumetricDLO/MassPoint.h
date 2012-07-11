@@ -29,6 +29,8 @@ namespace Filum
 	public:
 		/// Creates a static mass point at a specified position
 		MassPoint(vec3<Real> pos);
+		MassPoint(const MassPoint& src);
+		MassPoint();
 		~MassPoint(void);
 	};
 

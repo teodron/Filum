@@ -26,4 +26,6 @@ typedef double Real;
 using namespace std;
 using namespace vmath;
 const vec3<Real> zeroVec(0,0,0);
+const Real epsilon = 1e-5;
+
 #include "PhysicsUtilities.h"
