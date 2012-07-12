@@ -22,15 +22,57 @@ namespace Filum
 		friend class TetCell;
 		friend ostream& operator<<(ostream& output, const MassPoint& p);
 	private:
+		/// positions
 		vec3<Real> r, rMinus, rPlus, r0;
+		/// velocities
 		vec3<Real> v, vMinus, vPlus, v0;
+		/// collision and constraints contributions
 		vec3<Real> vRes, f, dr;
+
 		Real mass; //< the mass concetration at this point (in kilograms)
 	public:
 		/// Creates a static mass point at a specified position
 		MassPoint(vec3<Real> pos);
+		/// copy constructor
 		MassPoint(const MassPoint& src);
+		/// empty default constructor
 		MassPoint();
+		/// mass setter
+		void SetMass(Real mass) { this->mass = mass;}
+
+		/// resets the force accumulator
+		void ResetForce() { this->f = zeroVec; }
+
+		/// resets the displacement accumulator
+		void ResetDisplacement() { this->dr = zeroVec; }
+
+		/// resets the restitution velocity accumulator
+		void ResetRestitutionVelocity() {this->vRes = zeroVec; }
+
+		/// Position Verlet Integration Method: one step of the position update equation
+		void PositionUpdate() 
+		{ 
+			rPlus = 2.0 * r - rMinus + f / mass * dTime * dTime;
+		}
+
+		/// Position Verlet Integration Method: one step of the velocity update equation
+		void VelocityUpdate()
+		{
+			v = (rPlus - rMinus) * 0.5 / dTime;
+		}
+
+		/// Corrects the predicted position by adding the accumulated displacement
+		void CorrectPosition()
+		{
+			rPlus += dr;
+		}
+
+		/// Corrects the predicted velocity by adding the accumulated residual/restitution velocity
+		void CorrectVelocity()
+		{
+			vPlus += vRes;
+		}
+
 		~MassPoint(void);
 	};
 

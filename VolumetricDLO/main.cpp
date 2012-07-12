@@ -27,7 +27,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	for (int idx = 0; idx <n; ++idx)
 		r.push_back(vec3<Real>(cos(idx / 10.), sin(idx / 10.), idx / 20));
 
-	VolumetricDOO dlo(r, 0.1);
+	VolumetricDOO dlo(r, 0.1, 0.02);
 
 	cin.get();
 	return 0;

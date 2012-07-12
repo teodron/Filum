@@ -25,7 +25,13 @@ typedef double Real;
 
 using namespace std;
 using namespace vmath;
+
 const vec3<Real> zeroVec(0,0,0);
+
+const vec3<Real> gravity(0, 0, -10.);
+
 const Real epsilon = 1e-5;
+
+const Real dTime = 0.01;
 
 #include "PhysicsUtilities.h"

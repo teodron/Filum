@@ -3,10 +3,12 @@
 
 using namespace Filum;
 
-VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius)
+VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius, Real mass)
 {
 	nPoints = points.size();
 	this->rad = radius;
+	this->mass = mass / (3*nPoints);
+
 	Real cathetus = sqrt(2.0) * 0.5 * radius;
 
 	// reserve mass point vectors
@@ -19,6 +21,7 @@ VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius)
 	for (int idx = 0; idx < nPoints; ++idx)
 	{
 		R[idx] = MassPoint(points[idx]);
+		R[idx].SetMass(this->mass);
 		//cout<<R[idx];
 	}
 	
@@ -54,14 +57,17 @@ VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius)
 	for (int idx = 0; idx < nPoints; ++idx)
 	{
 		Q[idx] = MassPoint(points[idx] + cathetus * q0[idx] / length(q0[idx]));
+		Q[idx].SetMass(this->mass);
 	}
 	// create P
 	vec3<Real> p0 = cross(-q0[0], points[1] - points[0]);
 	P[0] = MassPoint(points[0] + p0 / length(p0) * cathetus);
+	P[0].SetMass(this->mass);
 	for (int idx = 1; idx < nPoints; ++idx)
 	{
 		p0 = cross(q0[idx], points[idx-1] - points[idx]);
 		P[idx] = MassPoint(points[idx] + p0 / length(p0) * cathetus);
+		P[idx].SetMass(this->mass);
 	}
 	
 	cells = new TetCell[nPoints - 1][3];
@@ -76,8 +82,88 @@ VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius)
 	}
 }
 
-
 VolumetricDOO::~VolumetricDOO(void)
 {
 	delete[] cells;
 }
+
+void VolumetricDOO::ResetForces()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		P[idx].ResetForce();
+		Q[idx].ResetForce();
+		R[idx].ResetForce();
+	}
+}
+
+void VolumetricDOO::ResetDisplacements()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		P[idx].ResetDisplacement();
+		Q[idx].ResetDisplacement();
+		R[idx].ResetDisplacement();
+	}
+}
+
+void VolumetricDOO::ResetRestitutionVelocities()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		P[idx].ResetRestitutionVelocity();
+		Q[idx].ResetRestitutionVelocity();
+		R[idx].ResetRestitutionVelocity();
+	}
+}
+
+void VolumetricDOO::ComputeInternalForces()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		cells[idx][0].UpdateForces();
+		cells[idx][1].UpdateForces();
+		cells[idx][2].UpdateForces();
+	}
+}
+
+void VolumetricDOO::ComputeCorrectedPositions()
+{
+	for (int idx = 0 ; idx <nPoints; ++idx)
+	{
+		P[idx].CorrectPosition();
+		Q[idx].CorrectPosition();
+		R[idx].CorrectPosition();
+	}
+}
+
+void VolumetricDOO::ComputeCorrectedVelocites()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		P[idx].CorrectVelocity();
+		Q[idx].CorrectVelocity();
+		R[idx].CorrectVelocity();
+	}
+}
+
+void VolumetricDOO::StepUpdatePositions()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		P[idx].PositionUpdate();
+		Q[idx].PositionUpdate();
+		R[idx].PositionUpdate();
+	}
+}
+
+void VolumetricDOO::StepUpdateVelocities()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		P[idx].VelocityUpdate();
+		Q[idx].VelocityUpdate();
+		R[idx].VelocityUpdate();
+	}
+}
+

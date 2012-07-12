@@ -82,3 +82,9 @@ void TetCell::UpdateForces()
 	/**/
 	
 }
+
+void TetCell::ComputeLengthConstraintContributions(const Real & fraction)
+{
+	Real currLength = 0, restLength = 0;
+	// pi - pj 
+}

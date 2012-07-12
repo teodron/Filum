@@ -29,6 +29,10 @@ namespace Filum
 		/// linear spring stiffness coefficient
 		Real kL;
 
+		/************************************************************************/
+		/* Internal forces                                                      */
+		/************************************************************************/
+
 		/** 
 			\brief the volumetric force contribution at corner pi 
 		*/
@@ -60,6 +64,7 @@ namespace Filum
 		{
 			return FVol(.1, V, V0, pl->r, pi->r, pk->r, pj->r);
 		}
+
 
 	public:
 		
@@ -98,7 +103,16 @@ namespace Filum
 
 		void UpdateForces();
 
-	
+		/************************************************************************/
+		/* Constraints                                                          */
+		/************************************************************************/
+		/**
+		* \brief Computes the displacement corresponding to each corner
+		* If the cell's edges have modified their lengths, then this
+		* function checks the amount and updates the displacement 
+		* accumulation vectors by adding a fraction of this amount
+		*/
+		void ComputeLengthConstraintContributions(const Real& fraction);
 
 		void Move(vec3<Real> dr)
 		{
