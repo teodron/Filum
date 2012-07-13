@@ -1,0 +1,265 @@
+\hypertarget{class_filum_1_1_mass_point}{\section{Filum\-:\-:Mass\-Point Class Reference}
+\label{class_filum_1_1_mass_point}\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}}
+}
+
+
+Provides support for a 3\-D point endowed with a mass.  
+
+
+
+
+{\ttfamily \#include $<$Mass\-Point.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_filum_1_1_mass_point_a6b612a975a88eb1cd6f30bc70fb0145c}{Mass\-Point} (\hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ pos)
+\begin{DoxyCompactList}\small\item\em Creates a static mass point at a specified position. \end{DoxyCompactList}\item 
+\hyperlink{class_filum_1_1_mass_point_ab83e3be6bd5ce034a16932a4dc39f2de}{Mass\-Point} (const \hyperlink{class_filum_1_1_mass_point}{Mass\-Point} \&src)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hyperlink{class_filum_1_1_mass_point_aaa6fa23a579d26700a5956401fc275fc}{Mass\-Point} ()
+\begin{DoxyCompactList}\small\item\em empty default constructor \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_mass_point_a626d3c5769b34c8ccc87191810fe6755}{Set\-Mass} (\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} mass)
+\begin{DoxyCompactList}\small\item\em mass setter \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_mass_point_a0efb6566daacda9a9b536f28005d6cfa}{Reset\-Force} ()
+\begin{DoxyCompactList}\small\item\em resets the force accumulator \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_mass_point_ade0c5dcd58e542d10a2976b891c3230b}{Reset\-Displacement} ()
+\begin{DoxyCompactList}\small\item\em resets the displacement accumulator \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_mass_point_a368a05270d3a88e8dca67f89cd938ab9}{Reset\-Restitution\-Velocity} ()
+\begin{DoxyCompactList}\small\item\em resets the restitution velocity accumulator \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_mass_point_ac2bc946eb3183d5404be4a737c737b96}{Position\-Update} ()
+\begin{DoxyCompactList}\small\item\em Position Verlet Integration Method\-: one step of the position update equation. \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_mass_point_a6409c7f95c35c06aaa71fe7d4c74bddb}{Velocity\-Update} ()
+\begin{DoxyCompactList}\small\item\em Position Verlet Integration Method\-: one step of the velocity update equation. \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_mass_point_a57df1385c39078fed74c243c8ec30618}{Correct\-Position} ()
+\begin{DoxyCompactList}\small\item\em Corrects the predicted position by adding the accumulated displacement. \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_mass_point_afd82d4152069437ae997f090d5cd50ed}{Correct\-Velocity} ()
+\begin{DoxyCompactList}\small\item\em Corrects the predicted velocity by adding the accumulated residual/restitution velocity. \end{DoxyCompactList}\item 
+\hyperlink{class_filum_1_1_mass_point_ab3ded7c921f22b446d0d9688d51052c9}{$\sim$\-Mass\-Point} (void)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_filum_1_1_mass_point_a7fdf470aa14224a6a42935478dd81fe1}{Tet\-Cell}
+\item 
+ostream \& \hyperlink{class_filum_1_1_mass_point_a1de68b235e7f2d98771da91377a7d0b9}{operator$<$$<$} (ostream \&output, const \hyperlink{class_filum_1_1_mass_point}{Mass\-Point} \&p)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides support for a 3\-D point endowed with a mass. 
+
+A mass point is described by its position, mass, force and velocity vectors. For easier compatibility with various integration methods, this class also stores the position and velocity of this point at three consecutive time instances\-: t -\/ Dt, t and t + Dt, where Dt represents the integration time step. Support for collision handling or constraint reinforcement is provided through the aid of a displacements vector dr, while the restitution velocities are stored separately in v\-Rest. Friction and reaction/restitution forces are accumulated as usual in the forces vector f. 
+
+Definition at line 20 of file Mass\-Point.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_filum_1_1_mass_point_a6b612a975a88eb1cd6f30bc70fb0145c}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Mass\-Point@{Mass\-Point}}
+\index{Mass\-Point@{Mass\-Point}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Mass\-Point}]{\setlength{\rightskip}{0pt plus 5cm}Mass\-Point\-::\-Mass\-Point (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}$<$ {\bf Real} $>$}]{pos}
+\end{DoxyParamCaption}
+)}}\label{class_filum_1_1_mass_point_a6b612a975a88eb1cd6f30bc70fb0145c}
+
+
+Creates a static mass point at a specified position. 
+
+
+
+Definition at line 11 of file Mass\-Point.\-cpp.
+
+\hypertarget{class_filum_1_1_mass_point_ab83e3be6bd5ce034a16932a4dc39f2de}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Mass\-Point@{Mass\-Point}}
+\index{Mass\-Point@{Mass\-Point}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Mass\-Point}]{\setlength{\rightskip}{0pt plus 5cm}Mass\-Point\-::\-Mass\-Point (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mass\-Point} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{class_filum_1_1_mass_point_ab83e3be6bd5ce034a16932a4dc39f2de}
+
+
+copy constructor 
+
+
+
+Definition at line 19 of file Mass\-Point.\-cpp.
+
+\hypertarget{class_filum_1_1_mass_point_aaa6fa23a579d26700a5956401fc275fc}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Mass\-Point@{Mass\-Point}}
+\index{Mass\-Point@{Mass\-Point}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Mass\-Point}]{\setlength{\rightskip}{0pt plus 5cm}Mass\-Point\-::\-Mass\-Point (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_filum_1_1_mass_point_aaa6fa23a579d26700a5956401fc275fc}
+
+
+empty default constructor 
+
+
+
+Definition at line 7 of file Mass\-Point.\-cpp.
+
+\hypertarget{class_filum_1_1_mass_point_ab3ded7c921f22b446d0d9688d51052c9}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!$\sim$\-Mass\-Point@{$\sim$\-Mass\-Point}}
+\index{$\sim$\-Mass\-Point@{$\sim$\-Mass\-Point}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{$\sim$\-Mass\-Point}]{\setlength{\rightskip}{0pt plus 5cm}Mass\-Point\-::$\sim$\-Mass\-Point (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_filum_1_1_mass_point_ab3ded7c921f22b446d0d9688d51052c9}
+
+
+Definition at line 26 of file Mass\-Point.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_filum_1_1_mass_point_a57df1385c39078fed74c243c8ec30618}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Correct\-Position@{Correct\-Position}}
+\index{Correct\-Position@{Correct\-Position}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Correct\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Mass\-Point\-::\-Correct\-Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_mass_point_a57df1385c39078fed74c243c8ec30618}
+
+
+Corrects the predicted position by adding the accumulated displacement. 
+
+
+
+Definition at line 65 of file Mass\-Point.\-h.
+
+\hypertarget{class_filum_1_1_mass_point_afd82d4152069437ae997f090d5cd50ed}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Correct\-Velocity@{Correct\-Velocity}}
+\index{Correct\-Velocity@{Correct\-Velocity}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Correct\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Mass\-Point\-::\-Correct\-Velocity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_mass_point_afd82d4152069437ae997f090d5cd50ed}
+
+
+Corrects the predicted velocity by adding the accumulated residual/restitution velocity. 
+
+
+
+Definition at line 71 of file Mass\-Point.\-h.
+
+\hypertarget{class_filum_1_1_mass_point_ac2bc946eb3183d5404be4a737c737b96}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Position\-Update@{Position\-Update}}
+\index{Position\-Update@{Position\-Update}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Position\-Update}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Mass\-Point\-::\-Position\-Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_mass_point_ac2bc946eb3183d5404be4a737c737b96}
+
+
+Position Verlet Integration Method\-: one step of the position update equation. 
+
+
+
+Definition at line 53 of file Mass\-Point.\-h.
+
+\hypertarget{class_filum_1_1_mass_point_ade0c5dcd58e542d10a2976b891c3230b}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Reset\-Displacement@{Reset\-Displacement}}
+\index{Reset\-Displacement@{Reset\-Displacement}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Reset\-Displacement}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Mass\-Point\-::\-Reset\-Displacement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_mass_point_ade0c5dcd58e542d10a2976b891c3230b}
+
+
+resets the displacement accumulator 
+
+
+
+Definition at line 47 of file Mass\-Point.\-h.
+
+\hypertarget{class_filum_1_1_mass_point_a0efb6566daacda9a9b536f28005d6cfa}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Reset\-Force@{Reset\-Force}}
+\index{Reset\-Force@{Reset\-Force}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Reset\-Force}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Mass\-Point\-::\-Reset\-Force (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_mass_point_a0efb6566daacda9a9b536f28005d6cfa}
+
+
+resets the force accumulator 
+
+
+
+Definition at line 44 of file Mass\-Point.\-h.
+
+\hypertarget{class_filum_1_1_mass_point_a368a05270d3a88e8dca67f89cd938ab9}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Reset\-Restitution\-Velocity@{Reset\-Restitution\-Velocity}}
+\index{Reset\-Restitution\-Velocity@{Reset\-Restitution\-Velocity}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Reset\-Restitution\-Velocity}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Mass\-Point\-::\-Reset\-Restitution\-Velocity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_mass_point_a368a05270d3a88e8dca67f89cd938ab9}
+
+
+resets the restitution velocity accumulator 
+
+
+
+Definition at line 50 of file Mass\-Point.\-h.
+
+\hypertarget{class_filum_1_1_mass_point_a626d3c5769b34c8ccc87191810fe6755}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Set\-Mass@{Set\-Mass}}
+\index{Set\-Mass@{Set\-Mass}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Set\-Mass}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Mass\-Point\-::\-Set\-Mass (
+\begin{DoxyParamCaption}
+\item[{{\bf Real}}]{mass}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_mass_point_a626d3c5769b34c8ccc87191810fe6755}
+
+
+mass setter 
+
+
+
+Definition at line 41 of file Mass\-Point.\-h.
+
+\hypertarget{class_filum_1_1_mass_point_a6409c7f95c35c06aaa71fe7d4c74bddb}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Velocity\-Update@{Velocity\-Update}}
+\index{Velocity\-Update@{Velocity\-Update}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Velocity\-Update}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Mass\-Point\-::\-Velocity\-Update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_mass_point_a6409c7f95c35c06aaa71fe7d4c74bddb}
+
+
+Position Verlet Integration Method\-: one step of the velocity update equation. 
+
+
+
+Definition at line 59 of file Mass\-Point.\-h.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_filum_1_1_mass_point_a1de68b235e7f2d98771da91377a7d0b9}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{output, }
+\item[{const {\bf Mass\-Point} \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_filum_1_1_mass_point_a1de68b235e7f2d98771da91377a7d0b9}
+
+
+Definition at line 79 of file Mass\-Point.\-h.
+
+\hypertarget{class_filum_1_1_mass_point_a7fdf470aa14224a6a42935478dd81fe1}{\index{Filum\-::\-Mass\-Point@{Filum\-::\-Mass\-Point}!Tet\-Cell@{Tet\-Cell}}
+\index{Tet\-Cell@{Tet\-Cell}!Filum::MassPoint@{Filum\-::\-Mass\-Point}}
+\subsubsection[{Tet\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Tet\-Cell}\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_filum_1_1_mass_point_a7fdf470aa14224a6a42935478dd81fe1}
+
+
+Definition at line 22 of file Mass\-Point.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_mass_point_8h}{Mass\-Point.\-h}\item 
+\hyperlink{_mass_point_8cpp}{Mass\-Point.\-cpp}\end{DoxyCompactItemize}

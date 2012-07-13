@@ -167,3 +167,27 @@ void VolumetricDOO::StepUpdateVelocities()
 	}
 }
 
+void VolumetricDOO::ComputeLengthConstraints()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		cells[idx][0].ComputeLengthConstraintContributions(lengthConstraintFraction);
+		cells[idx][1].ComputeLengthConstraintContributions(lengthConstraintFraction);
+		cells[idx][2].ComputeLengthConstraintContributions(lengthConstraintFraction);
+	}
+}
+
+void VolumetricDOO::ComputeTorsionConstraints()
+{
+
+}
+
+void VolumetricDOO::HandleSelfCollision()
+{
+
+}
+
+void VolumetricDOO::HandleExternalCollision()
+{
+
+}

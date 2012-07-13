@@ -1,0 +1,18 @@
+\hypertarget{_physics_utilities_8h}{\section{Physics\-Utilities.\-h File Reference}
+\label{_physics_utilities_8h}\index{Physics\-Utilities.\-h@{Physics\-Utilities.\-h}}
+}
+{\ttfamily \#include \char`\"{}stdafx.\-h\char`\"{}}\\*
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespace_filum}{Filum}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} \hyperlink{namespace_filum_affcb2b67ce8514ec98a8ff938fb202ab}{Filum\-::\-Compute\-Volume} (const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pi, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pj, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pk, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pl)
+\begin{DoxyCompactList}\small\item\em Computes the volume of a tetrahedron The volume is an orientation dependent quantity and it is positive if the clock-\/wise listing of the face opposite to pi reads (pj, pk, pl). Hence, to create a consistently oriented cell, start from a corner and list the next 3 corners in a clock-\/wise order as if their determined triangle is viewed from the initial tetrahedron corner/vertex. \end{DoxyCompactList}\item 
+\hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \hyperlink{namespace_filum_af1b1b869b73490566e12fc519dfdc920}{Filum\-::\-F\-Vol} (\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} k\-V, \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} V, \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} V0, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pi, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pj, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pk, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pl)
+\begin{DoxyCompactList}\small\item\em Volumetric spring force. \end{DoxyCompactList}\item 
+\hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \hyperlink{namespace_filum_a762c434371f396dba4c22da32c264f1c}{Filum\-::\-F\-Lin} (\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} k\-L, \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} D, \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} D0, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pi, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pj)
+\begin{DoxyCompactList}\small\item\em Linear spring force between two pi pj nodes/points. \end{DoxyCompactList}\end{DoxyCompactItemize}

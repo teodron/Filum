@@ -1,0 +1,206 @@
+\hypertarget{class_filum_1_1_tet_cell}{\section{Filum\-:\-:Tet\-Cell Class Reference}
+\label{class_filum_1_1_tet_cell}\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}}
+}
+
+
+Tetrahedral cell containing 4 mass points as its corners.  
+
+
+
+
+{\ttfamily \#include $<$Tet\-Cell.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_filum_1_1_tet_cell_a039a4df8d627ea226beacc632985a127}{Tet\-Cell} (\hyperlink{class_filum_1_1_mass_point}{Mass\-Point} $\ast$pi0, \hyperlink{class_filum_1_1_mass_point}{Mass\-Point} $\ast$pj0, \hyperlink{class_filum_1_1_mass_point}{Mass\-Point} $\ast$pk0, \hyperlink{class_filum_1_1_mass_point}{Mass\-Point} $\ast$pl0)
+\begin{DoxyCompactList}\small\item\em Constructs a cell from 4 different mass points. \end{DoxyCompactList}\item 
+\hyperlink{class_filum_1_1_tet_cell_a8d9ac7407b16a5c10529e89489b62319}{Tet\-Cell} ()
+\item 
+\hyperlink{class_filum_1_1_tet_cell_a5870a4afa69a7cbc88e3ac533aafef04}{Tet\-Cell} (const \hyperlink{class_filum_1_1_tet_cell}{Tet\-Cell} \&src)
+\item 
+void \hyperlink{class_filum_1_1_tet_cell_a8bdd035279e4b0cb08389b5c71d10a6c}{Set\-Kl} (\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} value)
+\begin{DoxyCompactList}\small\item\em setter method for the linear spring constant \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_tet_cell_ab1d3bbaab312c27d9dbc165cab84d17a}{Set\-Kv} (\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} value)
+\begin{DoxyCompactList}\small\item\em setter method for the volumetric spring constant \end{DoxyCompactList}\item 
+\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} \hyperlink{class_filum_1_1_tet_cell_ad321a8e0feb9d0c4c2fef2590cdb7636}{Volume} ()
+\begin{DoxyCompactList}\small\item\em returns the volume of the cell at the current time instance \end{DoxyCompactList}\item 
+\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} \hyperlink{class_filum_1_1_tet_cell_aa604260d47322d3d7792edc1ddb09fd1}{Initial\-Volume} ()
+\begin{DoxyCompactList}\small\item\em returns the volume of the cell in its initial rest position \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_tet_cell_acc6c3810bc543e0523e222d7df2250a4}{Update\-Forces} ()
+\item 
+void \hyperlink{class_filum_1_1_tet_cell_ab58963fdc09424fa07bdfae1718056e1}{Compute\-Length\-Constraint\-Contributions} (const \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} \&fraction)
+\begin{DoxyCompactList}\small\item\em Computes the displacement corresponding to each corner If the cell's edges have modified their lengths, then this function checks the amount and updates the displacement accumulation vectors by adding a fraction of this amount. \end{DoxyCompactList}\item 
+void \hyperlink{class_filum_1_1_tet_cell_ab4c0cd0c58f3e0e4697eebeb88edd15b}{Move} (\hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ dr)
+\item 
+void \hyperlink{class_filum_1_1_tet_cell_af7fe75a09587ceb2ae7b000cd5706fc9}{Update\-Pos} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Tetrahedral cell containing 4 mass points as its corners. 
+
+The vertices of the tetrahedron are the corners of the cell and are also part of a more complex object, discretized accordingly. Every cell can query its corners for position, force, velocity values and is also able to update these corners (typically through restitution velocities, displacements and cumulated force contributions). A cell is used as both a collection of linear and volumetric springs and as a collection of distance constraints along its edges. 
+
+Definition at line 19 of file Tet\-Cell.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_filum_1_1_tet_cell_a039a4df8d627ea226beacc632985a127}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Tet\-Cell@{Tet\-Cell}}
+\index{Tet\-Cell@{Tet\-Cell}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Tet\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}Tet\-Cell\-::\-Tet\-Cell (
+\begin{DoxyParamCaption}
+\item[{{\bf Mass\-Point} $\ast$}]{pi0, }
+\item[{{\bf Mass\-Point} $\ast$}]{pj0, }
+\item[{{\bf Mass\-Point} $\ast$}]{pk0, }
+\item[{{\bf Mass\-Point} $\ast$}]{pl0}
+\end{DoxyParamCaption}
+)}}\label{class_filum_1_1_tet_cell_a039a4df8d627ea226beacc632985a127}
+
+
+Constructs a cell from 4 different mass points. 
+
+To create a consistently oriented cell, start from a corner and list the next 3 corners in a clock-\/wise order as if their determined triangle is viewed from the initial tetrahedron corner/vertex. 
+
+Definition at line 6 of file Tet\-Cell.\-cpp.
+
+\hypertarget{class_filum_1_1_tet_cell_a8d9ac7407b16a5c10529e89489b62319}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Tet\-Cell@{Tet\-Cell}}
+\index{Tet\-Cell@{Tet\-Cell}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Tet\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}Filum\-::\-Tet\-Cell\-::\-Tet\-Cell (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_tet_cell_a8d9ac7407b16a5c10529e89489b62319}
+
+
+Definition at line 81 of file Tet\-Cell.\-h.
+
+\hypertarget{class_filum_1_1_tet_cell_a5870a4afa69a7cbc88e3ac533aafef04}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Tet\-Cell@{Tet\-Cell}}
+\index{Tet\-Cell@{Tet\-Cell}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Tet\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}Tet\-Cell\-::\-Tet\-Cell (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tet\-Cell} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{class_filum_1_1_tet_cell_a5870a4afa69a7cbc88e3ac533aafef04}
+
+
+Definition at line 21 of file Tet\-Cell.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_filum_1_1_tet_cell_ab58963fdc09424fa07bdfae1718056e1}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Compute\-Length\-Constraint\-Contributions@{Compute\-Length\-Constraint\-Contributions}}
+\index{Compute\-Length\-Constraint\-Contributions@{Compute\-Length\-Constraint\-Contributions}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Compute\-Length\-Constraint\-Contributions}]{\setlength{\rightskip}{0pt plus 5cm}void Tet\-Cell\-::\-Compute\-Length\-Constraint\-Contributions (
+\begin{DoxyParamCaption}
+\item[{const {\bf Real} \&}]{fraction}
+\end{DoxyParamCaption}
+)}}\label{class_filum_1_1_tet_cell_ab58963fdc09424fa07bdfae1718056e1}
+
+
+Computes the displacement corresponding to each corner If the cell's edges have modified their lengths, then this function checks the amount and updates the displacement accumulation vectors by adding a fraction of this amount. 
+
+
+
+Definition at line 86 of file Tet\-Cell.\-cpp.
+
+\hypertarget{class_filum_1_1_tet_cell_aa604260d47322d3d7792edc1ddb09fd1}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Initial\-Volume@{Initial\-Volume}}
+\index{Initial\-Volume@{Initial\-Volume}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Initial\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Real} Filum\-::\-Tet\-Cell\-::\-Initial\-Volume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_tet_cell_aa604260d47322d3d7792edc1ddb09fd1}
+
+
+returns the volume of the cell in its initial rest position 
+
+
+
+Definition at line 98 of file Tet\-Cell.\-h.
+
+\hypertarget{class_filum_1_1_tet_cell_ab4c0cd0c58f3e0e4697eebeb88edd15b}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Move@{Move}}
+\index{Move@{Move}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Move}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Tet\-Cell\-::\-Move (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}$<$ {\bf Real} $>$}]{dr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_tet_cell_ab4c0cd0c58f3e0e4697eebeb88edd15b}
+
+
+Definition at line 117 of file Tet\-Cell.\-h.
+
+\hypertarget{class_filum_1_1_tet_cell_a8bdd035279e4b0cb08389b5c71d10a6c}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Set\-Kl@{Set\-Kl}}
+\index{Set\-Kl@{Set\-Kl}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Set\-Kl}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Tet\-Cell\-::\-Set\-Kl (
+\begin{DoxyParamCaption}
+\item[{{\bf Real}}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_tet_cell_a8bdd035279e4b0cb08389b5c71d10a6c}
+
+
+setter method for the linear spring constant 
+
+
+
+Definition at line 86 of file Tet\-Cell.\-h.
+
+\hypertarget{class_filum_1_1_tet_cell_ab1d3bbaab312c27d9dbc165cab84d17a}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Set\-Kv@{Set\-Kv}}
+\index{Set\-Kv@{Set\-Kv}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Set\-Kv}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Tet\-Cell\-::\-Set\-Kv (
+\begin{DoxyParamCaption}
+\item[{{\bf Real}}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_tet_cell_ab1d3bbaab312c27d9dbc165cab84d17a}
+
+
+setter method for the volumetric spring constant 
+
+
+
+Definition at line 89 of file Tet\-Cell.\-h.
+
+\hypertarget{class_filum_1_1_tet_cell_acc6c3810bc543e0523e222d7df2250a4}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Update\-Forces@{Update\-Forces}}
+\index{Update\-Forces@{Update\-Forces}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Update\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}void Tet\-Cell\-::\-Update\-Forces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_filum_1_1_tet_cell_acc6c3810bc543e0523e222d7df2250a4}
+volumetric forces Real V = 0, V0 = 0; V = this-\/$>$\hyperlink{class_filum_1_1_tet_cell_ad321a8e0feb9d0c4c2fef2590cdb7636}{Volume()}; V0 = this-\/$>$\hyperlink{class_filum_1_1_tet_cell_aa604260d47322d3d7792edc1ddb09fd1}{Initial\-Volume()}; pi pi-\/$>$f += Fvpi(\-V, V0); pj pj-\/$>$f += Fvpj(\-V, V0); pk pk-\/$>$f += Fvpk(\-V, V0); pl pl-\/$>$f += Fvpl(\-V, V0); /$\ast$ 
+
+Definition at line 31 of file Tet\-Cell.\-cpp.
+
+\hypertarget{class_filum_1_1_tet_cell_af7fe75a09587ceb2ae7b000cd5706fc9}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Update\-Pos@{Update\-Pos}}
+\index{Update\-Pos@{Update\-Pos}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Update\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}void Filum\-::\-Tet\-Cell\-::\-Update\-Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_tet_cell_af7fe75a09587ceb2ae7b000cd5706fc9}
+
+
+Definition at line 121 of file Tet\-Cell.\-h.
+
+\hypertarget{class_filum_1_1_tet_cell_ad321a8e0feb9d0c4c2fef2590cdb7636}{\index{Filum\-::\-Tet\-Cell@{Filum\-::\-Tet\-Cell}!Volume@{Volume}}
+\index{Volume@{Volume}!Filum::TetCell@{Filum\-::\-Tet\-Cell}}
+\subsubsection[{Volume}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Real} Filum\-::\-Tet\-Cell\-::\-Volume (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_filum_1_1_tet_cell_ad321a8e0feb9d0c4c2fef2590cdb7636}
+
+
+returns the volume of the cell at the current time instance 
+
+
+
+Definition at line 92 of file Tet\-Cell.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_tet_cell_8h}{Tet\-Cell.\-h}\item 
+\hyperlink{_tet_cell_8cpp}{Tet\-Cell.\-cpp}\end{DoxyCompactItemize}

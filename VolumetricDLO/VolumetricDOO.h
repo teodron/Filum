@@ -58,6 +58,27 @@ namespace Filum
 		/// Updates velocities via an integration step
 		void StepUpdateVelocities();
 
+		/// Computes the length constraints induced penalty displacements for each cell corner
+		void ComputeLengthConstraints();
+
+		/// Computes the local torsion constraints contributions updating the Q - P nodes adjacent to each R node
+		void ComputeTorsionConstraints();
+
+		/**
+		* \brief Performs self collision detection and resolution
+		* In case of a collision pair, restitution/reaction and friction
+		* forces are accumulated, restitution velocities are computed from impulses
+		* and the displacement accumulators are update in order to best
+		* separate the colliding cell edges.
+		*/
+		void HandleSelfCollision();
+
+		/**
+		* \brief Performs collision resolution with other, external objects
+		* External objects are typically composed of cylinders.
+		* \todo Implement this function using an external object pointer
+		*/
+		void HandleExternalCollision();
 	public:
 
 		/// construct DLO from a sample set of points and a buffer radius

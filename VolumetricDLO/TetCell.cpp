@@ -86,5 +86,41 @@ void TetCell::UpdateForces()
 void TetCell::ComputeLengthConstraintContributions(const Real & fraction)
 {
 	Real currLength = 0, restLength = 0;
+	vec3<Real> displacement(0,0,0);
 	// pi - pj 
+	currLength = length(pi->rPlus - pj->rPlus);
+	restLength = length(pi->r0 - pj->r0);
+	displacement = fraction * (pi->rPlus - pj->rPlus) / currLength * (currLength - restLength);
+	pi->dr += displacement;
+	pj->dr += -displacement;
+	// pi - pk
+	currLength = length(pi->rPlus - pk->rPlus);
+	restLength = length(pi->r0 - pk->r0);
+	displacement = fraction * (pi->rPlus - pk->rPlus) / currLength * (currLength - restLength);
+	pi->dr += displacement;
+	pk->dr += -displacement;
+	// pi - pl
+	currLength = length(pi->rPlus - pl->rPlus);
+	restLength = length(pi->r0 - pl->r0);
+	displacement = fraction * (pi->rPlus - pl->rPlus) / currLength * (currLength - restLength);
+	pi->dr += displacement;
+	pl->dr += -displacement;
+	// pj - pk
+	currLength = length(pj->rPlus - pk->rPlus);
+	restLength = length(pj->r0 - pk->r0);
+	displacement = fraction * (pj->rPlus - pk->rPlus) / currLength * (currLength - restLength);
+	pj->dr += displacement;
+	pk->dr += -displacement;
+	// pj - pl
+	currLength = length(pj->rPlus - pl->rPlus);
+	restLength = length(pj->r0 - pl->r0);
+	displacement = fraction * (pj->rPlus - pl->rPlus) / currLength * (currLength - restLength);
+	pj->dr += displacement;
+	pl->dr += -displacement;
+	// pk - pl
+	currLength = length(pk->rPlus - pl->rPlus);
+	restLength = length(pk->r0 - pl->r0);
+	displacement = fraction * (pk->rPlus - pl->rPlus) / currLength * (currLength - restLength);
+	pk->dr += displacement;
+	pl->dr += -displacement;
 }

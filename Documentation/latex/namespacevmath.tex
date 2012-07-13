@@ -1,0 +1,533 @@
+\hypertarget{namespacevmath}{\section{vmath Namespace Reference}
+\label{namespacevmath}\index{vmath@{vmath}}
+}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacevmath_1_1detail}{detail}
+\end{DoxyCompactItemize}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structvmath_1_1vec2}{vec2}
+\item 
+struct \hyperlink{structvmath_1_1vec3}{vec3}
+\item 
+struct \hyperlink{structvmath_1_1vec4}{vec4}
+\item 
+struct \hyperlink{structvmath_1_1mat2}{mat2}
+\item 
+struct \hyperlink{structvmath_1_1mat3}{mat3}
+\item 
+struct \hyperlink{structvmath_1_1mat4}{mat4}
+\item 
+struct \hyperlink{structvmath_1_1quat}{quat}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a9a22bf39ff602507bf9382dae93a7bf2}{rsqrt} (T x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a1c38199e02bd5d10bc075f11dabb9f0d}{inv} (T x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a6dfd64dcd69f95ceadd0bd6e7e319299}{lerp} (const T \&u, const T \&v, const T x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \hyperlink{namespacevmath_a799e9d57fe318fdeb6db997b6ef1143f}{cross} (const \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \&u, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_afee7905e51490be5bcfecb4380ee27ca}{det} (const \hyperlink{structvmath_1_1mat2}{mat2}$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a4a73020a0ac374b4e7182f70f51cf495}{det} (const \hyperlink{structvmath_1_1mat3}{mat3}$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a27bdfe677f6477bf875e3543d5997873}{det} (const \hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat2}{mat2}$<$ T $>$ \hyperlink{namespacevmath_a125f0c95da37ed355720f8b8b763d4f3}{adjoint} (const \hyperlink{structvmath_1_1mat2}{mat2}$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a07c03df5bb5d3d2b397af59d3c102a83}{fast\-\_\-inverse} (const \hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_af39bac007d71f19403cf8ed549156cf8}{translation\-\_\-matrix} (const T x, const T y, const T z)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a721e36421d311dbeac9c0e16021661df}{translation\-\_\-matrix} (const \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a801245c96c9d351e0e0c9095e9db909f}{scaling\-\_\-matrix} (const T x, const T y, const T z)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a5226633b7a47a9f930891daeab3e7cf0}{scaling\-\_\-matrix} (const \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a29cfa2d2699e8b29de951fbf4c597bd3}{rotation\-\_\-matrix} (const T angle, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a7689d3e8fe5ab5835dccdd318deff056}{rotation\-\_\-matrix} (const T angle, const T x, const T y, const T z)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_ac4ac7b4a01beab550d282ce8596be2f6}{shear\-\_\-matrix} (const int i, const int j, const T factor)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_ad07fd0806742029d1528a9d6f10f580b}{euler} (const T head, const T pitch, const T roll)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_af3d39d8e17e8fa9778a6b6da66a145d5}{frustum\-\_\-matrix} (const T l, const T r, const T b, const T t, const T n, const T f)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a658569e855352a50240a2a91431bde2c}{perspective\-\_\-matrix} (const T fovy, const T aspect, const T z\-Near, const T z\-Far)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a19c105d09eb64fc596b17273027d4792}{ortho\-\_\-matrix} (const T l, const T r, const T b, const T t, const T n, const T f)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a9b5467cc387e1a05f008158b6188d509}{lookat\-\_\-matrix} (const \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \&eye, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \&center, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \&up)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a7b22d17caeb4f6118aae0fc3d736fa47}{picking\-\_\-matrix} (const T x, const T y, const T dx, const T dy, int viewport\mbox{[}4\mbox{]})
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a8e2c7da159d70ab6ce1f604a2a157d2a}{shadow\-\_\-matrix} (const \hyperlink{structvmath_1_1vec4}{vec4}$<$ T $>$ \&q, const \hyperlink{structvmath_1_1vec4}{vec4}$<$ T $>$ \&p)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \hyperlink{namespacevmath_af191b4dd1ab40a6462062ead5495f27e}{identityq} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \hyperlink{namespacevmath_a04eba599519fec3c01318634f09cea03}{conjugate} (const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&q)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \hyperlink{namespacevmath_a0a0c570117116f82a7d3394ffda48a17}{inverse} (const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&q)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat3}{mat3}$<$ T $>$ \hyperlink{namespacevmath_a5d9b5b66aee59cd807c3e0e3c844deec}{quat\-\_\-to\-\_\-mat3} (const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&q)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \hyperlink{namespacevmath_a1d9b33a1d4c11bdb9a32ab17efddfa51}{quat\-\_\-to\-\_\-mat4} (const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&q)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \hyperlink{namespacevmath_ad9bc88812baaef80fbe16689c9db472f}{mat\-\_\-to\-\_\-quat} (const \hyperlink{structvmath_1_1mat4}{mat4}$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \hyperlink{namespacevmath_af8dbbceb936b09ae18d7e410f7644093}{mat\-\_\-to\-\_\-quat} (const \hyperlink{structvmath_1_1mat3}{mat3}$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \hyperlink{namespacevmath_af8ec8741206a40b62765a4616ba09ade}{quat\-\_\-from\-\_\-axis\-\_\-angle} (const \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ \&axis, const T a)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \hyperlink{namespacevmath_aa01d974004689cf16143a1bfa43805ba}{quat\-\_\-from\-\_\-axis\-\_\-angle} (const T x, const T y, const T z, const T angle)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespacevmath_af7ee07c776100951dbadc9c7d1fc48de}{quat\-\_\-to\-\_\-axis\-\_\-angle} (const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&qq, \hyperlink{structvmath_1_1vec3}{vec3}$<$ T $>$ $\ast$axis, T $\ast$angle)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \hyperlink{namespacevmath_ab5014ede27bda996f415a8bc61c03044}{slerp} (const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&qq1, const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&qq2, const T t)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \hyperlink{namespacevmath_aefd1a3d8d6e7e4077624241345e519a4}{squad} (const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&q0, const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&a, const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&b, const \hyperlink{structvmath_1_1quat}{quat}$<$ T $>$ \&q1, const T t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacevmath_a125f0c95da37ed355720f8b8b763d4f3}{\index{vmath@{vmath}!adjoint@{adjoint}}
+\index{adjoint@{adjoint}!vmath@{vmath}}
+\subsubsection[{adjoint}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat2}$<$T$>$ vmath\-::adjoint (
+\begin{DoxyParamCaption}
+\item[{const mat2$<$ T $>$ \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a125f0c95da37ed355720f8b8b763d4f3}
+
+
+Definition at line 565 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a04eba599519fec3c01318634f09cea03}{\index{vmath@{vmath}!conjugate@{conjugate}}
+\index{conjugate@{conjugate}!vmath@{vmath}}
+\subsubsection[{conjugate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf quat}$<$T$>$ vmath\-::conjugate (
+\begin{DoxyParamCaption}
+\item[{const quat$<$ T $>$ \&}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a04eba599519fec3c01318634f09cea03}
+
+
+Definition at line 913 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a799e9d57fe318fdeb6db997b6ef1143f}{\index{vmath@{vmath}!cross@{cross}}
+\index{cross@{cross}!vmath@{vmath}}
+\subsubsection[{cross}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf vec3}$<$T$>$ vmath\-::cross (
+\begin{DoxyParamCaption}
+\item[{const vec3$<$ T $>$ \&}]{u, }
+\item[{const vec3$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a799e9d57fe318fdeb6db997b6ef1143f}
+
+
+Definition at line 295 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_afee7905e51490be5bcfecb4380ee27ca}{\index{vmath@{vmath}!det@{det}}
+\index{det@{det}!vmath@{vmath}}
+\subsubsection[{det}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T vmath\-::det (
+\begin{DoxyParamCaption}
+\item[{const mat2$<$ T $>$ \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_afee7905e51490be5bcfecb4380ee27ca}
+
+
+Definition at line 528 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a4a73020a0ac374b4e7182f70f51cf495}{\index{vmath@{vmath}!det@{det}}
+\index{det@{det}!vmath@{vmath}}
+\subsubsection[{det}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T vmath\-::det (
+\begin{DoxyParamCaption}
+\item[{const mat3$<$ T $>$ \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a4a73020a0ac374b4e7182f70f51cf495}
+
+
+Definition at line 536 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a27bdfe677f6477bf875e3543d5997873}{\index{vmath@{vmath}!det@{det}}
+\index{det@{det}!vmath@{vmath}}
+\subsubsection[{det}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T vmath\-::det (
+\begin{DoxyParamCaption}
+\item[{const mat4$<$ T $>$ \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a27bdfe677f6477bf875e3543d5997873}
+
+
+Definition at line 542 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_ad07fd0806742029d1528a9d6f10f580b}{\index{vmath@{vmath}!euler@{euler}}
+\index{euler@{euler}!vmath@{vmath}}
+\subsubsection[{euler}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::euler (
+\begin{DoxyParamCaption}
+\item[{const T}]{head, }
+\item[{const T}]{pitch, }
+\item[{const T}]{roll}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_ad07fd0806742029d1528a9d6f10f580b}
+
+
+Definition at line 755 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a07c03df5bb5d3d2b397af59d3c102a83}{\index{vmath@{vmath}!fast\-\_\-inverse@{fast\-\_\-inverse}}
+\index{fast\-\_\-inverse@{fast\-\_\-inverse}!vmath@{vmath}}
+\subsubsection[{fast\-\_\-inverse}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::fast\-\_\-inverse (
+\begin{DoxyParamCaption}
+\item[{const mat4$<$ T $>$ \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a07c03df5bb5d3d2b397af59d3c102a83}
+
+
+Definition at line 610 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_af3d39d8e17e8fa9778a6b6da66a145d5}{\index{vmath@{vmath}!frustum\-\_\-matrix@{frustum\-\_\-matrix}}
+\index{frustum\-\_\-matrix@{frustum\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{frustum\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::frustum\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const T}]{l, }
+\item[{const T}]{r, }
+\item[{const T}]{b, }
+\item[{const T}]{t, }
+\item[{const T}]{n, }
+\item[{const T}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_af3d39d8e17e8fa9778a6b6da66a145d5}
+
+
+Definition at line 763 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_af191b4dd1ab40a6462062ead5495f27e}{\index{vmath@{vmath}!identityq@{identityq}}
+\index{identityq@{identityq}!vmath@{vmath}}
+\subsubsection[{identityq}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf quat}$<$T$>$ vmath\-::identityq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_af191b4dd1ab40a6462062ead5495f27e}
+
+
+Definition at line 907 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a1c38199e02bd5d10bc075f11dabb9f0d}{\index{vmath@{vmath}!inv@{inv}}
+\index{inv@{inv}!vmath@{vmath}}
+\subsubsection[{inv}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T vmath\-::inv (
+\begin{DoxyParamCaption}
+\item[{T}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a1c38199e02bd5d10bc075f11dabb9f0d}
+
+
+Definition at line 59 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a0a0c570117116f82a7d3394ffda48a17}{\index{vmath@{vmath}!inverse@{inverse}}
+\index{inverse@{inverse}!vmath@{vmath}}
+\subsubsection[{inverse}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf quat}$<$T$>$ vmath\-::inverse (
+\begin{DoxyParamCaption}
+\item[{const quat$<$ T $>$ \&}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a0a0c570117116f82a7d3394ffda48a17}
+
+
+Definition at line 919 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a6dfd64dcd69f95ceadd0bd6e7e319299}{\index{vmath@{vmath}!lerp@{lerp}}
+\index{lerp@{lerp}!vmath@{vmath}}
+\subsubsection[{lerp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T vmath\-::lerp (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{u, }
+\item[{const T \&}]{v, }
+\item[{const T}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a6dfd64dcd69f95ceadd0bd6e7e319299}
+
+
+Definition at line 290 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a9b5467cc387e1a05f008158b6188d509}{\index{vmath@{vmath}!lookat\-\_\-matrix@{lookat\-\_\-matrix}}
+\index{lookat\-\_\-matrix@{lookat\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{lookat\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::lookat\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const vec3$<$ T $>$ \&}]{eye, }
+\item[{const vec3$<$ T $>$ \&}]{center, }
+\item[{const vec3$<$ T $>$ \&}]{up}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a9b5467cc387e1a05f008158b6188d509}
+
+
+Definition at line 809 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_ad9bc88812baaef80fbe16689c9db472f}{\index{vmath@{vmath}!mat\-\_\-to\-\_\-quat@{mat\-\_\-to\-\_\-quat}}
+\index{mat\-\_\-to\-\_\-quat@{mat\-\_\-to\-\_\-quat}!vmath@{vmath}}
+\subsubsection[{mat\-\_\-to\-\_\-quat}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf quat}$<$T$>$ vmath\-::mat\-\_\-to\-\_\-quat (
+\begin{DoxyParamCaption}
+\item[{const mat4$<$ T $>$ \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_ad9bc88812baaef80fbe16689c9db472f}
+
+
+Definition at line 963 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_af8dbbceb936b09ae18d7e410f7644093}{\index{vmath@{vmath}!mat\-\_\-to\-\_\-quat@{mat\-\_\-to\-\_\-quat}}
+\index{mat\-\_\-to\-\_\-quat@{mat\-\_\-to\-\_\-quat}!vmath@{vmath}}
+\subsubsection[{mat\-\_\-to\-\_\-quat}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf quat}$<$T$>$ vmath\-::mat\-\_\-to\-\_\-quat (
+\begin{DoxyParamCaption}
+\item[{const mat3$<$ T $>$ \&}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_af8dbbceb936b09ae18d7e410f7644093}
+
+
+Definition at line 1003 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a19c105d09eb64fc596b17273027d4792}{\index{vmath@{vmath}!ortho\-\_\-matrix@{ortho\-\_\-matrix}}
+\index{ortho\-\_\-matrix@{ortho\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{ortho\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::ortho\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const T}]{l, }
+\item[{const T}]{r, }
+\item[{const T}]{b, }
+\item[{const T}]{t, }
+\item[{const T}]{n, }
+\item[{const T}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a19c105d09eb64fc596b17273027d4792}
+
+
+Definition at line 798 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a658569e855352a50240a2a91431bde2c}{\index{vmath@{vmath}!perspective\-\_\-matrix@{perspective\-\_\-matrix}}
+\index{perspective\-\_\-matrix@{perspective\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{perspective\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::perspective\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const T}]{fovy, }
+\item[{const T}]{aspect, }
+\item[{const T}]{z\-Near, }
+\item[{const T}]{z\-Far}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a658569e855352a50240a2a91431bde2c}
+
+
+Definition at line 774 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a7b22d17caeb4f6118aae0fc3d736fa47}{\index{vmath@{vmath}!picking\-\_\-matrix@{picking\-\_\-matrix}}
+\index{picking\-\_\-matrix@{picking\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{picking\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::picking\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const T}]{x, }
+\item[{const T}]{y, }
+\item[{const T}]{dx, }
+\item[{const T}]{dy, }
+\item[{int}]{viewport\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a7b22d17caeb4f6118aae0fc3d736fa47}
+
+
+Definition at line 833 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_af8ec8741206a40b62765a4616ba09ade}{\index{vmath@{vmath}!quat\-\_\-from\-\_\-axis\-\_\-angle@{quat\-\_\-from\-\_\-axis\-\_\-angle}}
+\index{quat\-\_\-from\-\_\-axis\-\_\-angle@{quat\-\_\-from\-\_\-axis\-\_\-angle}!vmath@{vmath}}
+\subsubsection[{quat\-\_\-from\-\_\-axis\-\_\-angle}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf quat}$<$T$>$ vmath\-::quat\-\_\-from\-\_\-axis\-\_\-angle (
+\begin{DoxyParamCaption}
+\item[{const vec3$<$ T $>$ \&}]{axis, }
+\item[{const T}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_af8ec8741206a40b62765a4616ba09ade}
+
+
+Definition at line 1010 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_aa01d974004689cf16143a1bfa43805ba}{\index{vmath@{vmath}!quat\-\_\-from\-\_\-axis\-\_\-angle@{quat\-\_\-from\-\_\-axis\-\_\-angle}}
+\index{quat\-\_\-from\-\_\-axis\-\_\-angle@{quat\-\_\-from\-\_\-axis\-\_\-angle}!vmath@{vmath}}
+\subsubsection[{quat\-\_\-from\-\_\-axis\-\_\-angle}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf quat}$<$T$>$ vmath\-::quat\-\_\-from\-\_\-axis\-\_\-angle (
+\begin{DoxyParamCaption}
+\item[{const T}]{x, }
+\item[{const T}]{y, }
+\item[{const T}]{z, }
+\item[{const T}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_aa01d974004689cf16143a1bfa43805ba}
+
+
+Definition at line 1022 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_af7ee07c776100951dbadc9c7d1fc48de}{\index{vmath@{vmath}!quat\-\_\-to\-\_\-axis\-\_\-angle@{quat\-\_\-to\-\_\-axis\-\_\-angle}}
+\index{quat\-\_\-to\-\_\-axis\-\_\-angle@{quat\-\_\-to\-\_\-axis\-\_\-angle}!vmath@{vmath}}
+\subsubsection[{quat\-\_\-to\-\_\-axis\-\_\-angle}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void vmath\-::quat\-\_\-to\-\_\-axis\-\_\-angle (
+\begin{DoxyParamCaption}
+\item[{const quat$<$ T $>$ \&}]{qq, }
+\item[{vec3$<$ T $>$ $\ast$}]{axis, }
+\item[{T $\ast$}]{angle}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_af7ee07c776100951dbadc9c7d1fc48de}
+
+
+Definition at line 1029 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a5d9b5b66aee59cd807c3e0e3c844deec}{\index{vmath@{vmath}!quat\-\_\-to\-\_\-mat3@{quat\-\_\-to\-\_\-mat3}}
+\index{quat\-\_\-to\-\_\-mat3@{quat\-\_\-to\-\_\-mat3}!vmath@{vmath}}
+\subsubsection[{quat\-\_\-to\-\_\-mat3}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat3}$<$T$>$ vmath\-::quat\-\_\-to\-\_\-mat3 (
+\begin{DoxyParamCaption}
+\item[{const quat$<$ T $>$ \&}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a5d9b5b66aee59cd807c3e0e3c844deec}
+
+
+Definition at line 930 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a1d9b33a1d4c11bdb9a32ab17efddfa51}{\index{vmath@{vmath}!quat\-\_\-to\-\_\-mat4@{quat\-\_\-to\-\_\-mat4}}
+\index{quat\-\_\-to\-\_\-mat4@{quat\-\_\-to\-\_\-mat4}!vmath@{vmath}}
+\subsubsection[{quat\-\_\-to\-\_\-mat4}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::quat\-\_\-to\-\_\-mat4 (
+\begin{DoxyParamCaption}
+\item[{const quat$<$ T $>$ \&}]{q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a1d9b33a1d4c11bdb9a32ab17efddfa51}
+
+
+Definition at line 955 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a29cfa2d2699e8b29de951fbf4c597bd3}{\index{vmath@{vmath}!rotation\-\_\-matrix@{rotation\-\_\-matrix}}
+\index{rotation\-\_\-matrix@{rotation\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{rotation\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::rotation\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const T}]{angle, }
+\item[{const vec3$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a29cfa2d2699e8b29de951fbf4c597bd3}
+
+
+Definition at line 720 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a7689d3e8fe5ab5835dccdd318deff056}{\index{vmath@{vmath}!rotation\-\_\-matrix@{rotation\-\_\-matrix}}
+\index{rotation\-\_\-matrix@{rotation\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{rotation\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::rotation\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const T}]{angle, }
+\item[{const T}]{x, }
+\item[{const T}]{y, }
+\item[{const T}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a7689d3e8fe5ab5835dccdd318deff056}
+
+
+Definition at line 739 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a9a22bf39ff602507bf9382dae93a7bf2}{\index{vmath@{vmath}!rsqrt@{rsqrt}}
+\index{rsqrt@{rsqrt}!vmath@{vmath}}
+\subsubsection[{rsqrt}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T vmath\-::rsqrt (
+\begin{DoxyParamCaption}
+\item[{T}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a9a22bf39ff602507bf9382dae93a7bf2}
+
+
+Definition at line 53 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a801245c96c9d351e0e0c9095e9db909f}{\index{vmath@{vmath}!scaling\-\_\-matrix@{scaling\-\_\-matrix}}
+\index{scaling\-\_\-matrix@{scaling\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{scaling\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::scaling\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const T}]{x, }
+\item[{const T}]{y, }
+\item[{const T}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a801245c96c9d351e0e0c9095e9db909f}
+
+
+Definition at line 703 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a5226633b7a47a9f930891daeab3e7cf0}{\index{vmath@{vmath}!scaling\-\_\-matrix@{scaling\-\_\-matrix}}
+\index{scaling\-\_\-matrix@{scaling\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{scaling\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::scaling\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const vec3$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a5226633b7a47a9f930891daeab3e7cf0}
+
+
+Definition at line 714 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a8e2c7da159d70ab6ce1f604a2a157d2a}{\index{vmath@{vmath}!shadow\-\_\-matrix@{shadow\-\_\-matrix}}
+\index{shadow\-\_\-matrix@{shadow\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{shadow\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::shadow\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const vec4$<$ T $>$ \&}]{q, }
+\item[{const vec4$<$ T $>$ \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a8e2c7da159d70ab6ce1f604a2a157d2a}
+
+
+Definition at line 845 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_ac4ac7b4a01beab550d282ce8596be2f6}{\index{vmath@{vmath}!shear\-\_\-matrix@{shear\-\_\-matrix}}
+\index{shear\-\_\-matrix@{shear\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{shear\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::shear\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const int}]{i, }
+\item[{const int}]{j, }
+\item[{const T}]{factor}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_ac4ac7b4a01beab550d282ce8596be2f6}
+
+
+Definition at line 747 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_ab5014ede27bda996f415a8bc61c03044}{\index{vmath@{vmath}!slerp@{slerp}}
+\index{slerp@{slerp}!vmath@{vmath}}
+\subsubsection[{slerp}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf quat}$<$T$>$ vmath\-::slerp (
+\begin{DoxyParamCaption}
+\item[{const quat$<$ T $>$ \&}]{qq1, }
+\item[{const quat$<$ T $>$ \&}]{qq2, }
+\item[{const T}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_ab5014ede27bda996f415a8bc61c03044}
+
+
+Definition at line 1044 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_aefd1a3d8d6e7e4077624241345e519a4}{\index{vmath@{vmath}!squad@{squad}}
+\index{squad@{squad}!vmath@{vmath}}
+\subsubsection[{squad}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf quat}$<$T$>$ vmath\-::squad (
+\begin{DoxyParamCaption}
+\item[{const quat$<$ T $>$ \&}]{q0, }
+\item[{const quat$<$ T $>$ \&}]{a, }
+\item[{const quat$<$ T $>$ \&}]{b, }
+\item[{const quat$<$ T $>$ \&}]{q1, }
+\item[{const T}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_aefd1a3d8d6e7e4077624241345e519a4}
+
+
+Definition at line 1068 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_af39bac007d71f19403cf8ed549156cf8}{\index{vmath@{vmath}!translation\-\_\-matrix@{translation\-\_\-matrix}}
+\index{translation\-\_\-matrix@{translation\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{translation\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::translation\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const T}]{x, }
+\item[{const T}]{y, }
+\item[{const T}]{z}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_af39bac007d71f19403cf8ed549156cf8}
+
+
+Definition at line 687 of file vector\-\_\-math.\-h.
+
+\hypertarget{namespacevmath_a721e36421d311dbeac9c0e16021661df}{\index{vmath@{vmath}!translation\-\_\-matrix@{translation\-\_\-matrix}}
+\index{translation\-\_\-matrix@{translation\-\_\-matrix}!vmath@{vmath}}
+\subsubsection[{translation\-\_\-matrix}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf mat4}$<$T$>$ vmath\-::translation\-\_\-matrix (
+\begin{DoxyParamCaption}
+\item[{const vec3$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespacevmath_a721e36421d311dbeac9c0e16021661df}
+
+
+Definition at line 697 of file vector\-\_\-math.\-h.
+

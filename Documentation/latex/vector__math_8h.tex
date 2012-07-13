@@ -1,0 +1,856 @@
+\hypertarget{vector__math_8h}{\section{vector\-\_\-math.\-h File Reference}
+\label{vector__math_8h}\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}}
+}
+{\ttfamily \#include $<$cmath$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structvmath_1_1vec2}{vmath\-::vec2$<$ T $>$}
+\item 
+struct \hyperlink{structvmath_1_1vec3}{vmath\-::vec3$<$ T $>$}
+\item 
+struct \hyperlink{structvmath_1_1vec4}{vmath\-::vec4$<$ T $>$}
+\item 
+struct \hyperlink{structvmath_1_1mat2}{vmath\-::mat2$<$ T $>$}
+\item 
+struct \hyperlink{structvmath_1_1mat3}{vmath\-::mat3$<$ T $>$}
+\item 
+struct \hyperlink{structvmath_1_1mat4}{vmath\-::mat4$<$ T $>$}
+\item 
+struct \hyperlink{structvmath_1_1quat}{vmath\-::quat$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacevmath}{vmath}
+\item 
+namespace \hyperlink{namespacevmath_1_1detail}{vmath\-::detail}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{vector__math_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\-\_\-\-P\-I}~3.\-14159265358979323846
+\item 
+\#define \hyperlink{vector__math_8h_ad9bbe235726b68b0f98f4f97b8583e84}{M\-O\-P\-\_\-\-M\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S, O\-P, C\-O\-U\-N\-T)
+\item 
+\#define \hyperlink{vector__math_8h_a058f317f0cb9a8f4ef93af33585f45cb}{M\-O\-P\-\_\-\-M\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S, O\-P, C\-O\-U\-N\-T)
+\item 
+\#define \hyperlink{vector__math_8h_acbf324bcaaf1c7ef51324f25a190ee5b}{M\-O\-P\-\_\-\-C\-O\-M\-P\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S, C\-O\-U\-N\-T)
+\item 
+\#define \hyperlink{vector__math_8h_af4b754e5cd5bfa021b3c6fd39fb34594}{M\-O\-P\-\_\-\-G\-\_\-\-U\-M\-I\-N\-U\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S, C\-O\-U\-N\-T)
+\item 
+\#define \hyperlink{vector__math_8h_a75873dd53ac587469a15c89aff6eea71}{C\-O\-M\-M\-O\-N\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}(C\-L\-A\-S\-S, C\-O\-U\-N\-T)
+\item 
+\#define \hyperlink{vector__math_8h_a55e517f3c01c2145521e3a0bfcee8bdd}{V\-E\-C\-T\-O\-R\-\_\-\-C\-O\-M\-M\-O\-N}(C\-L\-A\-S\-S, C\-O\-U\-N\-T)
+\item 
+\#define \hyperlink{vector__math_8h_a00bdb2fe242d269212f7e4e039dbfdc4}{F\-O\-P\-\_\-\-G\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(O\-P, C\-L\-A\-S\-S)~\{ C\-L\-A\-S\-S$<$T$>$ r = lhs; r O\-P\#\#= rhs; return r; \}
+\item 
+\#define \hyperlink{vector__math_8h_a36a3be08bc5b6a68f094ca96f2aff2c0}{F\-O\-P\-\_\-\-G\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(O\-P, C\-L\-A\-S\-S)
+\item 
+\#define \hyperlink{vector__math_8h_a8f8001d813a8813cc37476063803b2a4}{F\-O\-P\-\_\-\-G\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(O\-P, C\-L\-A\-S\-S)
+\item 
+\#define \hyperlink{vector__math_8h_a3f8df11fc9e15a414f4bd96546c4f6c8}{F\-R\-E\-E\-\_\-\-M\-O\-D\-I\-F\-Y\-I\-N\-G\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}(C\-L\-A\-S\-S)
+\item 
+\#define \hyperlink{vector__math_8h_aba5293b39e2a135cbe32ea2236801553}{F\-R\-E\-E\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}(C\-L\-A\-S\-S)
+\item 
+\#define \hyperlink{vector__math_8h_a4a0e34e1186979d0c14aea9fbc242d8e}{V\-E\-C\-\_\-\-Q\-U\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S, C\-O\-U\-N\-T)
+\item 
+\#define \hyperlink{vector__math_8h_a72d837f113cd078270a3a6ed3abda79c}{V\-E\-C\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S)
+\item 
+\#define \hyperlink{vector__math_8h_a4fc3104116fb843bec388c1bac03e61e}{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L4}(S\-R\-C, C)~vec4$<$T$>$(S\-R\-C.\-elem\mbox{[}0\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}1\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}2\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}3\mbox{]}\mbox{[}C\mbox{]})
+\item 
+\#define \hyperlink{vector__math_8h_ac8ff2097b4a707af5f9fb87b91aed2c2}{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W4}(S\-R\-C, R)~vec4$<$T$>$(S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}0\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}1\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}2\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}3\mbox{]})
+\item 
+\#define \hyperlink{vector__math_8h_a25974666cc77492c5018f96df8ae1d9a}{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L3}(S\-R\-C, C)~vec3$<$T$>$(S\-R\-C.\-elem\mbox{[}0\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}1\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}2\mbox{]}\mbox{[}C\mbox{]})
+\item 
+\#define \hyperlink{vector__math_8h_a026834e666417d068be9ce891b58dc76}{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W3}(S\-R\-C, R)~vec3$<$T$>$(S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}0\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}1\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}2\mbox{]})
+\item 
+\#define \hyperlink{vector__math_8h_a84a605b24feb6987e913156d5a7fbc1e}{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L2}(S\-R\-C, C)~vec2$<$T$>$(S\-R\-C.\-elem\mbox{[}0\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}1\mbox{]}\mbox{[}C\mbox{]})
+\item 
+\#define \hyperlink{vector__math_8h_a4ca5192f530a1c8d409a91a4b152c26a}{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W2}(S\-R\-C, R)~vec2$<$T$>$(S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}0\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}1\mbox{]})
+\item 
+\#define \hyperlink{vector__math_8h_a445581982b93137bef3c85d717fa9483}{M\-O\-P\-\_\-\-M\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-M\-U\-L\-T\-I\-P\-L\-Y}(C\-L\-A\-S\-S, S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_acb15346395a852a4963b51783c37ef2a}{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-T}(C\-L\-A\-S\-S, S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_afa1c24cef677e368df6bc5d9db4c5f50}{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-L\-O\-W\-E\-R}(C\-L\-A\-S\-S1, C\-L\-A\-S\-S2, S\-I\-Z\-E1, S\-I\-Z\-E2)
+\item 
+\#define \hyperlink{vector__math_8h_aee204ea0cefa5b4aead04e246d6cef07}{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-M\-M\-O\-N}(C\-L\-A\-S\-S, S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_a70aa0932a3f663949db15916f4a67dd2}{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-H\-I\-G\-H\-E\-R}(C\-L\-A\-S\-S1, C\-L\-A\-S\-S2, S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_a3f27406277bc5257c76d594f418770ff}{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S, S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_ab5828adab3a90eeb75b4baf07642d4d6}{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-M\-I\-N\-O\-R\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S1, C\-L\-A\-S\-S2, S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_a3cc3d730ec8e54fe62bc441285ae11b6}{M\-A\-T\-\_\-\-A\-D\-J\-O\-I\-N\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S, S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_afe71c8d8ba4ffa46499721734236903d}{M\-A\-T\-\_\-\-I\-N\-V\-E\-R\-S\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(C\-L\-A\-S\-S)
+\item 
+\#define \hyperlink{vector__math_8h_aea876660fa72c94c0b25270a8d16983d}{M\-A\-T\-\_\-\-V\-E\-C\-\_\-\-F\-U\-N\-C\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(M\-A\-T\-C\-L\-A\-S\-S, V\-E\-C\-C\-L\-A\-S\-S, S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_a603402f9b1c45278cb3d1394416d259b}{M\-A\-T\-\_\-\-T\-R\-A\-N\-F\-O\-R\-M\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(M\-A\-T\-C\-L\-A\-S\-S, V\-E\-C\-C\-L\-A\-S\-S, V\-E\-C\-S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_a1df37c406e51232e6dea868bb206b4a0}{M\-A\-T\-\_\-\-O\-U\-T\-E\-R\-P\-R\-O\-D\-U\-C\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}(M\-A\-T\-C\-L\-A\-S\-S, V\-E\-C\-C\-L\-A\-S\-S, M\-A\-T\-S\-I\-Z\-E)
+\item 
+\#define \hyperlink{vector__math_8h_a6ebf6899d6c1c8b7b9d09be872c05aae}{E\-P\-S}~T(1e-\/5)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a9a22bf39ff602507bf9382dae93a7bf2}{vmath\-::rsqrt} (T x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a1c38199e02bd5d10bc075f11dabb9f0d}{vmath\-::inv} (T x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_1_1detail_a5fed04f89f61207c3dbf01a1b5454864}{vmath\-::detail\-::multiply\-\_\-accumulate} (int count, const T $\ast$a, const T $\ast$b)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a6dfd64dcd69f95ceadd0bd6e7e319299}{vmath\-::lerp} (const T \&u, const T \&v, const T x)
+\item 
+{\footnotesize template$<$typename T $>$ }\\vec3$<$ T $>$ \hyperlink{namespacevmath_a799e9d57fe318fdeb6db997b6ef1143f}{vmath\-::cross} (const vec3$<$ T $>$ \&u, const vec3$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_afee7905e51490be5bcfecb4380ee27ca}{vmath\-::det} (const mat2$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a4a73020a0ac374b4e7182f70f51cf495}{vmath\-::det} (const mat3$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacevmath_a27bdfe677f6477bf875e3543d5997873}{vmath\-::det} (const mat4$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat2$<$ T $>$ \hyperlink{namespacevmath_a125f0c95da37ed355720f8b8b763d4f3}{vmath\-::adjoint} (const mat2$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a07c03df5bb5d3d2b397af59d3c102a83}{vmath\-::fast\-\_\-inverse} (const mat4$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_af39bac007d71f19403cf8ed549156cf8}{vmath\-::translation\-\_\-matrix} (const T x, const T y, const T z)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a721e36421d311dbeac9c0e16021661df}{vmath\-::translation\-\_\-matrix} (const vec3$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a801245c96c9d351e0e0c9095e9db909f}{vmath\-::scaling\-\_\-matrix} (const T x, const T y, const T z)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a5226633b7a47a9f930891daeab3e7cf0}{vmath\-::scaling\-\_\-matrix} (const vec3$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a29cfa2d2699e8b29de951fbf4c597bd3}{vmath\-::rotation\-\_\-matrix} (const T angle, const vec3$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a7689d3e8fe5ab5835dccdd318deff056}{vmath\-::rotation\-\_\-matrix} (const T angle, const T x, const T y, const T z)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_ac4ac7b4a01beab550d282ce8596be2f6}{vmath\-::shear\-\_\-matrix} (const int i, const int j, const T factor)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_ad07fd0806742029d1528a9d6f10f580b}{vmath\-::euler} (const T head, const T pitch, const T roll)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_af3d39d8e17e8fa9778a6b6da66a145d5}{vmath\-::frustum\-\_\-matrix} (const T l, const T r, const T b, const T t, const T n, const T f)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a658569e855352a50240a2a91431bde2c}{vmath\-::perspective\-\_\-matrix} (const T fovy, const T aspect, const T z\-Near, const T z\-Far)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a19c105d09eb64fc596b17273027d4792}{vmath\-::ortho\-\_\-matrix} (const T l, const T r, const T b, const T t, const T n, const T f)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a9b5467cc387e1a05f008158b6188d509}{vmath\-::lookat\-\_\-matrix} (const vec3$<$ T $>$ \&eye, const vec3$<$ T $>$ \&center, const vec3$<$ T $>$ \&up)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a7b22d17caeb4f6118aae0fc3d736fa47}{vmath\-::picking\-\_\-matrix} (const T x, const T y, const T dx, const T dy, int viewport\mbox{[}4\mbox{]})
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a8e2c7da159d70ab6ce1f604a2a157d2a}{vmath\-::shadow\-\_\-matrix} (const vec4$<$ T $>$ \&q, const vec4$<$ T $>$ \&p)
+\item 
+{\footnotesize template$<$typename T $>$ }\\quat$<$ T $>$ \hyperlink{namespacevmath_af191b4dd1ab40a6462062ead5495f27e}{vmath\-::identityq} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\quat$<$ T $>$ \hyperlink{namespacevmath_a04eba599519fec3c01318634f09cea03}{vmath\-::conjugate} (const quat$<$ T $>$ \&q)
+\item 
+{\footnotesize template$<$typename T $>$ }\\quat$<$ T $>$ \hyperlink{namespacevmath_a0a0c570117116f82a7d3394ffda48a17}{vmath\-::inverse} (const quat$<$ T $>$ \&q)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat3$<$ T $>$ \hyperlink{namespacevmath_a5d9b5b66aee59cd807c3e0e3c844deec}{vmath\-::quat\-\_\-to\-\_\-mat3} (const quat$<$ T $>$ \&q)
+\item 
+{\footnotesize template$<$typename T $>$ }\\mat4$<$ T $>$ \hyperlink{namespacevmath_a1d9b33a1d4c11bdb9a32ab17efddfa51}{vmath\-::quat\-\_\-to\-\_\-mat4} (const quat$<$ T $>$ \&q)
+\item 
+{\footnotesize template$<$typename T $>$ }\\quat$<$ T $>$ \hyperlink{namespacevmath_ad9bc88812baaef80fbe16689c9db472f}{vmath\-::mat\-\_\-to\-\_\-quat} (const mat4$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\quat$<$ T $>$ \hyperlink{namespacevmath_af8dbbceb936b09ae18d7e410f7644093}{vmath\-::mat\-\_\-to\-\_\-quat} (const mat3$<$ T $>$ \&m)
+\item 
+{\footnotesize template$<$typename T $>$ }\\quat$<$ T $>$ \hyperlink{namespacevmath_af8ec8741206a40b62765a4616ba09ade}{vmath\-::quat\-\_\-from\-\_\-axis\-\_\-angle} (const vec3$<$ T $>$ \&axis, const T a)
+\item 
+{\footnotesize template$<$typename T $>$ }\\quat$<$ T $>$ \hyperlink{namespacevmath_aa01d974004689cf16143a1bfa43805ba}{vmath\-::quat\-\_\-from\-\_\-axis\-\_\-angle} (const T x, const T y, const T z, const T angle)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespacevmath_af7ee07c776100951dbadc9c7d1fc48de}{vmath\-::quat\-\_\-to\-\_\-axis\-\_\-angle} (const quat$<$ T $>$ \&qq, vec3$<$ T $>$ $\ast$axis, T $\ast$angle)
+\item 
+{\footnotesize template$<$typename T $>$ }\\quat$<$ T $>$ \hyperlink{namespacevmath_ab5014ede27bda996f415a8bc61c03044}{vmath\-::slerp} (const quat$<$ T $>$ \&qq1, const quat$<$ T $>$ \&qq2, const T t)
+\item 
+{\footnotesize template$<$typename T $>$ }\\quat$<$ T $>$ \hyperlink{namespacevmath_aefd1a3d8d6e7e4077624241345e519a4}{vmath\-::squad} (const quat$<$ T $>$ \&q0, const quat$<$ T $>$ \&a, const quat$<$ T $>$ \&b, const quat$<$ T $>$ \&q1, const T t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{vector__math_8h_a75873dd53ac587469a15c89aff6eea71}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!C\-O\-M\-M\-O\-N\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S@{C\-O\-M\-M\-O\-N\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}}
+\index{C\-O\-M\-M\-O\-N\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S@{C\-O\-M\-M\-O\-N\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{C\-O\-M\-M\-O\-N\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-O\-M\-M\-O\-N\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{C\-O\-U\-N\-T}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a75873dd53ac587469a15c89aff6eea71}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{vector__math_8h_ad9bbe235726b68b0f98f4f97b8583e84}{MOP\_M\_CLASS\_TEMPLATE}(CLASS, +=, COUNT) \(\backslash\)
+        MOP\_M\_CLASS\_TEMPLATE(CLASS, -=, COUNT) \(\backslash\)
+        \textcolor{comment}{/*no *= as this is not the same for vectors and matrices */} \(\backslash\)
+        MOP\_M\_CLASS\_TEMPLATE(CLASS, /=, COUNT) \(\backslash\)
+        MOP\_M\_TYPE\_TEMPLATE(CLASS, +=, COUNT) \(\backslash\)
+        MOP\_M\_TYPE\_TEMPLATE(CLASS, -=, COUNT) \(\backslash\)
+        MOP\_M\_TYPE\_TEMPLATE(CLASS, *=, COUNT) \(\backslash\)
+        MOP\_M\_TYPE\_TEMPLATE(CLASS, /=, COUNT) \(\backslash\)
+        MOP\_G\_UMINUS\_TEMPLATE(CLASS, COUNT) \(\backslash\)
+        MOP\_COMP\_TEMPLATE(CLASS, COUNT)
+\end{DoxyCode}
+
+
+Definition at line 114 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a6ebf6899d6c1c8b7b9d09be872c05aae}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!E\-P\-S@{E\-P\-S}}
+\index{E\-P\-S@{E\-P\-S}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{E\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-P\-S~T(1e-\/5)}}\label{vector__math_8h_a6ebf6899d6c1c8b7b9d09be872c05aae}
+\hypertarget{vector__math_8h_a36a3be08bc5b6a68f094ca96f2aff2c0}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!F\-O\-P\-\_\-\-G\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{F\-O\-P\-\_\-\-G\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{F\-O\-P\-\_\-\-G\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{F\-O\-P\-\_\-\-G\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{F\-O\-P\-\_\-\-G\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-O\-P\-\_\-\-G\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{O\-P, }
+\item[{}]{C\-L\-A\-S\-S}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a36a3be08bc5b6a68f094ca96f2aff2c0}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \(\backslash\)
+        inline CLASS<T> \textcolor{keyword}{operator} OP (\textcolor{keyword}{const} CLASS<T> &lhs, \textcolor{keyword}{const} CLASS<T> &rhs) 
+      \(\backslash\)
+        FOP\_G\_SOURCE\_TEMPLATE(OP, CLASS)
+\end{DoxyCode}
+
+
+Definition at line 135 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a00bdb2fe242d269212f7e4e039dbfdc4}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!F\-O\-P\-\_\-\-G\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{F\-O\-P\-\_\-\-G\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{F\-O\-P\-\_\-\-G\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{F\-O\-P\-\_\-\-G\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{F\-O\-P\-\_\-\-G\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-O\-P\-\_\-\-G\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{O\-P, }
+\item[{}]{C\-L\-A\-S\-S}
+\end{DoxyParamCaption}
+)~\{ C\-L\-A\-S\-S$<$T$>$ r = lhs; r O\-P\#\#= rhs; return r; \}}}\label{vector__math_8h_a00bdb2fe242d269212f7e4e039dbfdc4}
+
+
+Definition at line 132 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a8f8001d813a8813cc37476063803b2a4}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!F\-O\-P\-\_\-\-G\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{F\-O\-P\-\_\-\-G\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{F\-O\-P\-\_\-\-G\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{F\-O\-P\-\_\-\-G\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{F\-O\-P\-\_\-\-G\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-O\-P\-\_\-\-G\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{O\-P, }
+\item[{}]{C\-L\-A\-S\-S}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a8f8001d813a8813cc37476063803b2a4}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \(\backslash\)
+        inline CLASS<T> \textcolor{keyword}{operator} OP (\textcolor{keyword}{const} CLASS<T> &lhs, \textcolor{keyword}{const} T &rhs) \(\backslash\)
+        FOP\_G\_SOURCE\_TEMPLATE(OP, CLASS)
+\end{DoxyCode}
+
+
+Definition at line 140 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a3f8df11fc9e15a414f4bd96546c4f6c8}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!F\-R\-E\-E\-\_\-\-M\-O\-D\-I\-F\-Y\-I\-N\-G\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S@{F\-R\-E\-E\-\_\-\-M\-O\-D\-I\-F\-Y\-I\-N\-G\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}}
+\index{F\-R\-E\-E\-\_\-\-M\-O\-D\-I\-F\-Y\-I\-N\-G\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S@{F\-R\-E\-E\-\_\-\-M\-O\-D\-I\-F\-Y\-I\-N\-G\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{F\-R\-E\-E\-\_\-\-M\-O\-D\-I\-F\-Y\-I\-N\-G\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-E\-\_\-\-M\-O\-D\-I\-F\-Y\-I\-N\-G\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a3f8df11fc9e15a414f4bd96546c4f6c8}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{vector__math_8h_a36a3be08bc5b6a68f094ca96f2aff2c0}{FOP\_G\_CLASS\_TEMPLATE}(+, CLASS) \(\backslash\)
+        FOP\_G\_CLASS\_TEMPLATE(-, CLASS) \(\backslash\)
+        FOP\_G\_CLASS\_TEMPLATE(*, CLASS) \(\backslash\)
+        FOP\_G\_CLASS\_TEMPLATE(/, CLASS) \(\backslash\)
+        FOP\_G\_TYPE\_TEMPLATE(+, CLASS) \(\backslash\)
+        FOP\_G\_TYPE\_TEMPLATE(-, CLASS) \(\backslash\)
+        FOP\_G\_TYPE\_TEMPLATE(*, CLASS) \(\backslash\)
+        FOP\_G\_TYPE\_TEMPLATE(/, CLASS)
+\end{DoxyCode}
+
+
+Definition at line 154 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_aba5293b39e2a135cbe32ea2236801553}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!F\-R\-E\-E\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S@{F\-R\-E\-E\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}}
+\index{F\-R\-E\-E\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S@{F\-R\-E\-E\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{F\-R\-E\-E\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-E\-\_\-\-O\-P\-E\-R\-A\-T\-O\-R\-S(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_aba5293b39e2a135cbe32ea2236801553}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \(\backslash\)
+        inline CLASS<T> operator + (\textcolor{keyword}{const} T& a, \textcolor{keyword}{const} CLASS<T>& b)  \(\backslash\)
+        \{ CLASS<T> r = b; r += a; \textcolor{keywordflow}{return} r; \} \(\backslash\)
+        \(\backslash\)
+        template <typename T> \(\backslash\)
+        inline CLASS<T> operator * (\textcolor{keyword}{const} T& a, \textcolor{keyword}{const} CLASS<T>& b)  \(\backslash\)
+        \{ CLASS<T> r = b; r *= a; \textcolor{keywordflow}{return} r; \} \(\backslash\)
+        \(\backslash\)
+        template <typename T> \(\backslash\)
+        inline CLASS<T> operator - (\textcolor{keyword}{const} T& a, \textcolor{keyword}{const} CLASS<T>& b)  \(\backslash\)
+        \{ \textcolor{keywordflow}{return} -b + a; \} \(\backslash\)
+        \(\backslash\)
+        template <typename T> \(\backslash\)
+        inline CLASS<T> operator / (\textcolor{keyword}{const} T& a, \textcolor{keyword}{const} CLASS<T>& b)  \(\backslash\)
+        \{ CLASS<T> r(a); r /= b; \textcolor{keywordflow}{return} r; \}
+\end{DoxyCode}
+
+
+Definition at line 172 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_ae71449b1cc6e6250b91f539153a7a0d3}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-\_\-\-P\-I@{M\-\_\-\-P\-I}}
+\index{M\-\_\-\-P\-I@{M\-\_\-\-P\-I}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-\_\-\-P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-\_\-\-P\-I~3.\-14159265358979323846}}\label{vector__math_8h_ae71449b1cc6e6250b91f539153a7a0d3}
+
+
+Definition at line 42 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a3cc3d730ec8e54fe62bc441285ae11b6}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-\_\-\-A\-D\-J\-O\-I\-N\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-A\-D\-J\-O\-I\-N\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-A\-T\-\_\-\-A\-D\-J\-O\-I\-N\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-A\-D\-J\-O\-I\-N\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-\_\-\-A\-D\-J\-O\-I\-N\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-\_\-\-A\-D\-J\-O\-I\-N\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a3cc3d730ec8e54fe62bc441285ae11b6}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \(\backslash\)
+        inline CLASS \hyperlink{namespacevmath_a125f0c95da37ed355720f8b8b763d4f3}{adjoint}(\textcolor{keyword}{const} CLASS & m) \(\backslash\)
+        \{ \(\backslash\)
+                CLASS result; \(\backslash\)
+                for (\textcolor{keywordtype}{int} r = 0; r < SIZE; ++r) \(\backslash\)
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} c = 0; c < SIZE; ++c) \(\backslash\)
+                        result.elem[r][c] = ((r + c) & 1 ? -1 : 1) * \hyperlink{namespacevmath_afee7905e51490be5bcfecb4380ee27ca}{det}(
+      minor(m, c, r)); \(\backslash\)
+                return result; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 550 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_ab5828adab3a90eeb75b4baf07642d4d6}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-M\-I\-N\-O\-R\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-M\-I\-N\-O\-R\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-M\-I\-N\-O\-R\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-M\-I\-N\-O\-R\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-M\-I\-N\-O\-R\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-M\-I\-N\-O\-R\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S1, }
+\item[{}]{C\-L\-A\-S\-S2, }
+\item[{}]{S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_ab5828adab3a90eeb75b4baf07642d4d6}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T>  \(\backslash\)
+        inline CLASS2 minor(\textcolor{keyword}{const} CLASS1 & m, \textcolor{keywordtype}{int} \_r = SIZE, \textcolor{keywordtype}{int} \_c = SIZE) \{ \(\backslash\)
+                CLASS2 result; \(\backslash\)
+                for (\textcolor{keywordtype}{int} r = 0; r < SIZE - 1; ++r) \(\backslash\)
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} c = 0; c < SIZE - 1; ++c) \{ \(\backslash\)
+                        int rs = r >= \_r ? 1 : 0; \(\backslash\)
+                        int cs = c >= \_c ? 1 : 0; \(\backslash\)
+                        result.elem[r][c] = m.elem[r + rs][c + cs]; \(\backslash\)
+                \} \(\backslash\)
+                return result; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 511 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a3f27406277bc5257c76d594f418770ff}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a3f27406277bc5257c76d594f418770ff}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T>  \(\backslash\)
+        inline CLASS transpose(\textcolor{keyword}{const} CLASS & m) \(\backslash\)
+        \{ \(\backslash\)
+                CLASS result; \(\backslash\)
+                for (\textcolor{keywordtype}{int} r = 0; r < SIZE; ++r) \(\backslash\)
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} c = 0; c < SIZE; ++c) \(\backslash\)
+                        result.elem[r][c] = m.elem[c][r]; \(\backslash\)
+                \textcolor{keywordflow}{return} result; \(\backslash\)
+        \} \(\backslash\)
+        template <typename T>  \(\backslash\)
+        inline CLASS identity ## SIZE() \(\backslash\)
+        \{ \(\backslash\)
+                CLASS result; \(\backslash\)
+                for (\textcolor{keywordtype}{int} r = 0; r < SIZE; ++r) \(\backslash\)
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} c = 0; c < SIZE; ++c) \(\backslash\)
+                        result.elem[r][c] = r == c ? T(1) : T(0); \(\backslash\)
+                return result; \(\backslash\)
+        \} \(\backslash\)
+        template <typename T> \(\backslash\)
+        inline T trace(\textcolor{keyword}{const} CLASS & m) \(\backslash\)
+        \{ \(\backslash\)
+                T result = T(0); \(\backslash\)
+                for (\textcolor{keywordtype}{int} i = 0; i < SIZE; ++i) \(\backslash\)
+                        result += m.elem[i][i]; \(\backslash\)
+                \textcolor{keywordflow}{return} result; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 479 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_afe71c8d8ba4ffa46499721734236903d}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-\_\-\-I\-N\-V\-E\-R\-S\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-I\-N\-V\-E\-R\-S\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-A\-T\-\_\-\-I\-N\-V\-E\-R\-S\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-I\-N\-V\-E\-R\-S\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-\_\-\-I\-N\-V\-E\-R\-S\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-\_\-\-I\-N\-V\-E\-R\-S\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_afe71c8d8ba4ffa46499721734236903d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \(\backslash\)
+        inline CLASS \hyperlink{namespacevmath_a0a0c570117116f82a7d3394ffda48a17}{inverse}(\textcolor{keyword}{const} CLASS & m) \(\backslash\)
+        \{ \(\backslash\)
+                return \hyperlink{namespacevmath_a125f0c95da37ed355720f8b8b763d4f3}{adjoint}(m) * \hyperlink{namespacevmath_a1c38199e02bd5d10bc075f11dabb9f0d}{inv}(\hyperlink{namespacevmath_afee7905e51490be5bcfecb4380ee27ca}{det}(m)); \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 573 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a1df37c406e51232e6dea868bb206b4a0}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-\_\-\-O\-U\-T\-E\-R\-P\-R\-O\-D\-U\-C\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-O\-U\-T\-E\-R\-P\-R\-O\-D\-U\-C\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-A\-T\-\_\-\-O\-U\-T\-E\-R\-P\-R\-O\-D\-U\-C\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-O\-U\-T\-E\-R\-P\-R\-O\-D\-U\-C\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-\_\-\-O\-U\-T\-E\-R\-P\-R\-O\-D\-U\-C\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-\_\-\-O\-U\-T\-E\-R\-P\-R\-O\-D\-U\-C\-T\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{M\-A\-T\-C\-L\-A\-S\-S, }
+\item[{}]{V\-E\-C\-C\-L\-A\-S\-S, }
+\item[{}]{M\-A\-T\-S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a1df37c406e51232e6dea868bb206b4a0}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \(\backslash\)
+        inline MATCLASS outer\_product(\textcolor{keyword}{const} VECCLASS & v1, \textcolor{keyword}{const} VECCLASS & v2)
+       \(\backslash\)
+        \{ \(\backslash\)
+                MATCLASS r; \(\backslash\)
+                for ( \textcolor{keywordtype}{int} j = 0; j < MATSIZE; ++j ) \(\backslash\)
+                \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{int} k = 0; k < MATSIZE; ++k ) \(\backslash\)
+                        r.elem[j][k] = v1[j] * v2[k]; \(\backslash\)
+                \textcolor{keywordflow}{return} r; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 671 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a603402f9b1c45278cb3d1394416d259b}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-\_\-\-T\-R\-A\-N\-F\-O\-R\-M\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-T\-R\-A\-N\-F\-O\-R\-M\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-A\-T\-\_\-\-T\-R\-A\-N\-F\-O\-R\-M\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-T\-R\-A\-N\-F\-O\-R\-M\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-\_\-\-T\-R\-A\-N\-F\-O\-R\-M\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-\_\-\-T\-R\-A\-N\-F\-O\-R\-M\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{M\-A\-T\-C\-L\-A\-S\-S, }
+\item[{}]{V\-E\-C\-C\-L\-A\-S\-S, }
+\item[{}]{V\-E\-C\-S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a603402f9b1c45278cb3d1394416d259b}
+
+
+Definition at line 628 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_aea876660fa72c94c0b25270a8d16983d}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-\_\-\-V\-E\-C\-\_\-\-F\-U\-N\-C\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-V\-E\-C\-\_\-\-F\-U\-N\-C\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-A\-T\-\_\-\-V\-E\-C\-\_\-\-F\-U\-N\-C\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-A\-T\-\_\-\-V\-E\-C\-\_\-\-F\-U\-N\-C\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-\_\-\-V\-E\-C\-\_\-\-F\-U\-N\-C\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-\_\-\-V\-E\-C\-\_\-\-F\-U\-N\-C\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{M\-A\-T\-C\-L\-A\-S\-S, }
+\item[{}]{V\-E\-C\-C\-L\-A\-S\-S, }
+\item[{}]{S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_aea876660fa72c94c0b25270a8d16983d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T>  \(\backslash\)
+        inline VECCLASS operator * (\textcolor{keyword}{const} MATCLASS & m, \textcolor{keyword}{const} VECCLASS & v) \(\backslash\)
+        \{ \(\backslash\)
+                VECCLASS result; \(\backslash\)
+                for (\textcolor{keywordtype}{int} i = 0; i < SIZE; ++i) \{\(\backslash\)
+                        result[i] = dot(MATRIX\_ROW ## SIZE(m, i), v); \(\backslash\)
+                \} \(\backslash\)
+                return result; \(\backslash\)
+        \} \(\backslash\)
+        template <typename T>  \(\backslash\)
+        inline VECCLASS operator * (\textcolor{keyword}{const} VECCLASS & v, \textcolor{keyword}{const} MATCLASS & m) \(\backslash\)
+        \{ \(\backslash\)
+                VECCLASS result; \(\backslash\)
+                for (\textcolor{keywordtype}{int} i = 0; i < SIZE; ++i) \(\backslash\)
+                        result[i] = dot(v, MATRIX\_COL ## SIZE(m, i)); \(\backslash\)
+                return result; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 584 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a84a605b24feb6987e913156d5a7fbc1e}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L2@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L2}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L2@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L2}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L2(
+\begin{DoxyParamCaption}
+\item[{}]{S\-R\-C, }
+\item[{}]{C}
+\end{DoxyParamCaption}
+)~vec2$<$T$>$(S\-R\-C.\-elem\mbox{[}0\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}1\mbox{]}\mbox{[}C\mbox{]})}}\label{vector__math_8h_a84a605b24feb6987e913156d5a7fbc1e}
+
+
+Definition at line 316 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a25974666cc77492c5018f96df8ae1d9a}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L3@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L3}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L3@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L3}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L3}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L3(
+\begin{DoxyParamCaption}
+\item[{}]{S\-R\-C, }
+\item[{}]{C}
+\end{DoxyParamCaption}
+)~vec3$<$T$>$(S\-R\-C.\-elem\mbox{[}0\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}1\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}2\mbox{]}\mbox{[}C\mbox{]})}}\label{vector__math_8h_a25974666cc77492c5018f96df8ae1d9a}
+
+
+Definition at line 310 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a4fc3104116fb843bec388c1bac03e61e}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L4@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L4}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L4@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L4}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L4}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-L4(
+\begin{DoxyParamCaption}
+\item[{}]{S\-R\-C, }
+\item[{}]{C}
+\end{DoxyParamCaption}
+)~vec4$<$T$>$(S\-R\-C.\-elem\mbox{[}0\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}1\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}2\mbox{]}\mbox{[}C\mbox{]}, S\-R\-C.\-elem\mbox{[}3\mbox{]}\mbox{[}C\mbox{]})}}\label{vector__math_8h_a4fc3104116fb843bec388c1bac03e61e}
+
+
+Definition at line 304 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_aee204ea0cefa5b4aead04e246d6cef07}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-M\-M\-O\-N@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-M\-M\-O\-N}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-M\-M\-O\-N@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-M\-M\-O\-N}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-M\-M\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-M\-M\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_aee204ea0cefa5b4aead04e246d6cef07}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{vector__math_8h_a75873dd53ac587469a15c89aff6eea71}{COMMON\_OPERATORS}(CLASS, SIZE*SIZE) \(\backslash\)
+        MOP\_M\_MATRIX\_MULTIPLY(CLASS, SIZE) \(\backslash\)
+        MATRIX\_CONSTRUCTOR\_FROM\_T(CLASS, SIZE) \(\backslash\)
+        operator \textcolor{keyword}{const} T* () \textcolor{keyword}{const} \{ \textcolor{keywordflow}{return} (\textcolor{keyword}{const} T*) elem; \} \(\backslash\)
+        operator T* () \{ \textcolor{keywordflow}{return} (T*) elem; \}
+\end{DoxyCode}
+
+
+Definition at line 352 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a70aa0932a3f663949db15916f4a67dd2}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-H\-I\-G\-H\-E\-R@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-H\-I\-G\-H\-E\-R}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-H\-I\-G\-H\-E\-R@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-H\-I\-G\-H\-E\-R}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-H\-I\-G\-H\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-H\-I\-G\-H\-E\-R(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S1, }
+\item[{}]{C\-L\-A\-S\-S2, }
+\item[{}]{S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a70aa0932a3f663949db15916f4a67dd2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \(\backslash\)
+        inline CLASS1<T>::CLASS1(\textcolor{keyword}{const} CLASS2<T>& m) \(\backslash\)
+        \{ \(\backslash\)
+                for (\textcolor{keywordtype}{int} r = 0; r < SIZE; ++r) \(\backslash\)
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} c = 0; c < SIZE; ++c) \(\backslash\)
+                        elem[r][c] = m.elem[r][c]; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 467 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_afa1c24cef677e368df6bc5d9db4c5f50}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-L\-O\-W\-E\-R@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-L\-O\-W\-E\-R}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-L\-O\-W\-E\-R@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-L\-O\-W\-E\-R}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-L\-O\-W\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-L\-O\-W\-E\-R(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S1, }
+\item[{}]{C\-L\-A\-S\-S2, }
+\item[{}]{S\-I\-Z\-E1, }
+\item[{}]{S\-I\-Z\-E2}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_afa1c24cef677e368df6bc5d9db4c5f50}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{explicit} CLASS1(\textcolor{keyword}{const} CLASS2<T>& m) \(\backslash\)
+        \{ \(\backslash\)
+                for (\textcolor{keywordtype}{int} r = 0; r < SIZE1; ++r) \(\backslash\)
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} c = 0; c < SIZE1; ++c) \(\backslash\)
+                        \textcolor{keywordflow}{if} (r < SIZE2 && c < SIZE2) elem[r][c] = m.elem[r][c]; 
+      \(\backslash\)
+                        else elem[r][c] = r == c ? T(1) : T(0); \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 343 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_acb15346395a852a4963b51783c37ef2a}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-T@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-T}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-T@{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-T}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R\-\_\-\-F\-R\-O\-M\-\_\-\-T(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_acb15346395a852a4963b51783c37ef2a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{explicit} CLASS(\textcolor{keyword}{const} T v) \(\backslash\)
+        \{ \(\backslash\)
+                for (\textcolor{keywordtype}{int} r = 0; r < SIZE; ++r) \(\backslash\)
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} c = 0; c < SIZE; ++c) \(\backslash\)
+                        \textcolor{keywordflow}{if} (r == c) elem[r][c] = v; \(\backslash\)
+                        else elem[r][c] = T(0); \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 334 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a4ca5192f530a1c8d409a91a4b152c26a}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W2@{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W2}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W2@{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W2}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W2(
+\begin{DoxyParamCaption}
+\item[{}]{S\-R\-C, }
+\item[{}]{R}
+\end{DoxyParamCaption}
+)~vec2$<$T$>$(S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}0\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}1\mbox{]})}}\label{vector__math_8h_a4ca5192f530a1c8d409a91a4b152c26a}
+
+
+Definition at line 319 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a026834e666417d068be9ce891b58dc76}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W3@{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W3}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W3@{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W3}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W3}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W3(
+\begin{DoxyParamCaption}
+\item[{}]{S\-R\-C, }
+\item[{}]{R}
+\end{DoxyParamCaption}
+)~vec3$<$T$>$(S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}0\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}1\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}2\mbox{]})}}\label{vector__math_8h_a026834e666417d068be9ce891b58dc76}
+
+
+Definition at line 313 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_ac8ff2097b4a707af5f9fb87b91aed2c2}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W4@{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W4}}
+\index{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W4@{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W4}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W4}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-T\-R\-I\-X\-\_\-\-R\-O\-W4(
+\begin{DoxyParamCaption}
+\item[{}]{S\-R\-C, }
+\item[{}]{R}
+\end{DoxyParamCaption}
+)~vec4$<$T$>$(S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}0\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}1\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}2\mbox{]}, S\-R\-C.\-elem\mbox{[}R\mbox{]}\mbox{[}3\mbox{]})}}\label{vector__math_8h_ac8ff2097b4a707af5f9fb87b91aed2c2}
+
+
+Definition at line 307 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_acbf324bcaaf1c7ef51324f25a190ee5b}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-O\-P\-\_\-\-C\-O\-M\-P\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-O\-P\-\_\-\-C\-O\-M\-P\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-O\-P\-\_\-\-C\-O\-M\-P\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-O\-P\-\_\-\-C\-O\-M\-P\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-O\-P\-\_\-\-C\-O\-M\-P\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-P\-\_\-\-C\-O\-M\-P\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{C\-O\-U\-N\-T}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_acbf324bcaaf1c7ef51324f25a190ee5b}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{bool} operator == (\textcolor{keyword}{const} CLASS & rhs) \(\backslash\)
+        \{ \(\backslash\)
+                bool result = \textcolor{keyword}{true}; \(\backslash\)
+                for (\textcolor{keywordtype}{int} i = 0; i < (COUNT); ++i) \(\backslash\)
+                        result = result && (*\textcolor{keyword}{this})[i] == rhs[i]; \(\backslash\)
+                return result; \(\backslash\)
+        \} \(\backslash\)
+        bool operator != (\textcolor{keyword}{const} CLASS & rhs) \(\backslash\)
+        \{ \textcolor{keywordflow}{return} !((*this) == rhs); \}
+\end{DoxyCode}
+
+
+Definition at line 94 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_af4b754e5cd5bfa021b3c6fd39fb34594}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-O\-P\-\_\-\-G\-\_\-\-U\-M\-I\-N\-U\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-O\-P\-\_\-\-G\-\_\-\-U\-M\-I\-N\-U\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-O\-P\-\_\-\-G\-\_\-\-U\-M\-I\-N\-U\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-O\-P\-\_\-\-G\-\_\-\-U\-M\-I\-N\-U\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-O\-P\-\_\-\-G\-\_\-\-U\-M\-I\-N\-U\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-P\-\_\-\-G\-\_\-\-U\-M\-I\-N\-U\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{C\-O\-U\-N\-T}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_af4b754e5cd5bfa021b3c6fd39fb34594}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+CLASS operator - () const \(\backslash\)
+        \{ \(\backslash\)
+                CLASS result; \(\backslash\)
+                for (\textcolor{keywordtype}{int} i = 0; i < (COUNT); ++i) \(\backslash\)
+                        result[i] = -(*\textcolor{keyword}{this})[i]; \(\backslash\)
+                return result; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 105 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_ad9bbe235726b68b0f98f4f97b8583e84}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-O\-P\-\_\-\-M\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-O\-P\-\_\-\-M\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-O\-P\-\_\-\-M\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-O\-P\-\_\-\-M\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-O\-P\-\_\-\-M\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-P\-\_\-\-M\-\_\-\-C\-L\-A\-S\-S\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{O\-P, }
+\item[{}]{C\-O\-U\-N\-T}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_ad9bbe235726b68b0f98f4f97b8583e84}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+CLASS & \textcolor{keyword}{operator} OP (\textcolor{keyword}{const} CLASS& rhs)  \(\backslash\)
+        \{ \(\backslash\)
+                for (\textcolor{keywordtype}{int} i = 0; i < (COUNT); ++i )  \(\backslash\)
+                        (*\textcolor{keyword}{this})[i] OP rhs[i]; \(\backslash\)
+                return *\textcolor{keyword}{this}; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 78 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a445581982b93137bef3c85d717fa9483}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-O\-P\-\_\-\-M\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-M\-U\-L\-T\-I\-P\-L\-Y@{M\-O\-P\-\_\-\-M\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-M\-U\-L\-T\-I\-P\-L\-Y}}
+\index{M\-O\-P\-\_\-\-M\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-M\-U\-L\-T\-I\-P\-L\-Y@{M\-O\-P\-\_\-\-M\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-M\-U\-L\-T\-I\-P\-L\-Y}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-O\-P\-\_\-\-M\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-M\-U\-L\-T\-I\-P\-L\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-P\-\_\-\-M\-\_\-\-M\-A\-T\-R\-I\-X\-\_\-\-M\-U\-L\-T\-I\-P\-L\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{S\-I\-Z\-E}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a445581982b93137bef3c85d717fa9483}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+CLASS & operator *= (\textcolor{keyword}{const} CLASS & rhs) \(\backslash\)
+        \{ \(\backslash\)
+                CLASS result; \(\backslash\)
+                for (\textcolor{keywordtype}{int} r = 0; r < SIZE; ++r) \(\backslash\)
+                \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} c = 0; c < SIZE; ++c) \(\backslash\)
+                        result.elem[r][c] = dot( \(\backslash\)
+                                MATRIX\_ROW ## SIZE((*\textcolor{keyword}{this}), r), \(\backslash\)
+                                MATRIX\_COL ## SIZE(rhs, c)); \(\backslash\)
+                return (*\textcolor{keyword}{this}) = result; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 322 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a058f317f0cb9a8f4ef93af33585f45cb}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!M\-O\-P\-\_\-\-M\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-O\-P\-\_\-\-M\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{M\-O\-P\-\_\-\-M\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{M\-O\-P\-\_\-\-M\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{M\-O\-P\-\_\-\-M\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-P\-\_\-\-M\-\_\-\-T\-Y\-P\-E\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{O\-P, }
+\item[{}]{C\-O\-U\-N\-T}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a058f317f0cb9a8f4ef93af33585f45cb}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+CLASS & \textcolor{keyword}{operator} OP (\textcolor{keyword}{const} T & rhs) \(\backslash\)
+        \{ \(\backslash\)
+                for (\textcolor{keywordtype}{int} i = 0; i < (COUNT); ++i ) \(\backslash\)
+                        (*\textcolor{keyword}{this})[i] OP rhs; \(\backslash\)
+                return *\textcolor{keyword}{this}; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 86 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a72d837f113cd078270a3a6ed3abda79c}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!V\-E\-C\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{V\-E\-C\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{V\-E\-C\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{V\-E\-C\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{V\-E\-C\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-C\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a72d837f113cd078270a3a6ed3abda79c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{inline} CLASS reflect(\textcolor{keyword}{const} CLASS & I, \textcolor{keyword}{const} CLASS & N) \(\backslash\)
+        \{ \(\backslash\)
+                return I - T(2) * dot(N, I) * N; \(\backslash\)
+        \} \(\backslash\)
+        template <typename T> \textcolor{keyword}{inline} CLASS refract(\textcolor{keyword}{const} CLASS & I, \textcolor{keyword}{const} CLASS
+       & N, T eta) \(\backslash\)
+        \{ \(\backslash\)
+                const T d = dot(N, I); \(\backslash\)
+                const T k = T(1) - eta * eta * (T(1) - d * d); \(\backslash\)
+                if ( k < T(0) ) \(\backslash\)
+                        return CLASS(T(0)); \(\backslash\)
+                else \(\backslash\)
+                        return eta * I - (eta * d + \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(sqrt(k))) * 
+      N; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 271 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a4a0e34e1186979d0c14aea9fbc242d8e}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!V\-E\-C\-\_\-\-Q\-U\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{V\-E\-C\-\_\-\-Q\-U\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}}
+\index{V\-E\-C\-\_\-\-Q\-U\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E@{V\-E\-C\-\_\-\-Q\-U\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{V\-E\-C\-\_\-\-Q\-U\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-C\-\_\-\-Q\-U\-A\-T\-\_\-\-F\-U\-N\-C\-\_\-\-T\-E\-M\-P\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{C\-O\-U\-N\-T}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a4a0e34e1186979d0c14aea9fbc242d8e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \(\backslash\)
+        inline T dot(\textcolor{keyword}{const} CLASS & u, \textcolor{keyword}{const} CLASS & v) \(\backslash\)
+        \{ \(\backslash\)
+                const T *a = u; \(\backslash\)
+                const T *b = v; \(\backslash\)
+                using \textcolor{keyword}{namespace }detail; \(\backslash\)
+                return \hyperlink{namespacevmath_1_1detail_a5fed04f89f61207c3dbf01a1b5454864}{multiply\_accumulate}(COUNT, a, b); \(\backslash\)
+        \} \(\backslash\)
+        template <typename T> \(\backslash\)
+        inline T length(\textcolor{keyword}{const} CLASS & v) \(\backslash\)
+        \{ \(\backslash\)
+                return sqrt(dot(v, v)); \(\backslash\)
+        \} \(\backslash\)
+        template <typename T> \textcolor{keyword}{inline} CLASS normalize(\textcolor{keyword}{const} CLASS & v) \(\backslash\)
+        \{ \(\backslash\)
+                return v * \hyperlink{namespacevmath_a9a22bf39ff602507bf9382dae93a7bf2}{rsqrt}(dot(v, v)); \(\backslash\)
+        \} \(\backslash\)
+        template <typename T> \textcolor{keyword}{inline} CLASS \hyperlink{namespacevmath_a6dfd64dcd69f95ceadd0bd6e7e319299}{lerp}(\textcolor{keyword}{const} CLASS & u, \textcolor{keyword}{const} 
+      CLASS & v, \textcolor{keyword}{const} T x) \(\backslash\)
+        \{ \(\backslash\)
+                return u * (T(1) - x) + v * x; \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Definition at line 243 of file vector\-\_\-math.\-h.
+
+\hypertarget{vector__math_8h_a55e517f3c01c2145521e3a0bfcee8bdd}{\index{vector\-\_\-math.\-h@{vector\-\_\-math.\-h}!V\-E\-C\-T\-O\-R\-\_\-\-C\-O\-M\-M\-O\-N@{V\-E\-C\-T\-O\-R\-\_\-\-C\-O\-M\-M\-O\-N}}
+\index{V\-E\-C\-T\-O\-R\-\_\-\-C\-O\-M\-M\-O\-N@{V\-E\-C\-T\-O\-R\-\_\-\-C\-O\-M\-M\-O\-N}!vector_math.h@{vector\-\_\-math.\-h}}
+\subsubsection[{V\-E\-C\-T\-O\-R\-\_\-\-C\-O\-M\-M\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-E\-C\-T\-O\-R\-\_\-\-C\-O\-M\-M\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{C\-L\-A\-S\-S, }
+\item[{}]{C\-O\-U\-N\-T}
+\end{DoxyParamCaption}
+)}}\label{vector__math_8h_a55e517f3c01c2145521e3a0bfcee8bdd}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{vector__math_8h_a75873dd53ac587469a15c89aff6eea71}{COMMON\_OPERATORS}(CLASS, COUNT) \(\backslash\)
+        MOP\_M\_CLASS\_TEMPLATE(CLASS, *=, COUNT) \(\backslash\)
+        operator \textcolor{keyword}{const} T* () \textcolor{keyword}{const} \{ \textcolor{keywordflow}{return} &x; \} \(\backslash\)
+        operator T* () \{ \textcolor{keywordflow}{return} &x; \}
+\end{DoxyCode}
+
+
+Definition at line 126 of file vector\-\_\-math.\-h.
+

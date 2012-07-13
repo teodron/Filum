@@ -1,0 +1,139 @@
+\hypertarget{namespace_filum}{\section{Filum Namespace Reference}
+\label{namespace_filum}\index{Filum@{Filum}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_filum_1_1_mass_point}{Mass\-Point}
+\begin{DoxyCompactList}\small\item\em Provides support for a 3\-D point endowed with a mass. \end{DoxyCompactList}\item 
+class \hyperlink{class_filum_1_1_tet_cell}{Tet\-Cell}
+\begin{DoxyCompactList}\small\item\em Tetrahedral cell containing 4 mass points as its corners. \end{DoxyCompactList}\item 
+class \hyperlink{class_filum_1_1_volumetric_d_o_o}{Volumetric\-D\-O\-O}
+\begin{DoxyCompactList}\small\item\em Volumetric linear deformable object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{namespace_filum_aea16f6c764a7c50bde4714d925c957a4}{operator$<$$<$} (ostream \&output, const \hyperlink{class_filum_1_1_mass_point}{Mass\-Point} \&p)
+\item 
+\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} \hyperlink{namespace_filum_affcb2b67ce8514ec98a8ff938fb202ab}{Compute\-Volume} (const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pi, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pj, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pk, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pl)
+\begin{DoxyCompactList}\small\item\em Computes the volume of a tetrahedron The volume is an orientation dependent quantity and it is positive if the clock-\/wise listing of the face opposite to pi reads (pj, pk, pl). Hence, to create a consistently oriented cell, start from a corner and list the next 3 corners in a clock-\/wise order as if their determined triangle is viewed from the initial tetrahedron corner/vertex. \end{DoxyCompactList}\item 
+\hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \hyperlink{namespace_filum_af1b1b869b73490566e12fc519dfdc920}{F\-Vol} (\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} k\-V, \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} V, \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} V0, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pi, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pj, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pk, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pl)
+\begin{DoxyCompactList}\small\item\em Volumetric spring force. \end{DoxyCompactList}\item 
+\hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \hyperlink{namespace_filum_a762c434371f396dba4c22da32c264f1c}{F\-Lin} (\hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} k\-L, \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} D, \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} D0, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pi, const \hyperlink{structvmath_1_1vec3}{vec3}$<$ \hyperlink{stdafx_8h_a445a5f0e2a34c9d97d69a3c2d1957907}{Real} $>$ \&pj)
+\begin{DoxyCompactList}\small\item\em Linear spring force between two pi pj nodes/points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespace_filum_affcb2b67ce8514ec98a8ff938fb202ab}{\index{Filum@{Filum}!Compute\-Volume@{Compute\-Volume}}
+\index{Compute\-Volume@{Compute\-Volume}!Filum@{Filum}}
+\subsubsection[{Compute\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Real} Filum\-::\-Compute\-Volume (
+\begin{DoxyParamCaption}
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pi, }
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pj, }
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pk, }
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespace_filum_affcb2b67ce8514ec98a8ff938fb202ab}
+
+
+Computes the volume of a tetrahedron The volume is an orientation dependent quantity and it is positive if the clock-\/wise listing of the face opposite to pi reads (pj, pk, pl). Hence, to create a consistently oriented cell, start from a corner and list the next 3 corners in a clock-\/wise order as if their determined triangle is viewed from the initial tetrahedron corner/vertex. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pi} & is the position of the first tet corner \\
+\hline
+{\em pj} & is the second vertex of the tet cell according to the described convention \\
+\hline
+{\em pk} & is the third corner/vertex \\
+\hline
+{\em pl} & is the fourth/last tet vertex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the signed tet volume (negative if the (pj, pk, pl) listing is C\-C\-W 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file Physics\-Utilities.\-h.
+
+\hypertarget{namespace_filum_a762c434371f396dba4c22da32c264f1c}{\index{Filum@{Filum}!F\-Lin@{F\-Lin}}
+\index{F\-Lin@{F\-Lin}!Filum@{Filum}}
+\subsubsection[{F\-Lin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec3}$<${\bf Real}$>$ Filum\-::\-F\-Lin (
+\begin{DoxyParamCaption}
+\item[{{\bf Real}}]{k\-L, }
+\item[{{\bf Real}}]{D, }
+\item[{{\bf Real}}]{D0, }
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pi, }
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespace_filum_a762c434371f396dba4c22da32c264f1c}
+
+
+Linear spring force between two pi pj nodes/points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k\-L} & -\/ linear spring stiffness constant \\
+\hline
+{\em D} & -\/ current spring length (deformed state) \\
+\hline
+{\em D0} & -\/ initial spring legnth (undeformed state) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+elastic spring force 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file Physics\-Utilities.\-h.
+
+\hypertarget{namespace_filum_af1b1b869b73490566e12fc519dfdc920}{\index{Filum@{Filum}!F\-Vol@{F\-Vol}}
+\index{F\-Vol@{F\-Vol}!Filum@{Filum}}
+\subsubsection[{F\-Vol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf vec3}$<${\bf Real}$>$ Filum\-::\-F\-Vol (
+\begin{DoxyParamCaption}
+\item[{{\bf Real}}]{k\-V, }
+\item[{{\bf Real}}]{V, }
+\item[{{\bf Real}}]{V0, }
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pi, }
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pj, }
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pk, }
+\item[{const {\bf vec3}$<$ {\bf Real} $>$ \&}]{pl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespace_filum_af1b1b869b73490566e12fc519dfdc920}
+
+
+Volumetric spring force. 
+
+Although the volume of a cell can be negative due to an orientation convention, the force tends to re-\/establish the absolute value of this volume. Thus, only the absolute value of the input volume V is used in the computation when compared to the initial V0 volume. If the input volume is indeed negative the resulting force needs to point in the opposite direction because of the orientation inversion (it points along the normal of the (pj, pk, pl) face, provided the orientation is volume consistent; otherwise, the direction is reversed). 
+\begin{DoxyParams}{Parameters}
+{\em k\-V} & is the volumetric spring stiffness \\
+\hline
+{\em V} & is the current cell volume (in a deformed state) \\
+\hline
+{\em V0} & is the initial cell volume (undeformed/rest state) \\
+\hline
+{\em pi} & -\/ first cell corner \\
+\hline
+{\em pj} & -\/ second cell corner, following the clock-\/wise convention \\
+\hline
+{\em pk} & -\/ third cell corner \\
+\hline
+{\em pl} & -\/ fourth cell corner \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 42 of file Physics\-Utilities.\-h.
+
+\hypertarget{namespace_filum_aea16f6c764a7c50bde4714d925c957a4}{\index{Filum@{Filum}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Filum@{Filum}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& Filum\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{output, }
+\item[{const Mass\-Point \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespace_filum_aea16f6c764a7c50bde4714d925c957a4}
+
+
+Definition at line 79 of file Mass\-Point.\-h.
+
