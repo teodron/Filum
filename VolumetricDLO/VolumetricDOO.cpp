@@ -119,7 +119,7 @@ void VolumetricDOO::ResetRestitutionVelocities()
 
 void VolumetricDOO::ComputeInternalForces()
 {
-	for (int idx = 0; idx < nPoints; ++idx)
+	for (int idx = 0; idx < nPoints - 1; ++idx)
 	{
 		cells[idx][0].UpdateForces();
 		cells[idx][1].UpdateForces();
@@ -169,7 +169,7 @@ void VolumetricDOO::StepUpdateVelocities()
 
 void VolumetricDOO::ComputeLengthConstraints()
 {
-	for (int idx = 0; idx < nPoints; ++idx)
+	for (int idx = 0; idx < nPoints - 1; ++idx)
 	{
 		cells[idx][0].ComputeLengthConstraintContributions(lengthConstraintFraction);
 		cells[idx][1].ComputeLengthConstraintContributions(lengthConstraintFraction);
@@ -190,4 +190,14 @@ void VolumetricDOO::HandleSelfCollision()
 void VolumetricDOO::HandleExternalCollision()
 {
 
+}
+
+void VolumetricDOO::Render()
+{
+	for (int idx = 0; idx < nPoints - 1; ++idx)
+	{
+		cells[idx][0].Render();
+		cells[idx][1].Render();
+		cells[idx][2].Render();
+	}
 }

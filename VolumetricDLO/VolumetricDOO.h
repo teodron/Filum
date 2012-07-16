@@ -86,5 +86,9 @@ namespace Filum
 
 		/// clean-up own resources
 		~VolumetricDOO(void);
+
+		/// renders the DLO using deprecated but simple triangle calls
+		void Render();
+
 	};
 }

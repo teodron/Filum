@@ -29,6 +29,11 @@ namespace Filum
 		/// linear spring stiffness coefficient
 		Real kL;
 
+		/// the cell's volume in its initial rest position
+		Real restVolume;
+		/// the six rest lengths of the cell's edges
+		Real restPiPj, restPiPk, restPiPl, restPjPk, restPjPl, restPkPl;
+
 		/************************************************************************/
 		/* Internal forces                                                      */
 		/************************************************************************/
@@ -114,9 +119,19 @@ namespace Filum
 		*/
 		void ComputeLengthConstraintContributions(const Real& fraction);
 
+		/**
+		* \brief renders the cell's faces as triangles with flat shading
+		* \deprecated this method should be removed in favor of vertex arrays
+		*/
+		void Render();
+
 		void Move(vec3<Real> dr)
 		{
 			pi->r += dr;
+			pi->rPlus = pi->r;
+			pj->rPlus = pj->r;
+			pk->rPlus = pk->r;
+			pl->rPlus = pl->r;
 		}
 		void UpdatePos()
 		{
@@ -124,6 +139,20 @@ namespace Filum
 			pj->r += pj->f;
 			pk->r += pk->f;
 			pl->r += pl->f;
+		}
+		void UpdatePosDr()
+		{
+			pi->r += pi->dr;
+			pj->r += pj->dr;
+			pk->r += pk->dr;
+			pl->r += pl->dr;
+		}
+		void ResetDr()
+		{
+			pi->ResetDisplacement();
+			pj->ResetDisplacement();
+			pk->ResetDisplacement();
+			pl->ResetDisplacement();
 		}
 
 	};
