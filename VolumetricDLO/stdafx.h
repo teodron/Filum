@@ -19,6 +19,10 @@
 #include <memory>
 #include "FwdDecl.h"
 
+// render system
+#include "glew.h"
+#include "freeglut.h"
+
 typedef double Real;
 
 

@@ -1,7 +1,8 @@
 var searchData=
 [
   ['detail',['detail',['../namespacevmath_1_1detail.html',1,'vmath']]],
-  ['v',['v',['../structvmath_1_1quat.html#af50ace974c7ed3ba40cff18acfa56a70',1,'vmath::quat']]],
+  ['v',['v',['../class_filum_1_1_mass_point.html#a67ba30574356dce36d420a887fb6e276',1,'Filum::MassPoint::v()'],['../structvmath_1_1quat.html#af50ace974c7ed3ba40cff18acfa56a70',1,'vmath::quat::v()']]],
+  ['v0',['v0',['../class_filum_1_1_mass_point.html#ae48399bec13065524ca240aaa6cb67c2',1,'Filum::MassPoint']]],
   ['vec2',['vec2',['../structvmath_1_1vec2.html',1,'vmath']]],
   ['vec2',['vec2',['../structvmath_1_1vec2.html#aa50e573c993841d6715e1c22fe1f71b9',1,'vmath::vec2::vec2()'],['../structvmath_1_1vec2.html#a78a929d2f6accb7e7863979a7764b828',1,'vmath::vec2::vec2(const T i)'],['../structvmath_1_1vec2.html#af2206ee266d62c9c0504c96d60b59586',1,'vmath::vec2::vec2(const T ix, const T iy)'],['../structvmath_1_1vec2.html#a3f1f2c24fe75ba655507ae10b86884b3',1,'vmath::vec2::vec2(const vec3&lt; T &gt; &amp;v)'],['../structvmath_1_1vec2.html#a3f6a88dae69564c576d172ab829d0e7c',1,'vmath::vec2::vec2(const vec4&lt; T &gt; &amp;v)']]],
   ['vec3',['vec3',['../structvmath_1_1vec3.html',1,'vmath']]],
@@ -15,9 +16,12 @@ var searchData=
   ['vector_5fmath_2eh',['vector_math.h',['../vector__math_8h.html',1,'']]],
   ['velocityupdate',['VelocityUpdate',['../class_filum_1_1_mass_point.html#a6409c7f95c35c06aaa71fe7d4c74bddb',1,'Filum::MassPoint']]],
   ['vmath',['vmath',['../namespacevmath.html',1,'']]],
+  ['vminus',['vMinus',['../class_filum_1_1_mass_point.html#a44eb860521bb58ebb3638a8cdbf90162',1,'Filum::MassPoint']]],
   ['volume',['Volume',['../class_filum_1_1_tet_cell.html#ad321a8e0feb9d0c4c2fef2590cdb7636',1,'Filum::TetCell']]],
-  ['volumetricdoo',['VolumetricDOO',['../class_filum_1_1_volumetric_d_o_o.html',1,'Filum']]],
   ['volumetricdoo',['VolumetricDOO',['../class_filum_1_1_volumetric_d_o_o.html#a4e9147fc3c76445b5054515d7ca5df0f',1,'Filum::VolumetricDOO']]],
+  ['volumetricdoo',['VolumetricDOO',['../class_filum_1_1_volumetric_d_o_o.html',1,'Filum']]],
   ['volumetricdoo_2ecpp',['VolumetricDOO.cpp',['../_volumetric_d_o_o_8cpp.html',1,'']]],
-  ['volumetricdoo_2eh',['VolumetricDOO.h',['../_volumetric_d_o_o_8h.html',1,'']]]
+  ['volumetricdoo_2eh',['VolumetricDOO.h',['../_volumetric_d_o_o_8h.html',1,'']]],
+  ['vplus',['vPlus',['../class_filum_1_1_mass_point.html#a9778cff1e2031fa94ab24c47da04ba93',1,'Filum::MassPoint']]],
+  ['vres',['vRes',['../class_filum_1_1_mass_point.html#ad938c7131d50dbe9128c94af8c9c9bd1',1,'Filum::MassPoint']]]
 ];

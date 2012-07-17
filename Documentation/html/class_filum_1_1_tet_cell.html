@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -92,7 +93,7 @@ $(document).ready(function(){initNavTree('class_filum_1_1_tet_cell.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,6 +105,8 @@ $(document).ready(function(){initNavTree('class_filum_1_1_tet_cell.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_filum_1_1_tet_cell-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Filum::TetCell Class Reference</div>  </div>
@@ -134,6 +137,38 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab58963fdc09424fa07bdfae1718056e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the displacement corresponding to each corner If the cell's edges have modified their lengths, then this function checks the amount and updates the displacement accumulation vectors by adding a fraction of this amount.  <a href="#ab58963fdc09424fa07bdfae1718056e1"></a><br/></td></tr>
 <tr class="memitem:ab4c0cd0c58f3e0e4697eebeb88edd15b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#ab4c0cd0c58f3e0e4697eebeb88edd15b">Move</a> (<a class="el" href="structvmath_1_1vec3.html">vec3</a>&lt; <a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> &gt; dr)</td></tr>
 <tr class="memitem:af7fe75a09587ceb2ae7b000cd5706fc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#af7fe75a09587ceb2ae7b000cd5706fc9">UpdatePos</a> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a7c7fee949220d2756a2369dd3967cdfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvmath_1_1vec3.html">vec3</a>&lt; <a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a7c7fee949220d2756a2369dd3967cdfc">Fvpi</a> (<a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> V, <a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> V0)</td></tr>
+<tr class="memdesc:a7c7fee949220d2756a2369dd3967cdfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">the volumetric force contribution at corner pi  <a href="#a7c7fee949220d2756a2369dd3967cdfc"></a><br/></td></tr>
+<tr class="memitem:a4df8fe693575bca3bdd084985d0558d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvmath_1_1vec3.html">vec3</a>&lt; <a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a4df8fe693575bca3bdd084985d0558d0">Fvpj</a> (<a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> V, <a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> V0)</td></tr>
+<tr class="memdesc:a4df8fe693575bca3bdd084985d0558d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">the volumetric force contribution at corner pj  <a href="#a4df8fe693575bca3bdd084985d0558d0"></a><br/></td></tr>
+<tr class="memitem:add7bec7981d29dd2592a975353ca4466"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvmath_1_1vec3.html">vec3</a>&lt; <a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#add7bec7981d29dd2592a975353ca4466">Fvpk</a> (<a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> V, <a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> V0)</td></tr>
+<tr class="memdesc:add7bec7981d29dd2592a975353ca4466"><td class="mdescLeft">&#160;</td><td class="mdescRight">the volumetric force contribution at corner pk  <a href="#add7bec7981d29dd2592a975353ca4466"></a><br/></td></tr>
+<tr class="memitem:ad0216adab0a7a6eacc87ddacf6ff692d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structvmath_1_1vec3.html">vec3</a>&lt; <a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#ad0216adab0a7a6eacc87ddacf6ff692d">Fvpl</a> (<a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> V, <a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> V0)</td></tr>
+<tr class="memdesc:ad0216adab0a7a6eacc87ddacf6ff692d"><td class="mdescLeft">&#160;</td><td class="mdescRight">the volumetric force contribution at corner pl  <a href="#ad0216adab0a7a6eacc87ddacf6ff692d"></a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7adf32d2b8f8f8ebb97936a07fe3c72d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_filum_1_1_mass_point.html">MassPoint</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a7adf32d2b8f8f8ebb97936a07fe3c72d">pi</a></td></tr>
+<tr class="memdesc:a7adf32d2b8f8f8ebb97936a07fe3c72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">tetrahedron corners  <a href="#a7adf32d2b8f8f8ebb97936a07fe3c72d"></a><br/></td></tr>
+<tr class="memitem:a2f0d4d433830240d54c078d816f76b43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_filum_1_1_mass_point.html">MassPoint</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a2f0d4d433830240d54c078d816f76b43">pj</a></td></tr>
+<tr class="memitem:a949f8bcfb3639746e855cab7c2ba46ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_filum_1_1_mass_point.html">MassPoint</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a949f8bcfb3639746e855cab7c2ba46ac">pk</a></td></tr>
+<tr class="memitem:a2739200258f3fc0c4dfb3b9e502f9033"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_filum_1_1_mass_point.html">MassPoint</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a2739200258f3fc0c4dfb3b9e502f9033">pl</a></td></tr>
+<tr class="memitem:a9f0d30c23199e370c55ee4e84c6e6c35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a9f0d30c23199e370c55ee4e84c6e6c35">kV</a></td></tr>
+<tr class="memdesc:a9f0d30c23199e370c55ee4e84c6e6c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">volumetric spring stiffness coefficient  <a href="#a9f0d30c23199e370c55ee4e84c6e6c35"></a><br/></td></tr>
+<tr class="memitem:a6a856571b268ccd4a359f90159eb2ec4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a6a856571b268ccd4a359f90159eb2ec4">kL</a></td></tr>
+<tr class="memdesc:a6a856571b268ccd4a359f90159eb2ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">linear spring stiffness coefficient  <a href="#a6a856571b268ccd4a359f90159eb2ec4"></a><br/></td></tr>
+<tr class="memitem:a3adf6d1458ecdc5cefbc656953b13f9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a3adf6d1458ecdc5cefbc656953b13f9f">restVolume</a></td></tr>
+<tr class="memdesc:a3adf6d1458ecdc5cefbc656953b13f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">the cell's volume in its initial rest position  <a href="#a3adf6d1458ecdc5cefbc656953b13f9f"></a><br/></td></tr>
+<tr class="memitem:ae00c10514aba86c542821ea87212884a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#ae00c10514aba86c542821ea87212884a">restPiPj</a></td></tr>
+<tr class="memdesc:ae00c10514aba86c542821ea87212884a"><td class="mdescLeft">&#160;</td><td class="mdescRight">the six rest lengths of the cell's edges  <a href="#ae00c10514aba86c542821ea87212884a"></a><br/></td></tr>
+<tr class="memitem:ac82b0b687e22572af15e1d4cea3c4939"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#ac82b0b687e22572af15e1d4cea3c4939">restPiPk</a></td></tr>
+<tr class="memitem:abdebb1abb0dda6767744fd00655b8b71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#abdebb1abb0dda6767744fd00655b8b71">restPiPl</a></td></tr>
+<tr class="memitem:a566b5542ce759f220334ac3ef8e589ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a566b5542ce759f220334ac3ef8e589ff">restPjPk</a></td></tr>
+<tr class="memitem:aa6082c95ed35a8365c9a44b09fab8160"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#aa6082c95ed35a8365c9a44b09fab8160">restPjPl</a></td></tr>
+<tr class="memitem:a53b0f9224d908eff8775b89fdb8f1344"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_filum_1_1_tet_cell.html#a53b0f9224d908eff8775b89fdb8f1344">restPkPl</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Tetrahedral cell containing 4 mass points as its corners. </p>
@@ -205,7 +240,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00081">81</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00086">86</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
 
 </div>
 </div>
@@ -248,6 +283,158 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a7c7fee949220d2756a2369dd3967cdfc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvmath_1_1vec3.html">vec3</a>&lt;<a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&gt; Filum::TetCell::Fvpi </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td>
+          <td class="paramname"><em>V</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td>
+          <td class="paramname"><em>V0</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the volumetric force contribution at corner pi </p>
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00044">44</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4df8fe693575bca3bdd084985d0558d0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvmath_1_1vec3.html">vec3</a>&lt;<a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&gt; Filum::TetCell::Fvpj </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td>
+          <td class="paramname"><em>V</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td>
+          <td class="paramname"><em>V0</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the volumetric force contribution at corner pj </p>
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00052">52</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add7bec7981d29dd2592a975353ca4466"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvmath_1_1vec3.html">vec3</a>&lt;<a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&gt; Filum::TetCell::Fvpk </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td>
+          <td class="paramname"><em>V</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td>
+          <td class="paramname"><em>V0</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the volumetric force contribution at corner pk </p>
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00060">60</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0216adab0a7a6eacc87ddacf6ff692d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structvmath_1_1vec3.html">vec3</a>&lt;<a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&gt; Filum::TetCell::Fvpl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td>
+          <td class="paramname"><em>V</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td>
+          <td class="paramname"><em>V0</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the volumetric force contribution at corner pl </p>
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00068">68</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="aa604260d47322d3d7792edc1ddb09fd1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -271,7 +458,7 @@ Public Member Functions</h2></td></tr>
 
 <p>returns the volume of the cell in its initial rest position </p>
 
-<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00098">98</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00103">103</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
 
 </div>
 </div>
@@ -297,7 +484,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00117">117</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00122">122</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
 
 </div>
 </div>
@@ -325,7 +512,7 @@ Public Member Functions</h2></td></tr>
 
 <p>setter method for the linear spring constant </p>
 
-<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00086">86</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00091">91</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
 
 </div>
 </div>
@@ -353,7 +540,7 @@ Public Member Functions</h2></td></tr>
 
 <p>setter method for the volumetric spring constant </p>
 
-<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00089">89</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00094">94</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
 
 </div>
 </div>
@@ -396,7 +583,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00121">121</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00126">126</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
 
 </div>
 </div>
@@ -423,7 +610,304 @@ Public Member Functions</h2></td></tr>
 
 <p>returns the volume of the cell at the current time instance </p>
 
-<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00092">92</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00097">97</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<h2>Member Data Documentation</h2>
+<a class="anchor" id="a6a856571b268ccd4a359f90159eb2ec4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> Filum::TetCell::kL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>linear spring stiffness coefficient </p>
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00030">30</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f0d30c23199e370c55ee4e84c6e6c35"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> Filum::TetCell::kV</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>volumetric spring stiffness coefficient </p>
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00027">27</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7adf32d2b8f8f8ebb97936a07fe3c72d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_filum_1_1_mass_point.html">MassPoint</a>* Filum::TetCell::pi</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>tetrahedron corners </p>
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00024">24</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f0d4d433830240d54c078d816f76b43"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_filum_1_1_mass_point.html">MassPoint</a> * Filum::TetCell::pj</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00024">24</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a949f8bcfb3639746e855cab7c2ba46ac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_filum_1_1_mass_point.html">MassPoint</a> * Filum::TetCell::pk</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00024">24</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2739200258f3fc0c4dfb3b9e502f9033"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_filum_1_1_mass_point.html">MassPoint</a> * Filum::TetCell::pl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00024">24</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae00c10514aba86c542821ea87212884a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> Filum::TetCell::restPiPj</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the six rest lengths of the cell's edges </p>
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00035">35</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac82b0b687e22572af15e1d4cea3c4939"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> Filum::TetCell::restPiPk</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00035">35</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abdebb1abb0dda6767744fd00655b8b71"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> Filum::TetCell::restPiPl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00035">35</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a566b5542ce759f220334ac3ef8e589ff"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> Filum::TetCell::restPjPk</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00035">35</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa6082c95ed35a8365c9a44b09fab8160"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> Filum::TetCell::restPjPl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00035">35</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53b0f9224d908eff8775b89fdb8f1344"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> Filum::TetCell::restPkPl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00035">35</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3adf6d1458ecdc5cefbc656953b13f9f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="stdafx_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a> Filum::TetCell::restVolume</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>the cell's volume in its initial rest position </p>
+
+<p>Definition at line <a class="el" href="_tet_cell_8h_source.html#l00033">33</a> of file <a class="el" href="_tet_cell_8h_source.html">TetCell.h</a>.</p>
 
 </div>
 </div>
@@ -437,7 +921,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_filum.html">Filum</a></li><li class="navelem"><a class="el" href="class_filum_1_1_tet_cell.html">TetCell</a></li>
-    <li class="footer">Generated on Fri Jul 13 2012 13:55:52 for Filum by
+    <li class="footer">Generated on Sat Jul 14 2012 20:31:08 for Filum by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
