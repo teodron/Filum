@@ -53,6 +53,9 @@ int _tmain(int argc, char* argv[])
 		r.push_back(vec3<Real>(3*cos(idx / 3.), 3*sin(idx / 3.), idx / 5.));
 
 	VolumetricDOO dlo(r, 0.2, 0.02);
+	dlo.SetKl(0.2);
+	dlo.SetKv(0.05);
+	dlo.SetLengthConstraintFraction(0.01);
 
 	World::GetInstance()->SetDLO(&dlo);
 	InitWorld(argc, argv);

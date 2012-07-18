@@ -31,11 +31,19 @@ namespace Filum
 		Real mass;
 		/// a fraction describing how much a length preserving constraint uses of the residual displacement
 		Real lengthConstraintFraction;
+		/// linear spring stiffness constant
+		Real Kl;
+		/// volumetric spring stiffness constant
+		Real Kv;
+
 		/// tetrahedral cells - 3 for each R_i R_{i+1} segment
 		TetCell (*cells)[3];
 
 		/// Computes internal forces at each mass-point by updating the tetrahedral cells that point is part of
 		void ComputeInternalForces();
+
+		/// Computes the force contribution from external force fields (e.g. gravity)
+		void ComputeExternalForces();
 
 		/// Applies position corrections according to accumulated penalty displacement vectors
 		void ComputeCorrectedPositions();
@@ -79,6 +87,15 @@ namespace Filum
 		* \todo Implement this function using an external object pointer
 		*/
 		void HandleExternalCollision();
+
+		/**
+		* \brief Pushes the values from newer position/velocity holders into their past holders
+		* The final/corrected positions and velocities at instance t are copied into the t - Dt instance
+		* and those of instance t + Dt are copied into the t instance value holders. This process
+		* is performed for all nodes of the DLO
+		*/
+		void SynchronizePositionsAndVelocities();
+
 	public:
 
 		/// construct DLO from a sample set of points and a buffer radius
@@ -87,8 +104,24 @@ namespace Filum
 		/// clean-up own resources
 		~VolumetricDOO(void);
 
+		void SetKl(Real value);
+		void SetKv(Real value);
+		void SetLengthConstraintFraction(Real value)
+		{
+			lengthConstraintFraction = value;
+		}
 		/// renders the DLO using deprecated but simple triangle calls
 		void Render();
 
+		/**
+		* \brief Single step update procedure
+		*
+		* Updates the cell corners by computing force contributions and then 
+		* calculating new positions and velocities from a Verlet integration step
+		* and from collision and internal constraint responses.
+		*/
+		void PerformUpdateStep();
+
+		void Perturb();
 	};
 }

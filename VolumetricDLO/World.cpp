@@ -83,6 +83,16 @@ void World::Keyboard(unsigned char key, int x, int y)
 		camPos += vec3<Real>(0,1,0);
 		lookAt += vec3<Real>(0,1,0);
 	}
+	// update dlo
+	if (key == 'u')
+	{
+		World::GetInstance()->dlo->PerformUpdateStep();
+	}
+	// perturb dlo
+	if (key == 'p')
+	{
+		World::GetInstance()->dlo->Perturb();
+	}
 }
 
 void World::Init()

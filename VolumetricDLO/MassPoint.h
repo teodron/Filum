@@ -73,7 +73,21 @@ namespace Filum
 			vPlus += vRes;
 		}
 
+		/// Adds an amount representing an external force contribution
+		void AddExternalForce(const vec3<Real>& force)
+		{
+			this->f += force;
+		}
+
+		/// Synchronizes the positions and velocities at this point by copying the newly computed values into the current holders
+		void SynchronizePositionsAndVelocities();
+
 		~MassPoint(void);
+
+		void Perturb(vec3<Real> v)
+		{
+			this->r += v;
+		}
 	};
 
 	inline ostream& operator<<(ostream& output, const MassPoint& p) {
