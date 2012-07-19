@@ -136,9 +136,15 @@ void VolumetricDOO::ComputeExternalForces()
 {
 	for (int idx = 0; idx < nPoints; ++idx)
 	{
+		/*
 		P[idx].AddExternalForce(gravity * mass);
 		Q[idx].AddExternalForce(gravity * mass);
 		R[idx].AddExternalForce(gravity * mass);
+		*/
+		// damping
+		P[idx].AddDampingForce(bDamping);
+		Q[idx].AddDampingForce(bDamping);
+		R[idx].AddDampingForce(bDamping);
 	}
 }
 
@@ -231,8 +237,8 @@ void VolumetricDOO::PerformUpdateStep()
 {
 	
 	// update force contributions
-	//ComputeInternalForces();
-	//ComputeExternalForces();
+	ComputeInternalForces();
+	ComputeExternalForces();
 
 	// integrate to find new positions
 	StepUpdatePositions();
@@ -288,5 +294,5 @@ void VolumetricDOO::SetKv(Real value)
 
 void VolumetricDOO::Perturb()
 {
-	P[0].Perturb(vec3<Real>(0,0,.1));
+	P[0].Perturb(vec3<Real>(0,0,.01));
 }

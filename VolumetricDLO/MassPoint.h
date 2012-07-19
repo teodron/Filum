@@ -79,6 +79,11 @@ namespace Filum
 			this->f += force;
 		}
 
+		void AddDampingForce(const Real& b)
+		{
+			this->f += - b * v;
+		}
+
 		/// Synchronizes the positions and velocities at this point by copying the newly computed values into the current holders
 		void SynchronizePositionsAndVelocities();
 

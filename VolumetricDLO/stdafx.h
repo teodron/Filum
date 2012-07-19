@@ -36,6 +36,6 @@ const vec3<Real> gravity(0, 0, -10.);
 
 const Real epsilon = 1e-5;
 
-const Real dTime = 0.01;
+const Real dTime = 0.002;
 
 #include "PhysicsUtilities.h"

@@ -35,6 +35,8 @@ namespace Filum
 		Real Kl;
 		/// volumetric spring stiffness constant
 		Real Kv;
+		/// damping coefficient
+		Real bDamping;
 
 		/// tetrahedral cells - 3 for each R_i R_{i+1} segment
 		TetCell (*cells)[3];
@@ -110,6 +112,11 @@ namespace Filum
 		{
 			lengthConstraintFraction = value;
 		}
+		void SetDampingCoefficient(Real value)
+		{
+			bDamping = value;
+		}
+
 		/// renders the DLO using deprecated but simple triangle calls
 		void Render();
 

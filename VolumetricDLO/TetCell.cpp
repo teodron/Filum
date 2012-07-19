@@ -56,7 +56,7 @@ void TetCell::UpdateForces()
 	D = length(pi->r - pj->r); D0 = restPiPj;// D0 = length(pi->r0 - pj->r0);
 	force = FLin(kL, D, D0, pi->r, pj->r);
 	pi->f += force; 
-	pj->f += -force;
+	pj->f += -force; 
 	// pi - pk
 	D = length(pi->r -pk->r); D0 = restPiPk;// D0 = length(pi->r0 - pk->r0);
 	force = FLin(kL, D, D0, pi->r, pk->r);
@@ -88,6 +88,7 @@ void TetCell::UpdateForces()
 	Real V = 0, V0 = 0;
 	V = this->Volume();
 	V0 = restVolume;
+	//cout<< V - V0 <<endl;
 	//V0 = this->InitialVolume();
 	// pi
 	pi->f += Fvpi(V, V0);
