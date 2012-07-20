@@ -80,6 +80,11 @@ VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius, Rea
 
 		cout<<cells[idx][0].InitialVolume()<<" "<<cells[idx][1].InitialVolume()<<" "<<cells[idx][2].InitialVolume()<<endl;
 	}
+
+	// Reset node/corner dynamic vectors
+	ResetForces();
+	ResetRestitutionVelocities();
+	ResetDisplacements();
 }
 
 VolumetricDOO::~VolumetricDOO(void)
@@ -124,6 +129,22 @@ void VolumetricDOO::ComputeInternalForces()
 		cells[idx][0].UpdateForces();
 		cells[idx][1].UpdateForces();
 		cells[idx][2].UpdateForces();
+	}
+}
+
+void VolumetricDOO::ComputeExternalForces()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		/*
+		P[idx].AddExternalForce(gravity * mass);
+		Q[idx].AddExternalForce(gravity * mass);
+		R[idx].AddExternalForce(gravity * mass);
+		*/
+		// damping
+		P[idx].AddDampingForce(bDamping);
+		Q[idx].AddDampingForce(bDamping);
+		R[idx].AddDampingForce(bDamping);
 	}
 }
 
@@ -192,6 +213,16 @@ void VolumetricDOO::HandleExternalCollision()
 
 }
 
+void VolumetricDOO::SynchronizePositionsAndVelocities()
+{
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		P[idx].SynchronizePositionsAndVelocities();
+		Q[idx].SynchronizePositionsAndVelocities();
+		R[idx].SynchronizePositionsAndVelocities();
+	}
+}
+
 void VolumetricDOO::Render()
 {
 	for (int idx = 0; idx < nPoints - 1; ++idx)
@@ -200,4 +231,68 @@ void VolumetricDOO::Render()
 		cells[idx][1].Render();
 		cells[idx][2].Render();
 	}
+}
+
+void VolumetricDOO::PerformUpdateStep()
+{
+	
+	// update force contributions
+	ComputeInternalForces();
+	ComputeExternalForces();
+
+	// integrate to find new positions
+	StepUpdatePositions();
+
+	// compute constraint contributions
+	ResetDisplacements();
+	ComputeLengthConstraints();
+	ComputeTorsionConstraints();
+
+	// apply displacements
+	ComputeCorrectedPositions();
+
+	// find new velocities: central differencing
+	StepUpdateVelocities();
+
+	// handle any collisions
+	ResetForces();
+	ResetRestitutionVelocities();
+	ResetDisplacements();
+	HandleSelfCollision();
+	HandleExternalCollision();
+
+	// correct positions after collision
+	ComputeCorrectedPositions();
+	// re-estimate velocities
+	StepUpdateVelocities();
+	// correct the predicted velocities
+	ComputeCorrectedVelocites();
+	
+	// synchronize/update by copying the new amounts into previous time-instances
+	SynchronizePositionsAndVelocities();
+}
+
+void VolumetricDOO::SetKl(Real value)
+{
+	for (int idx = 0; idx < nPoints - 1; ++idx)
+	{
+		cells[idx][0].SetKl(value);
+		cells[idx][1].SetKl(value);
+		cells[idx][2].SetKl(value);
+	}
+}
+
+void VolumetricDOO::SetKv(Real value)
+{
+	for (int idx = 0; idx < nPoints - 1; ++idx)
+	{
+		cells[idx][0].SetKv(value);
+		cells[idx][1].SetKv(value);
+		cells[idx][2].SetKv(value);
+	}
+}
+
+void VolumetricDOO::Perturb()
+{
+	P[0].Perturb(vec3<Real>(0,0,.01));
 }

@@ -23,6 +23,16 @@ MassPoint::MassPoint(const MassPoint& src)
 	v = src.v; v0 = src.v0; vMinus = src.vMinus; vPlus = src.vPlus;
 	dr = src.dr; f = src.f; vRes = src.vRes;
 }
+
+void MassPoint::SynchronizePositionsAndVelocities()
+{
+	// t - Dt <- t
+	rMinus = r;
+	vMinus = v;
+	// t <- t + Dt
+	r = rPlus;
+	v = vPlus;
+}
 MassPoint::~MassPoint(void)
 {
 }

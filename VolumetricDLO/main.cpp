@@ -52,7 +52,11 @@ int _tmain(int argc, char* argv[])
 	for (int idx = 0; idx <n; ++idx)
 		r.push_back(vec3<Real>(3*cos(idx / 3.), 3*sin(idx / 3.), idx / 5.));
 
-	VolumetricDOO dlo(r, 0.2, 0.02);
+	VolumetricDOO dlo(r, 0.2, 2.);
+	dlo.SetKl(20);
+	dlo.SetKv(10);
+	dlo.SetDampingCoefficient(0.9);
+	dlo.SetLengthConstraintFraction(0.02);
 
 	World::GetInstance()->SetDLO(&dlo);
 	InitWorld(argc, argv);

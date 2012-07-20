@@ -43,7 +43,7 @@ namespace Filum
 		*/
 		vec3<Real> Fvpi(Real V, Real V0)
 		{
-			return FVol(.1, V, V0, pi->r, pj->r, pk->r, pl->r);
+			return FVol(this->kV, V, V0, pi->r, pj->r, pk->r, pl->r);
 		}
 
 		/** 
@@ -51,7 +51,7 @@ namespace Filum
 		*/
 		vec3<Real> Fvpj(Real V, Real V0)
 		{
-			return FVol(.1, V, V0, pj->r, pi->r, pl->r, pk->r);
+			return FVol(this->kV, V, V0, pj->r, pi->r, pl->r, pk->r);
 		}
 
 		/** 
@@ -59,7 +59,7 @@ namespace Filum
 		*/
 		vec3<Real> Fvpk(Real V, Real V0)
 		{
-			return FVol(.1, V, V0, pk->r, pi->r, pj->r, pl->r);
+			return FVol(this->kV, V, V0, pk->r, pi->r, pj->r, pl->r);
 		}
 
 		/** 
@@ -67,7 +67,7 @@ namespace Filum
 		*/
 		vec3<Real> Fvpl(Real V, Real V0)
 		{
-			return FVol(.1, V, V0, pl->r, pi->r, pk->r, pj->r);
+			return FVol(this->kV, V, V0, pl->r, pi->r, pk->r, pj->r);
 		}
 
 
