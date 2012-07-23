@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "VolumetricDOO.h"
 
+
 using namespace Filum;
 
 VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius, Real mass)
@@ -81,6 +82,10 @@ VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius, Rea
 		cout<<cells[idx][0].InitialVolume()<<" "<<cells[idx][1].InitialVolume()<<" "<<cells[idx][2].InitialVolume()<<endl;
 	}
 
+	for (int idx = 0; idx < nPoints -1; ++idx)
+	{
+		cout<<idx<< " "<<AngleBetweenVectors(R[idx+1].r - R[idx].r, Q[idx].r - R[idx].r, Q[idx+1].r - R[idx+1].r)<<endl;
+	}
 	// Reset node/corner dynamic vectors
 	ResetForces();
 	ResetRestitutionVelocities();
@@ -136,11 +141,11 @@ void VolumetricDOO::ComputeExternalForces()
 {
 	for (int idx = 0; idx < nPoints; ++idx)
 	{
-		/*
+		/**
 		P[idx].AddExternalForce(gravity * mass);
 		Q[idx].AddExternalForce(gravity * mass);
 		R[idx].AddExternalForce(gravity * mass);
-		*/
+		/**/
 		// damping
 		P[idx].AddDampingForce(bDamping);
 		Q[idx].AddDampingForce(bDamping);

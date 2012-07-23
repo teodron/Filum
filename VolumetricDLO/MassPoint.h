@@ -20,6 +20,7 @@ namespace Filum
 	class MassPoint
 	{
 		friend class TetCell;
+		friend class VolumetricDOO;
 		friend ostream& operator<<(ostream& output, const MassPoint& p);
 	private:
 		/// positions

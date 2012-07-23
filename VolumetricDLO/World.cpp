@@ -36,6 +36,7 @@ void World::Display()
 	glColor3f(1,0,0);
 
 	World::GetInstance()->dlo->Render();
+	World::GetInstance()->dlo->PerformUpdateStep();
 
 	glutSwapBuffers();
 }

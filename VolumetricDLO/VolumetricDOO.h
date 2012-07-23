@@ -106,12 +106,16 @@ namespace Filum
 		/// clean-up own resources
 		~VolumetricDOO(void);
 
+		/// sets the linear spring constant
 		void SetKl(Real value);
+		/// sets the volumetric spring constant
 		void SetKv(Real value);
+		/// sets the fraction used to accumulate length preserving displacements
 		void SetLengthConstraintFraction(Real value)
 		{
 			lengthConstraintFraction = value;
 		}
+		/// sets the energy loss/ damping coefficient
 		void SetDampingCoefficient(Real value)
 		{
 			bDamping = value;

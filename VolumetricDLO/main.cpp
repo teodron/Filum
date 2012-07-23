@@ -5,6 +5,7 @@
 #include "TetCell.h"
 #include "VolumetricDOO.h"
 #include "World.h"
+#include <cmath> 
 
 using namespace Filum;
 
@@ -52,9 +53,9 @@ int _tmain(int argc, char* argv[])
 	for (int idx = 0; idx <n; ++idx)
 		r.push_back(vec3<Real>(3*cos(idx / 3.), 3*sin(idx / 3.), idx / 5.));
 
-	VolumetricDOO dlo(r, 0.2, 2.);
+	VolumetricDOO dlo(r, 0.2, 20);
 	dlo.SetKl(20);
-	dlo.SetKv(10);
+	dlo.SetKv(20);
 	dlo.SetDampingCoefficient(0.9);
 	dlo.SetLengthConstraintFraction(0.02);
 

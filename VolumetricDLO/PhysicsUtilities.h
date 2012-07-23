@@ -1,3 +1,4 @@
+#pragma once
 #include "stdafx.h"
 namespace Filum
 {
@@ -62,4 +63,15 @@ namespace Filum
 	{
 		return - kL / (D0*D0) * (D - D0) * (pi - pj) / D;
 	}
+
+	/**
+	* \brief Computes the angle between two vectors relative to a common rotation axis
+	* The relative angle is the minimum rotation angle against an axis such that the first
+	* vector is aligned with the second.
+	* \param w - the common rotation axis
+	* \param a - the first vector
+	* \param b - the second vector
+	* \return the signed relative angle of the two vectors (in radians)
+	*/
+	Real AngleBetweenVectors(vec3<Real> w, vec3<Real> a, vec3<Real> b);
 }
