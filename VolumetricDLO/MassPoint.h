@@ -20,8 +20,8 @@ namespace Filum
 	class MassPoint
 	{
 		friend class TetCell;
-		friend class VolumetricDOO;
 		friend ostream& operator<<(ostream& output, const MassPoint& p);
+
 	private:
 		/// positions
 		vec3<Real> r, rMinus, rPlus, r0;
@@ -32,6 +32,15 @@ namespace Filum
 
 		Real mass; //< the mass concetration at this point (in kilograms)
 	public:
+		static class TorsionUtilities
+		{
+			friend class VolumetricDOO;
+		private:
+			static Real InitialAngleBetweenPoints(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj)
+			{
+				return AngleBetweenVectors(Rj->r0 - Ri->r0, Qi->r0 - Ri->r0, Qj->r0 - Rj->r0);
+			}
+		};
 		/// Creates a static mass point at a specified position
 		MassPoint(vec3<Real> pos);
 		/// copy constructor

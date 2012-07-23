@@ -84,7 +84,9 @@ VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius, Rea
 
 	for (int idx = 0; idx < nPoints -1; ++idx)
 	{
-		cout<<idx<< " "<<AngleBetweenVectors(R[idx+1].r - R[idx].r, Q[idx].r - R[idx].r, Q[idx+1].r - R[idx+1].r)<<endl;
+		//cout<<idx<< " "<<AngleBetweenVectors(R[idx+1].r - R[idx].r, Q[idx].r - R[idx].r, Q[idx+1].r - R[idx+1].r)<<endl;
+		cout<< idx<<" "<< MassPoint::TorsionUtilities::InitialAngleBetweenPoints(&R[idx], &R[idx+1], &Q[idx], &Q[idx+1])<<endl;
+
 	}
 	// Reset node/corner dynamic vectors
 	ResetForces();

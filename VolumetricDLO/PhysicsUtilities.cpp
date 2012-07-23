@@ -17,6 +17,10 @@ Real Filum::AngleBetweenVectors(vec3<Real> w, vec3<Real> a, vec3<Real> b)
 	vec3<Real> aPerp = a - dot(a, w) * w;
 	vec3<Real> bPerp = b - dot(b, w) * w;
 	Real sigma = sign(dot(cross(aPerp, bPerp), w));
-	cout<<dot(aPerp, bPerp) / (length(aPerp) * length(bPerp))<<endl;
-	return sigma * acos(dot(aPerp, bPerp) / (length(aPerp) * length(bPerp)));
+	Real cosine = (dot(aPerp, bPerp) / (length(aPerp) * length(bPerp)));
+	if (cosine > 1)
+		cosine = 1;
+	if (cosine < -1)
+		cosine = -1;
+	return sigma * acos(cosine);
 }
