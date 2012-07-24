@@ -40,6 +40,15 @@ namespace Filum
 			{
 				return AngleBetweenVectors(Rj->r0 - Ri->r0, Qi->r0 - Ri->r0, Qj->r0 - Rj->r0);
 			}
+			static Real CurrentAngleBetweenPoints(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj)
+			{
+				return AngleBetweenVectors(Rj->rPlus - Ri->rPlus, Qi->rPlus - Ri->rPlus, Qj->rPlus - Rj->rPlus);
+			}
+			static quat<Real> TorsionQuat(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj,const Real& initialAngle)
+			{
+				Real currentAngle = CurrentAngleBetweenPoints(Ri, Rj, Qi, Qj);
+				return quat_from_axis_angle(Rj->rPlus - Ri->rPlus, 0.5 *(currentAngle - initialAngle));
+			}
 		};
 		/// Creates a static mass point at a specified position
 		MassPoint(vec3<Real> pos);
