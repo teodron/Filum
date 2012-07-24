@@ -41,6 +41,9 @@ namespace Filum
 		/// tetrahedral cells - 3 for each R_i R_{i+1} segment
 		TetCell (*cells)[3];
 
+		/// initial torsion angles
+		vector<Real> torsionAngles;
+
 		/// Computes internal forces at each mass-point by updating the tetrahedral cells that point is part of
 		void ComputeInternalForces();
 

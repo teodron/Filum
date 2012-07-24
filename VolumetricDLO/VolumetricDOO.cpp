@@ -81,11 +81,13 @@ VolumetricDOO::VolumetricDOO(const vector<vec3<Real> > &points, Real radius, Rea
 
 		cout<<cells[idx][0].InitialVolume()<<" "<<cells[idx][1].InitialVolume()<<" "<<cells[idx][2].InitialVolume()<<endl;
 	}
-
+	// compute initial torsion angles
+	torsionAngles.resize(nPoints - 1);
 	for (int idx = 0; idx < nPoints -1; ++idx)
 	{
 		//cout<<idx<< " "<<AngleBetweenVectors(R[idx+1].r - R[idx].r, Q[idx].r - R[idx].r, Q[idx+1].r - R[idx+1].r)<<endl;
-		cout<< idx<<" "<< MassPoint::TorsionUtilities::InitialAngleBetweenPoints(&R[idx], &R[idx+1], &Q[idx], &Q[idx+1])<<endl;
+		torsionAngles[idx] = MassPoint::TorsionUtilities::InitialAngleBetweenPoints(&R[idx], &R[idx+1], &Q[idx], &Q[idx+1]);
+		cout<< idx<<" "<<torsionAngles[idx] <<endl;
 
 	}
 	// Reset node/corner dynamic vectors
