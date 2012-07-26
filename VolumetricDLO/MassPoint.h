@@ -47,7 +47,42 @@ namespace Filum
 			static quat<Real> TorsionQuat(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj,const Real& initialAngle)
 			{
 				Real currentAngle = CurrentAngleBetweenPoints(Ri, Rj, Qi, Qj);
+<<<<<<< HEAD
 				return quat_from_axis_angle(Rj->rPlus - Ri->rPlus, 0.5 *(initialAngle - currentAngle));
+=======
+				return quat_from_axis_angle(Rj->rPlus - Ri->rPlus, 0.01 *(initialAngle - currentAngle));
+			}
+
+			static void ApplyQuat(MassPoint * R, MassPoint * Q, quat<Real> torsionQuat)
+			{
+				vec3<Real> r = R->rPlus; 
+				vec3<Real> q = Q->rPlus;
+				q -= r;
+				quat<Real> hq = torsionQuat * quat<Real>(q, 0) * conjugate(torsionQuat);
+				q = hq.v;
+				q += r;
+				Q->dr += q - Q->rPlus;
+			}
+			static void ApplyQuat(MassPoint* R, MassPoint* Q, MassPoint* P, quat<Real> torsionQuat)
+			{
+				vec3<Real> r = R->rPlus; 
+				vec3<Real> q = Q->rPlus;
+				vec3<Real> p = P->rPlus;
+				q -= r;
+				p -= r;
+				quat<Real> hq = torsionQuat * quat<Real>(q, 0) * conjugate(torsionQuat);
+				quat<Real> hp = torsionQuat * quat<Real>(p, 0) * conjugate(torsionQuat);
+				q = hq.v;
+				p = hp.v;
+				q += r;
+				p += r;
+				Q->dr += (q - Q->rPlus);
+				P->dr += (p - P->rPlus);
+			}
+			static Real SegLength(MassPoint *Ri, MassPoint *Rj)
+			{
+				return length(Ri->rPlus - Rj->rPlus);
+>>>>>>> 6ae99d180ca515b727eb9c71b7e27b02605bb0a4
 			}
 		};
 		/// Creates a static mass point at a specified position
