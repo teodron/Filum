@@ -209,7 +209,21 @@ void VolumetricDOO::ComputeLengthConstraints()
 
 void VolumetricDOO::ComputeTorsionConstraints()
 {
-
+	quat<Real> prevQuat;
+	quat<Real> currentQuat;
+	prevQuat = MassPoint::TorsionUtilities::TorsionQuat(&R[0], &R[1], &Q[0], &Q[1], torsionAngles[0]);
+	Real prevLength = MassPoint::TorsionUtilities::SegLength(&R[0], &R[1]);
+	Real currLength;
+	for (int k = 1; k < 2; ++k)
+	{
+		currentQuat = conjugate(MassPoint::TorsionUtilities::TorsionQuat(&R[k], &R[k+1],&Q[k], &Q[k+1], torsionAngles[k]));
+		currLength = MassPoint::TorsionUtilities::SegLength(&R[k], &R[k+1]);
+		Real lambda = prevLength / (currLength + prevLength);
+		quat<Real> torsionQuat = slerp(prevQuat, currentQuat, lambda);
+		MassPoint::TorsionUtilities::ApplyQuat(&R[k], &Q[k], &P[k], torsionQuat);
+		prevLength = currLength;
+		prevQuat = conjugate(currentQuat);
+	}
 }
 
 void VolumetricDOO::HandleSelfCollision()
