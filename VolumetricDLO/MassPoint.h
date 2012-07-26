@@ -47,7 +47,7 @@ namespace Filum
 			static quat<Real> TorsionQuat(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj,const Real& initialAngle)
 			{
 				Real currentAngle = CurrentAngleBetweenPoints(Ri, Rj, Qi, Qj);
-				return quat_from_axis_angle(Rj->rPlus - Ri->rPlus, 0.5 *(currentAngle - initialAngle));
+				return quat_from_axis_angle(Rj->rPlus - Ri->rPlus, 0.5 *(initialAngle - currentAngle));
 			}
 		};
 		/// Creates a static mass point at a specified position
