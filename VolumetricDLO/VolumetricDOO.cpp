@@ -207,7 +207,7 @@ void VolumetricDOO::ComputeLengthConstraints()
 	}
 }
 
-void VolumetricDOO::ComputeTorsionConstraints()
+void VolumetricDOO::ComputeTorsionForces()
 {
 	quat<Real> prevQuat;
 	quat<Real> currentQuat;
@@ -216,11 +216,11 @@ void VolumetricDOO::ComputeTorsionConstraints()
 	Real currLength;
 	for (int k = 1; k < nPoints - 1; ++k)
 	{
-		currentQuat = conjugate(MassPoint::TorsionUtilities::TorsionQuat(&R[k], &R[k+1],&Q[k], &Q[k+1], torsionAngles[k]));
+		currentQuat = conjugate(MassPoint::TorsionUtilities::TorsionQuat(&R[k], &R[k+1], &Q[k], &Q[k+1], torsionAngles[k]));
 		currLength = MassPoint::TorsionUtilities::SegLength(&R[k], &R[k+1]);
 		Real lambda = prevLength / (currLength + prevLength);
 		quat<Real> torsionQuat = slerp(prevQuat, currentQuat, lambda);
-		MassPoint::TorsionUtilities::ApplyQuat(&R[k], &Q[k], &P[k], torsionQuat);
+		MassPoint::TorsionUtilities::ApplyQuat(&R[k], &Q[k], &P[k], torsionQuat, this->Kt);
 		prevLength = currLength;
 		prevQuat = conjugate(currentQuat);
 	}
@@ -260,8 +260,8 @@ void VolumetricDOO::PerformUpdateStep()
 {
 	
 	// update force contributions
-	ComputeTorsionConstraints();
 	ComputeInternalForces();
+	ComputeTorsionForces();
 	ComputeExternalForces();
 
 	// integrate to find new positions
@@ -297,6 +297,10 @@ void VolumetricDOO::PerformUpdateStep()
 	SynchronizePositionsAndVelocities();
 }
 
+void VolumetricDOO::setKt(Real value)
+{
+	Kt = value;
+}
 void VolumetricDOO::SetKl(Real value)
 {
 	for (int idx = 0; idx < nPoints - 1; ++idx)

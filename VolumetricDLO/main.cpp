@@ -11,6 +11,9 @@ using namespace Filum;
 
 void InitWorld(int argc, char* argv[])
 {
+	/************************************************************************/
+	/* Illustrates how a node j in an i-j-k configuration transforms        */
+	/************************************************************************/
 	vec3<Real> ri(1,1,0), rj(0,0,0), rk(0,0,1);
 	vec3<Real> qi(2,1,0), qj(1,0,0), qk(0,-1,0);
 
@@ -46,6 +49,7 @@ void InitWorld(int argc, char* argv[])
 	nujk = AngleBetweenVectors(nrk - nrj, nqj - nrj, nqk - nrk);
 	cout<< " corrected "<< nuij << " " << nujk;
 	system("pause");
+
 	cout << "Initializing world .."<<endl<< endl;
 
 
@@ -93,6 +97,7 @@ int _tmain(int argc, char* argv[])
 	VolumetricDOO dlo(r, 0.2, 20);
 	dlo.SetKl(20);
 	dlo.SetKv(20);
+	dlo.setKt(1);
 	dlo.SetDampingCoefficient(0.9);
 	dlo.SetLengthConstraintFraction(0.02);
 

@@ -35,6 +35,9 @@ namespace Filum
 		Real Kl;
 		/// volumetric spring stiffness constant
 		Real Kv;
+		/// torsion spring stiffness constant
+		Real Kt;
+
 		/// damping coefficient
 		Real bDamping;
 
@@ -46,6 +49,9 @@ namespace Filum
 
 		/// Computes internal forces at each mass-point by updating the tetrahedral cells that point is part of
 		void ComputeInternalForces();
+
+		/// Computes the local torsion force contributions updating the Q - P nodes adjacent to each R node
+		void ComputeTorsionForces();
 
 		/// Computes the force contribution from external force fields (e.g. gravity)
 		void ComputeExternalForces();
@@ -74,8 +80,7 @@ namespace Filum
 		/// Computes the length constraints induced penalty displacements for each cell corner
 		void ComputeLengthConstraints();
 
-		/// Computes the local torsion constraints contributions updating the Q - P nodes adjacent to each R node
-		void ComputeTorsionConstraints();
+
 
 		/**
 		* \brief Performs self collision detection and resolution
@@ -113,6 +118,8 @@ namespace Filum
 		void SetKl(Real value);
 		/// sets the volumetric spring constant
 		void SetKv(Real value);
+		/// sets the torsion spring constant
+		void setKt(Real value);
 		/// sets the fraction used to accumulate length preserving displacements
 		void SetLengthConstraintFraction(Real value)
 		{

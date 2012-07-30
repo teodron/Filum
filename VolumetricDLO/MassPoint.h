@@ -32,19 +32,50 @@ namespace Filum
 
 		Real mass; //< the mass concetration at this point (in kilograms)
 	public:
+		/**
+		* \brief Utility class providing torsion quaternion and torsion angle computation routines
+		* This class mediates and limits the access of a DLO class to a mass point's inner members
+		*/
 		static class TorsionUtilities
 		{
 			friend class VolumetricDOO;
 		private:
+			/**
+			* \brief Measures the initial angle between two mass point segments sharing a common axis
+			* The function uses the initial (r0) position of a mass point
+			* \param Ri - the first axis endpoint 
+			* \param Rj - the last axis endpoint
+			* \param Qi - dangling mass point attached to Ri
+			* \param Qj - dangling mass point attached to Rj
+			* \return the angle between (RiQi) and (RjQj) with respect to the RiRj axis
+			*/
 			static Real InitialAngleBetweenPoints(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj)
 			{
 				return AngleBetweenVectors(Rj->r0 - Ri->r0, Qi->r0 - Ri->r0, Qj->r0 - Rj->r0);
 			}
+			/**
+			* \brief Measures the initial angle between two mass point segments sharing a common axis
+			* The function uses the current (r) position of a mass point
+			* \param Ri - the first axis endpoint 
+			* \param Rj - the last axis endpoint
+			* \param Qi - dangling mass point attached to Ri
+			* \param Qj - dangling mass point attached to Rj
+			* \return the angle between (RiQi) and (RjQj) with respect to the RiRj axis
+			*/
 			static Real CurrentAngleBetweenPoints(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj)
 			{
 				return AngleBetweenVectors(Rj->r - Ri->r, Qi->r - Ri->r, Qj->r - Rj->r);
 			}
-			#define qFrac 0.01
+			#define qFrac 0.05
+			/**
+			* \brief Computes the torsion quaternion corresponding to an axis and two reference points
+			* \param Ri - the first endpoint of the reference axis
+			* \param Rj - the last endpoint of the reference axis
+			* \param Qi - reference mass point attached to Ri
+			* \param Qj - reference mass point attached to Rj
+			* \param initialAngle - the initial/target angle between RiQi and RjQj w.r.t. the RiRj axis
+			* \return a quaternion 
+			*/
 			static quat<Real> TorsionQuat(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj,const Real& initialAngle)
 			{
 				Real currentAngle = CurrentAngleBetweenPoints(Ri, Rj, Qi, Qj);
@@ -55,7 +86,10 @@ namespace Filum
 				return quat_from_axis_angle(Rj->r - Ri->r, qFrac *(initialAngle - currentAngle));
 			}
 
-			static void ApplyQuat(MassPoint * R, MassPoint * Q, quat<Real> torsionQuat)
+			/**
+			* \brief Applies the effect of a quaternion rotation through the effects of a torsion force
+			*/
+			static void ApplyQuat(MassPoint * R, MassPoint * Q, quat<Real>& torsionQuat, const Real& Kl)
 			{
 				vec3<Real> r = R->r; 
 				vec3<Real> q = Q->r;
@@ -63,9 +97,18 @@ namespace Filum
 				quat<Real> hq = torsionQuat * quat<Real>(q, 0) * conjugate(torsionQuat);
 				q = hq.v;
 				q += r;
-				Q->f += q - Q->r;
+				Q->f += Kl * (q - Q->r);
 			}
-			static void ApplyQuat(MassPoint* R, MassPoint* Q, MassPoint* P, quat<Real> torsionQuat)
+			/**
+			* \brief Applies the effect of a quaternion by adding a corresponding torsion force component
+			* The resulting force corresponding to a torsion quaternion is a spring like force: k * Delta x
+			* \param R - common endpoint of a V shaped configuration
+			* \param Q - endpoint of a V shaped configuration
+			* \param P - endpoint of a V shaped configuration
+			* \param torsionQuat - the quaternion to be applied to the RQ and RP segments
+			* \param Kl - spring stiffness required to apply the torsion force component
+			*/
+			static void ApplyQuat(MassPoint* R, MassPoint* Q, MassPoint* P, quat<Real>& torsionQuat, const Real & Kl)
 			{
 				vec3<Real> r = R->r; 
 				vec3<Real> q = Q->r;
@@ -79,12 +122,19 @@ namespace Filum
 				q += r;
 				p += r;
 				//cout<< length(q - Q->r) << " "<< length(p - P->r) <<endl;
-				Q->f +=  (q - Q->r);
-				P->f +=  (p - P->r);
+				Q->f +=  Kl * (q - Q->r);
+				P->f +=  Kl * (p - P->r);
 			}
+			/**
+			* \brief Computes the length of a segment consisting of two mass points
+			* Only the current positions (r) of the mass points are used
+			* \param Ri - first endpoint
+			* \param Rj - second endpoint
+			* \return the length of the segment
+			*/
 			static Real SegLength(MassPoint *Ri, MassPoint *Rj)
 			{
-				return length(Ri->rPlus - Rj->rPlus);
+				return length(Ri->r - Rj->r);
 			}
 		};
 		/// Creates a static mass point at a specified position
