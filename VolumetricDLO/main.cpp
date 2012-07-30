@@ -85,7 +85,7 @@ int _tmain(int argc, char* argv[])
 	
 
 	//return 0;
-	int n = 50;
+	int n = 20;
 	vector<vec3<Real> > r;
 	for (int idx = 0; idx <n; ++idx)
 		r.push_back(vec3<Real>(3*cos(idx / 3.), 3*sin(idx / 3.), idx / 5.));

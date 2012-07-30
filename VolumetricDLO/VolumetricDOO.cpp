@@ -214,7 +214,7 @@ void VolumetricDOO::ComputeTorsionConstraints()
 	prevQuat = MassPoint::TorsionUtilities::TorsionQuat(&R[0], &R[1], &Q[0], &Q[1], torsionAngles[0]);
 	Real prevLength = MassPoint::TorsionUtilities::SegLength(&R[0], &R[1]);
 	Real currLength;
-	for (int k = 1; k < 2; ++k)
+	for (int k = 1; k < nPoints - 1; ++k)
 	{
 		currentQuat = conjugate(MassPoint::TorsionUtilities::TorsionQuat(&R[k], &R[k+1],&Q[k], &Q[k+1], torsionAngles[k]));
 		currLength = MassPoint::TorsionUtilities::SegLength(&R[k], &R[k+1]);
@@ -260,6 +260,7 @@ void VolumetricDOO::PerformUpdateStep()
 {
 	
 	// update force contributions
+	ComputeTorsionConstraints();
 	ComputeInternalForces();
 	ComputeExternalForces();
 
@@ -268,8 +269,9 @@ void VolumetricDOO::PerformUpdateStep()
 
 	// compute constraint contributions
 	ResetDisplacements();
+	
 	ComputeLengthConstraints();
-	ComputeTorsionConstraints();
+	
 
 	// apply displacements
 	ComputeCorrectedPositions();

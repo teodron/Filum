@@ -42,29 +42,34 @@ namespace Filum
 			}
 			static Real CurrentAngleBetweenPoints(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj)
 			{
-				return AngleBetweenVectors(Rj->rPlus - Ri->rPlus, Qi->rPlus - Ri->rPlus, Qj->rPlus - Rj->rPlus);
+				return AngleBetweenVectors(Rj->r - Ri->r, Qi->r - Ri->r, Qj->r - Rj->r);
 			}
+			#define qFrac 0.01
 			static quat<Real> TorsionQuat(MassPoint* Ri, MassPoint* Rj, MassPoint* Qi, MassPoint* Qj,const Real& initialAngle)
 			{
 				Real currentAngle = CurrentAngleBetweenPoints(Ri, Rj, Qi, Qj);
-				return quat_from_axis_angle(Rj->rPlus - Ri->rPlus, 0.01 *(initialAngle - currentAngle));
+			    // cout<< InitialAngleBetweenPoints(Ri, Rj, Qi, Qj) << " "<<currentAngle<<endl;
+
+				// return quat_from_axis_angle(Rj->rPlus - Ri->rPlus, 0.5 *(initialAngle - currentAngle));
+
+				return quat_from_axis_angle(Rj->r - Ri->r, qFrac *(initialAngle - currentAngle));
 			}
 
 			static void ApplyQuat(MassPoint * R, MassPoint * Q, quat<Real> torsionQuat)
 			{
-				vec3<Real> r = R->rPlus; 
-				vec3<Real> q = Q->rPlus;
+				vec3<Real> r = R->r; 
+				vec3<Real> q = Q->r;
 				q -= r;
 				quat<Real> hq = torsionQuat * quat<Real>(q, 0) * conjugate(torsionQuat);
 				q = hq.v;
 				q += r;
-				Q->dr += q - Q->rPlus;
+				Q->f += q - Q->r;
 			}
 			static void ApplyQuat(MassPoint* R, MassPoint* Q, MassPoint* P, quat<Real> torsionQuat)
 			{
-				vec3<Real> r = R->rPlus; 
-				vec3<Real> q = Q->rPlus;
-				vec3<Real> p = P->rPlus;
+				vec3<Real> r = R->r; 
+				vec3<Real> q = Q->r;
+				vec3<Real> p = P->r;
 				q -= r;
 				p -= r;
 				quat<Real> hq = torsionQuat * quat<Real>(q, 0) * conjugate(torsionQuat);
@@ -73,8 +78,9 @@ namespace Filum
 				p = hp.v;
 				q += r;
 				p += r;
-				Q->dr += (q - Q->rPlus);
-				P->dr += (p - P->rPlus);
+				//cout<< length(q - Q->r) << " "<< length(p - P->r) <<endl;
+				Q->f +=  (q - Q->r);
+				P->f +=  (p - P->r);
 			}
 			static Real SegLength(MassPoint *Ri, MassPoint *Rj)
 			{
