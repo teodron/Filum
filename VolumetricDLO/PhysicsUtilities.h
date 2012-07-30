@@ -73,5 +73,5 @@ namespace Filum
 	* \param b - the second vector
 	* \return the signed relative angle of the two vectors (in radians)
 	*/
-	Real AngleBetweenVectors(vec3<Real> w, vec3<Real> a, vec3<Real> b);
+	Real AngleBetweenVectors(const vec3<Real>& w, const vec3<Real>& a, const vec3<Real>& b);
 }

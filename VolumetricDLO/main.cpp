@@ -11,7 +11,44 @@ using namespace Filum;
 
 void InitWorld(int argc, char* argv[])
 {
-	cout << "Initializing world .."<<endl;
+	vec3<Real> ri(1,1,0), rj(0,0,0), rk(0,0,1);
+	vec3<Real> qi(2,1,0), qj(1,0,0), qk(0,-1,0);
+
+	vec3<Real> nri(0,1,0), nrj(0,0,0), nrk(0,0,1);
+	vec3<Real> nqi(0,1,1), nqj(1,0,0), nqk(1,-1,1);
+
+	Real uij = AngleBetweenVectors(rj - ri, qi - ri, qj - rj);
+	Real ujk = AngleBetweenVectors(rk - rj, qj - rj, qk - rk);
+
+	Real nuij = AngleBetweenVectors(nrj - nri, nqi - nri, nqj - nrj);
+	Real nujk = AngleBetweenVectors(nrk - nrj, nqj - nrj, nqk - nrk);
+
+	vec3<Real> wij = (rj - ri) / length(rj - ri);
+	vec3<Real> wjk = (rk - rj) / length(rk - rj);
+
+	vec3<Real> nwij = (nrj - nri) / length(nrj - nri);
+	vec3<Real> nwjk = (nrk - nrj) / length(nrk - nrj);
+	Real lambda = length(nrj - nri) / (length(nrj - nri) + length(nrk - nrj));
+
+	quat<Real> qij = quat_from_axis_angle(nwij, 0.5*(uij - nuij));
+
+	quat<Real> qjk = conjugate(quat_from_axis_angle(nwjk, 0.5*(ujk - nujk)));
+
+	quat<Real> torsion = slerp(qij, qjk, lambda);
+	cout<< " initial "<< uij << " " << ujk << endl;
+	cout<< " current "<< nuij << " " << nujk << endl; 
+	nqj -= nrj;
+	quat<Real>  sj(nqj, 0);
+	sj = torsion * sj * conjugate(torsion);
+	nqj = sj.v + nrj;
+
+	nuij = AngleBetweenVectors(nrj - nri, nqi - nri, nqj - nrj);
+	nujk = AngleBetweenVectors(nrk - nrj, nqj - nrj, nqk - nrk);
+	cout<< " corrected "<< nuij << " " << nujk;
+	system("pause");
+	cout << "Initializing world .."<<endl<< endl;
+
+
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_MULTISAMPLE);
 	glutInitWindowSize(512, 512);
