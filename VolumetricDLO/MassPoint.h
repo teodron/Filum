@@ -137,6 +137,7 @@ namespace Filum
 				return length(Ri->r - Rj->r);
 			}
 		};
+
 		/// Creates a static mass point at a specified position
 		MassPoint(vec3<Real> pos);
 		/// copy constructor
