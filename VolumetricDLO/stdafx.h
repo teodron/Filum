@@ -39,3 +39,4 @@ const Real epsilon = 1e-5;
 const Real dTime = 0.002;
 
 #include "PhysicsUtilities.h"
+#include "GeometricUtilities.h"
