@@ -219,8 +219,18 @@ void VolumetricDOO::ComputeTorsionForces()
 		currentQuat = conjugate(MassPoint::TorsionUtilities::TorsionQuat(&R[k], &R[k+1], &Q[k], &Q[k+1], torsionAngles[k]));
 		currLength = MassPoint::TorsionUtilities::SegLength(&R[k], &R[k+1]);
 		Real lambda = prevLength / (currLength + prevLength);
-		quat<Real> torsionQuat = slerp(prevQuat, currentQuat, lambda);
+		quat<Real> torsionQuat = quat<Real>(zeroVec, 1.0);
+		if (fabs(prevQuat.w) < 0.999 && fabs(currentQuat.w) < 0.999)
+			torsionQuat = slerp(prevQuat, currentQuat, lambda);
+		else
+			if (fabs(prevQuat.w) >= 0.999)
+				torsionQuat = currentQuat;
+			else
+				torsionQuat = prevQuat;
 		MassPoint::TorsionUtilities::ApplyQuat(&R[k], &Q[k], &P[k], torsionQuat, this->Kt);
+		R[k].ForceOk();
+		P[k].ForceOk();
+		Q[k].ForceOk();
 		prevLength = currLength;
 		prevQuat = conjugate(currentQuat);
 	}
@@ -228,7 +238,17 @@ void VolumetricDOO::ComputeTorsionForces()
 
 void VolumetricDOO::HandleSelfCollision()
 {
-
+	for (int i = 0; i < nPoints - 1; ++i)
+	{
+		for (int j = i + 2; j < nPoints - 1; ++j)
+		{
+			MassPoint::CollisionUtilities::CollideLinks(&P[i], &Q[i], &R[i],
+													    &P[i+1], &Q[i+1], &R[i+1],
+														&P[j], &Q[j], &R[j],
+														&P[j+1], &Q[j+1], &R[j+1],
+														this->rad, 0.2);
+		}
+	}
 }
 
 void VolumetricDOO::HandleExternalCollision()
@@ -260,8 +280,16 @@ void VolumetricDOO::PerformUpdateStep()
 {
 	
 	// update force contributions
+	ResetForces();
 	ComputeInternalForces();
 	ComputeTorsionForces();
+	/*
+	for (int idx = 0; idx < nPoints; ++idx)
+	{
+		P[idx].ForceOk();
+		Q[idx].ForceOk();
+		R[idx].ForceOk();
+	}*/
 	ComputeExternalForces();
 
 	// integrate to find new positions
@@ -280,7 +308,6 @@ void VolumetricDOO::PerformUpdateStep()
 	StepUpdateVelocities();
 
 	// handle any collisions
-	ResetForces();
 	ResetRestitutionVelocities();
 	ResetDisplacements();
 	HandleSelfCollision();

@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FwdDecl.h" />
+    <ClInclude Include="GeometricUtilities.h" />
     <ClInclude Include="MassPoint.h" />
     <ClInclude Include="PhysicsUtilities.h" />
     <ClInclude Include="ShaderController.h" />
@@ -92,6 +93,7 @@
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GeometricUtilities.cpp" />
     <ClCompile Include="MassPoint.cpp" />
     <ClCompile Include="PhysicsUtilities.cpp" />
     <ClCompile Include="stdafx.cpp">

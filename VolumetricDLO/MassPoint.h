@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+#include <assert.h>
 namespace Filum
 {
 	/**
@@ -28,10 +29,23 @@ namespace Filum
 		/// velocities
 		vec3<Real> v, vMinus, vPlus, v0;
 		/// collision and constraints contributions
-		vec3<Real> vRes, f, dr;
+		vec3<Real> vRes, f, dr, df;
 
 		Real mass; //< the mass concetration at this point (in kilograms)
 	public:
+		void ForceOk()
+		{
+			if(this->f != this->f)
+				cout << ("shit");
+		}
+		static class CollisionUtilities
+		{
+		public:
+			static void CollideLinks(MassPoint * Pi, MassPoint * Qi, MassPoint * Ri,
+							  MassPoint * Pip1, MassPoint * Qip1, MassPoint * Rip1,
+							  MassPoint * Pj, MassPoint * Qj, MassPoint * Rj,
+							  MassPoint * Pjp1, MassPoint * Qjp1, MassPoint * Rjp1, const Real & rad, const Real& mu);
+		};
 		/**
 		* \brief Utility class providing torsion quaternion and torsion angle computation routines
 		* This class mediates and limits the access of a DLO class to a mass point's inner members
@@ -122,8 +136,13 @@ namespace Filum
 				q += r;
 				p += r;
 				//cout<< length(q - Q->r) << " "<< length(p - P->r) <<endl;
+			
 				Q->f +=  Kl * (q - Q->r);
 				P->f +=  Kl * (p - P->r);
+				if (Q->f != Q->f) 
+					cout << "shit";
+				if (P->f != P->f)
+					cout << "shit";
 			}
 			/**
 			* \brief Computes the length of a segment consisting of two mass points
@@ -148,7 +167,10 @@ namespace Filum
 		void SetMass(Real mass) { this->mass = mass;}
 
 		/// resets the force accumulator
-		void ResetForce() { this->f = zeroVec; }
+		void ResetForce() { this->f = this->df;
+		if (f!= f)
+			cout << "shit";
+		this->df = zeroVec; }
 
 		/// resets the displacement accumulator
 		void ResetDisplacement() { this->dr = zeroVec; }
@@ -160,12 +182,16 @@ namespace Filum
 		void PositionUpdate() 
 		{ 
 			rPlus = 2.0 * r - rMinus + f / mass * dTime * dTime;
+			if (rPlus != rPlus)
+				cout << "shit";
 		}
 
 		/// Position Verlet Integration Method: one step of the velocity update equation
 		void VelocityUpdate()
 		{
-			v = (rPlus - rMinus) * 0.5 / dTime;
+			vPlus = (rPlus - rMinus) * 0.5 / dTime;
+			if (vPlus != vPlus)
+				cout << "shit";
 		}
 
 		/// Corrects the predicted position by adding the accumulated displacement
@@ -183,12 +209,18 @@ namespace Filum
 		/// Adds an amount representing an external force contribution
 		void AddExternalForce(const vec3<Real>& force)
 		{
+			if (force != force)
+				cout << "shit";
 			this->f += force;
 		}
 
 		void AddDampingForce(const Real& b)
 		{
+			if (v != v)
+				cout << "shit";
 			this->f += - b * v;
+			if (this->f != this->f)
+				cout << "shit";
 		}
 
 		/// Synchronizes the positions and velocities at this point by copying the newly computed values into the current holders

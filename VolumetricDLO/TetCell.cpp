@@ -99,7 +99,14 @@ void TetCell::UpdateForces()
 	// pl
 	pl->f += Fvpl(V, V0);
 	/**/
-	
+	if (pi->f != pi->f) 
+		cout << "shit";
+	if (pj->f != pj->f)
+		cout << "shit";
+	if (pk->f != pk->f)
+		cout << "shit";
+	if (pl->f != pl->f)
+		cout << "shit";
 }
 
 void TetCell::ComputeLengthConstraintContributions(const Real & fraction)
@@ -110,6 +117,8 @@ void TetCell::ComputeLengthConstraintContributions(const Real & fraction)
 	currLength = length(pi->rPlus - pj->rPlus);
 	restLength = length(pi->r0 - pj->r0);
 	displacement = -fraction * (pi->rPlus - pj->rPlus) / currLength * (currLength - restLength);
+	if (displacement != displacement)
+		cout << "shit";
 	pi->dr += displacement;
 	pj->dr += -displacement;
 	
@@ -117,6 +126,8 @@ void TetCell::ComputeLengthConstraintContributions(const Real & fraction)
 	currLength = length(pi->rPlus - pk->rPlus);
 	restLength = length(pi->r0 - pk->r0);
 	displacement = -fraction * (pi->rPlus - pk->rPlus) / currLength * (currLength - restLength);
+	if (displacement != displacement)
+		cout << "shit";
 	pi->dr += displacement;
 	pk->dr += -displacement;
 	
@@ -124,6 +135,8 @@ void TetCell::ComputeLengthConstraintContributions(const Real & fraction)
 	currLength = length(pi->rPlus - pl->rPlus);
 	restLength = length(pi->r0 - pl->r0);
 	displacement = -fraction * (pi->rPlus - pl->rPlus) / currLength * (currLength - restLength);
+	if (displacement != displacement)
+		cout << "shit";
 	pi->dr += displacement;
 	pl->dr += -displacement;
 	
@@ -131,6 +144,8 @@ void TetCell::ComputeLengthConstraintContributions(const Real & fraction)
 	currLength = length(pj->rPlus - pk->rPlus);
 	restLength = length(pj->r0 - pk->r0);
 	displacement = -fraction * (pj->rPlus - pk->rPlus) / currLength * (currLength - restLength);
+	if (displacement != displacement)
+		cout << "shit";
 	pj->dr += displacement;
 	pk->dr += -displacement;
 	
@@ -138,6 +153,8 @@ void TetCell::ComputeLengthConstraintContributions(const Real & fraction)
 	currLength = length(pj->rPlus - pl->rPlus);
 	restLength = length(pj->r0 - pl->r0);
 	displacement = -fraction * (pj->rPlus - pl->rPlus) / currLength * (currLength - restLength);
+	if (displacement != displacement)
+		cout << "shit";
 	pj->dr += displacement;
 	pl->dr += -displacement;
 
@@ -145,6 +162,8 @@ void TetCell::ComputeLengthConstraintContributions(const Real & fraction)
 	currLength = length(pk->rPlus - pl->rPlus);
 	restLength = length(pk->r0 - pl->r0);
 	displacement = -fraction * (pk->rPlus - pl->rPlus) / currLength * (currLength - restLength);
+	if (displacement != displacement)
+		cout << "shit";
 	pk->dr += displacement;
 	pl->dr += -displacement;
 }
