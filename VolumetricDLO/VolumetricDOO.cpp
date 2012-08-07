@@ -228,9 +228,6 @@ void VolumetricDOO::ComputeTorsionForces()
 			else
 				torsionQuat = prevQuat;
 		MassPoint::TorsionUtilities::ApplyQuat(&R[k], &Q[k], &P[k], torsionQuat, this->Kt);
-		R[k].ForceOk();
-		P[k].ForceOk();
-		Q[k].ForceOk();
 		prevLength = currLength;
 		prevQuat = conjugate(currentQuat);
 	}

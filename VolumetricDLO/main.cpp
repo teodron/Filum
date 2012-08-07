@@ -97,7 +97,7 @@ int _tmain(int argc, char* argv[])
 	VolumetricDOO dlo(r, 0.2, 20);
 	dlo.SetKl(20);
 	dlo.SetKv(20);
-	dlo.setKt(1);
+	dlo.setKt(50);
 	dlo.SetDampingCoefficient(0.5);
 	dlo.SetLengthConstraintFraction(0.02);
 

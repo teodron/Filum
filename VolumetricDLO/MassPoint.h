@@ -33,19 +33,51 @@ namespace Filum
 
 		Real mass; //< the mass concetration at this point (in kilograms)
 	public:
-		void ForceOk()
-		{
-			if(this->f != this->f)
-				cout << ("shit");
-		}
+		/************************************************************************/
+		/* Collision utilities                                                  */
+		/************************************************************************/
+
+		/**
+		* \brief Utility class providing routines that perform collision detection and resolution
+		* \author Teodor Cioaca
+		* \date August 2012
+		*/
 		static class CollisionUtilities
 		{
-		public:
+			friend class VolumetricDOO;
+		private:
+			/**
+			* \brief Perform collision detection and handling between two volumetric segments
+			* The function accumulates collision response forces (reaction and friction), restitution velocities (from impulses)
+			* and displacement penalties (from projected constraints). Collisions are handled asynchronously for all colliding
+			* segment pairs. Each pair consists of a capped cylindrical tube whose endpoints are the centers of gravity of the
+			* structural triangles of the DLO. For example, a collision pair consists of triangles
+			* \f$T_i T_{i+1}\f$ and \f$T_j T_{j+1}\f$. 
+			* \param Pi - vertex of the (PiQiRi) triangle
+			* \param Qi - vertex of the (PiQiRi) triangle
+			* \param Ri - vertex of the (PiQiRi) triangle
+			* \param Pip1 - vertex of the (Pip1Qip1Rip1) triangle
+			* \param Qip1 - vertex of the (Pip1Qip1Rip1) triangle
+			* \param Rip1 - vertex of the (Pip1Qip1Rip1) triangle
+			* \param Pj - vertex of the (PjQjRj) triangle
+			* \param Qj - vertex of the (PjQjRj) triangle
+			* \param Rj - vertex of the (PjQjRj) triangle
+			* \param Pjp1 - vertex of the (Pjp1Qjp1Rjp1) triangle
+			* \param Qjp1 - vertex of the (Pjp1Qjp1Rjp1) triangle
+			* \param Rjp1 - vertex of the (Pjp1Qjp1Rjp1) triangle
+			* \param rad - the radius of the volumetric segment
+			* \param mu - friction coefficient
+			*/
 			static void CollideLinks(MassPoint * Pi, MassPoint * Qi, MassPoint * Ri,
 							  MassPoint * Pip1, MassPoint * Qip1, MassPoint * Rip1,
 							  MassPoint * Pj, MassPoint * Qj, MassPoint * Rj,
 							  MassPoint * Pjp1, MassPoint * Qjp1, MassPoint * Rjp1, const Real & rad, const Real& mu);
 		};
+
+		/************************************************************************/
+		/* Torsion utilities                                                    */
+		/************************************************************************/
+
 		/**
 		* \brief Utility class providing torsion quaternion and torsion angle computation routines
 		* This class mediates and limits the access of a DLO class to a mass point's inner members
@@ -80,7 +112,7 @@ namespace Filum
 			{
 				return AngleBetweenVectors(Rj->r - Ri->r, Qi->r - Ri->r, Qj->r - Rj->r);
 			}
-			#define qFrac 0.05
+			#define qFrac 0.5
 			/**
 			* \brief Computes the torsion quaternion corresponding to an axis and two reference points
 			* \param Ri - the first endpoint of the reference axis
@@ -139,10 +171,6 @@ namespace Filum
 			
 				Q->f +=  Kl * (q - Q->r);
 				P->f +=  Kl * (p - P->r);
-				if (Q->f != Q->f) 
-					cout << "shit";
-				if (P->f != P->f)
-					cout << "shit";
 			}
 			/**
 			* \brief Computes the length of a segment consisting of two mass points
@@ -167,10 +195,11 @@ namespace Filum
 		void SetMass(Real mass) { this->mass = mass;}
 
 		/// resets the force accumulator
-		void ResetForce() { this->f = this->df;
-		if (f!= f)
-			cout << "shit";
-		this->df = zeroVec; }
+		void ResetForce() 
+		{ 
+			this->f = this->df;
+			this->df = zeroVec; 
+		}
 
 		/// resets the displacement accumulator
 		void ResetDisplacement() { this->dr = zeroVec; }
@@ -182,16 +211,12 @@ namespace Filum
 		void PositionUpdate() 
 		{ 
 			rPlus = 2.0 * r - rMinus + f / mass * dTime * dTime;
-			if (rPlus != rPlus)
-				cout << "shit";
 		}
 
 		/// Position Verlet Integration Method: one step of the velocity update equation
 		void VelocityUpdate()
 		{
 			vPlus = (rPlus - rMinus) * 0.5 / dTime;
-			if (vPlus != vPlus)
-				cout << "shit";
 		}
 
 		/// Corrects the predicted position by adding the accumulated displacement
@@ -209,18 +234,12 @@ namespace Filum
 		/// Adds an amount representing an external force contribution
 		void AddExternalForce(const vec3<Real>& force)
 		{
-			if (force != force)
-				cout << "shit";
 			this->f += force;
 		}
 
 		void AddDampingForce(const Real& b)
 		{
-			if (v != v)
-				cout << "shit";
 			this->f += - b * v;
-			if (this->f != this->f)
-				cout << "shit";
 		}
 
 		/// Synchronizes the positions and velocities at this point by copying the newly computed values into the current holders
