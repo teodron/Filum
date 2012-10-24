@@ -44,11 +44,13 @@ namespace Filum
 						              const vec3<Real>& pk, const vec3<Real>& pl)
 	{
 		double sign = 1;
-		if (V < 0)
+		if ( (V<0 && V0 > 0) || (V>0 && V0 < 0))
+			cout << V << V0 << endl;
+		/*if (V < 0)
 		{
 			V = fabs(V); 
 			sign = -1;
-		}
+		}*/
 		return sign * kV / (6.0*V0*V0) * (V - V0) * cross(pj - pl, pk - pl);
 	}
 

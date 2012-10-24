@@ -1,0 +1,275 @@
+
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\newcommand{\piRsquare}{\pi r^2}		% This is my own macro !!!
+
+\title{Deriving Penalty Forces from Constraint Potential Fields}
+\author{Teodor Cioac\u a, }		% used by \maketitle
+\date{July 17, 2012}					% used by \maketitle
+
+\begin{document}
+\maketitle						% automatic title!
+
+\section{The general scenario}
+In a scenario where complex deformable objects are discretized using a finite set of vertices, it is useful to 
+employ a penalty based deformation behaviour that characterizes a subset of vertices. This subset will consist of
+vertices that are constrained to reflect a more compact behaviour, in accordance to the configuration's geometrical
+properties. Such constraints are aimed at preserving various geometrical features such as lengths, areas, volumes,
+angles and so on. Mathematically, constraints are implemented through scalar functions defined on the group of vertices
+they control and they provide a measure for the amount of deviation from the initial rest configuration in geometrical terms.
+
+Generally, if $p_1, \ldots, p_N$ are the vertices of a constrained group, then a constraint function is defined as follows:
+\begin{equation}
+\label{constraint_function}
+C(p_1, \ldots, p_N): \mathbb{R}^{3N} \to \mathbb{R}.
+\end{equation}
+This function incorporates additional information relating the current vertex configuration of the group to the initial 
+geometrical image through specific scalar measures of length, area, angle, volume, etc. For example, a length based constraint
+incorporates the initial or rest lengths of directly connected vertices as a reference for a measure of deviation. 
+
+\vspace{21pt}
+
+From constraint functions, energy functions can be inferred, thus expressing the stored potential of a point node in a configuration
+that has deviated from its reference state. Intuitively, as with other energy measuring functions, the more further away a point is from its
+initial configuration, the larger the amount of energy it stores becomes. Generally, an energy function produces only positive amounts and can be written as:
+
+\begin{equation}
+\label{constraint_potential}
+E(p_1, \ldots, p_N) = \frac{1}{2} C(p_1, \ldots, p_N)^2
+\end{equation}
+For a $\{p_1, \ldots, p_N\}$ configuration, we now consider the restriction of the energy function at a node $p_i$. This function is written as:
+\begin{equation}
+E_{p_i}(\mathbf{x}) : \mathbf{x} \in \mathbb{R}^3 \to \mathbb{R}_{+}
+\end{equation} 
+There exists an isosurface of $\mathbf{x} \in \mathbb{R}^3$ points that have the same energy as the node $p_i$, i.e.:
+$$
+S = \{ \mathbf{x} \in \mathbb{R}^3 : E_{p_i}(\mathbf{x}) = E_{p_i}(p_i) \}
+$$
+Considering an arbitrary curve $\gamma:\mathbb{R} \to \mathbb{R}^3$ on this isosurface (i.e. $E_{p_i}(\gamma(t))) = E_{p_i}(p_i), \forall t$), we
+compute the gradient of the energy function in one of these arbitrary curve points:
+$$
+E_{p_i}(\gamma(t)) = E_{p_i}(p_i) 
+$$ 
+provides the following result (using the chain rule):
+$$ 
+\nabla E_{p_i}(\gamma(t)) \cdot \dot{\gamma}(t) = 0
+$$
+
+\begin{figure}[h!]
+\caption{The gradient is perpendicular to the isosurface}
+\centering
+\includegraphics[width=0.5\textwidth]{"figs/gradientiso"}
+\end{figure}
+
+which provides a geometrical image of the gradient being perpendicular to the tangent plane of the isosurface at the $p_i$ point. Intuitively, this means that travelling in an orthogonal direction to the isosurface will produce a maximal change of potential (since the tangential component is null, at an infinitesimal level, this is the best option for going as further away as possible from this isosurface).
+
+To envision this argumentation, we can employ the finite differencing approximation of the gradient:
+\begin{align}
+\nabla E_{p_i}(\mathbf{x}).x & = \frac{E_{p_i} \left( 
+\begin{array}{c}
+x + h \\
+y \\
+z
+\end{array}
+\right) - E_{p_i} \left(
+\begin{array}{c}
+x - h \\
+y\\
+z
+\end{array}
+\right) } {2h} \\
+\nabla E_{p_i}(\mathbf{x}).y & = \frac{E_{p_i} \left( 
+\begin{array}{c}
+x \\
+y + h \\
+z
+\end{array}
+\right) - E_{p_i} \left(
+\begin{array}{c}
+x \\
+y - h\\
+z
+\end{array}
+\right) } {2h} \\
+\nabla E_{p_i}(\mathbf{x}).z & = \frac{E_{p_i} \left( 
+\begin{array}{c}
+x \\
+y \\
+z + h
+\end{array}
+\right) - E_{p_i} \left(
+\begin{array}{c}
+x \\
+y \\
+z -h
+\end{array}
+\right) } {2h}
+\end{align}
+
+\begin{figure}[h!]
+\caption{Central differencing gradient approximation}
+\centering
+\includegraphics[width=0.25\textwidth]{"figs/central_differencing"}
+\end{figure}
+
+Again, viewing the infinitesimal neighbourhood of point $\mathbf{x}$, the approximation of the gradient will point towards the direction of maximum potential
+increase. This is explained by analysing the $x,y$ and $z$ components of the gradient. Each of these components is dependent on the values of the potential at the 6 discrete
+neighbours of $\mathbf{x}$. The sign of the finite differences is thus only influenced by the way the potential field changes (from lower values to higher values).
+
+Since the gradient vector coincides with the direction of maximum potential increase, it is natural to consider a penalty function that points in the opposite direction:
+\begin{equation}
+\label{penalty_function}
+F_{p_i}(\mathbf{x}) = - \nabla E_{p_i}(\mathbf{x})
+\end{equation}
+This last equation can be written in an equivalent form:
+\begin{equation}
+F_{p_i}(\mathbf{x}) = -C_{p_i}(\mathbf{x}) \nabla{C_{p_i}(\mathbf{x})}
+\end{equation}
+\section{Discrete configurations}
+
+\paragraph{Linear spring forces}
+
+In the previous section we have seen how a constraint function defined on a set of 3D points can be used to attach to each point a positive potential. This potential, if used
+describe the amount of deviation of this single point from the rest configuration (where the potential is null), can provide an expression for a derived internal penalty force.
+Such a force can be used together with an integration method to evolve a discrete configuration towards a minimum potential state. The simplest example of such a behaviour is the case of a linear spring connecting two points $p_i$ and $p_j$. The natural constraint function corresponding to this spring configuration is defined based on the difference between the spring's current and rest length:
+
+\begin{equation}
+C(p_i,p_j) = \frac{\|p_i - p_j \| - L_0}{L_0}
+\end{equation}
+where $L_0$ denotes the spring's rest length. From this constraint function, a corresponding elastic deformation potential energy can be expressed as:
+\begin{equation}
+\label{elastic_energy}
+E(p_i,p_j) = \frac{1}{2} \left( \frac{\|p_i - p_j\|| - L_0}{L_0} \right)^ 2
+\end{equation}
+We define the following operator:
+\begin{equation}
+\frac{\partial}{\partial p_i} E = \nabla E_{p_i}
+\end{equation}
+also known in some works as the variational or functional derivative operator. From the operator's definition, we can see that it also represents the direction of maximum increase in the potential of a node's configuration ( since the operator is equivalent to computing the gradient function of the energy function's restriction at a single node/point).
+
+An elastic spring force at node $p_i$ can be derived using equation \ref{elastic_energy}:
+$$ F_{p_i}^{spring}(p_i, p_j) = -\frac{\partial}{\partial p_i} \left( \frac{1}{2} \left( \frac{\|p_i - p_j\|| - L_0}{L_0} \right)^ 2 \right) $$
+Using the properties of the derivation operator (e.g. the chain rule), we can expand this expression as follows:
+$$ F_{p_i}^{spring}(p_i,p_j) =  -\frac{\|p_i - p_j\|| - L_0}{L_0} \frac{\partial}{\partial p_i}\left( \frac{\|p_i - p_j\|}{L_0}\right)$$
+The expression of the gradient on the right hand side can now be written in a clearer manner:
+$$ \frac{\partial}{\partial p_i}\left( \frac{\|p_i - p_j\|}{L_0}\right) = \frac{1}{L_0}\frac{\partial}{\partial p_i}\sqrt{\left<p_i - p_j, p_i - p_j \right>}$$
+Computing the gradient of the square root of a dot product implies again using derivative specific operator rules. These rules transform the initial gradient into the following expression:
+$$  \frac{\partial}{\partial p_i}\left( \frac{\|p_i - p_j\|}{L_0}\right) = \frac{1}{2L_0\sqrt{\left<p_i - p_j, p_i - p_j \right>)}} \frac{\partial}{\partial p_i}\left(\left<p_i - p_j, p_i - p_j \right> \right) $$
+The gradient of a dot product expression is computed by applying the gradient operator to a matrix-like product of the two factors of the dot product, hence:
+$$  \frac{\partial}{\partial p_i}\left(\left<p_i - p_j, p_i - p_j \right> \right) = \frac{\partial }{\partial p_i} \left( (p_i - p_j)^\top (p_i - p_j) \right)$$
+Now, we expand this product and also apply the gradient operator to each factor, obeying the derivation rules for a product of two different functions(i.e. $(fg)' = f'g + fg'$):
+$$\frac{\partial }{\partial p_i} \left( (p_i - p_j)^\top (p_i - p_j) \right) = \left(\frac{\partial }{\partial p_i} (p_i - p_j)\right)^\top (p_i - p_j) + (p_i - p_j)^\top\left(\frac{\partial }{\partial p_i}(p_i - p_j)\right) $$
+It is known that the gradient of a vector-valued function is its Jacobian matrix. In our case, this function is the identity function plus a constant translation, so its Jacobian will be the identity matrix. Plugging this result into our expression, we find this result:
+$$ \frac{\partial }{\partial p_i} \left( (p_i - p_j)^\top (p_i - p_j) \right) = 2(p_i - p_j) $$
+We now substitute the computed factors into the expression of the elastic force:
+\begin{equation}
+F_{p_i}^{spring}(p_i,p_j) =  -\frac{\|p_i - p_j\|| - L_0}{L_0} \frac{(p_i - p_j)}{L_0 \| p_i - p_j\|}
+\end{equation}
+Let's analyse how this force behaves when the length of the $(p_ip_j)$ segment exceeds its rest length ($L_0$): the first factor is negative, hence this force will point in the opposite direction of the $\overrightarrow{p_jp_i}$ vector. This is the expected geometric result and it consistently represents a force that acts in the direction that is guaranteed to bring the two endpoints together, thus reducing the distance between them. Conversely, if $\|pi - p_j\| < L_0$, the force will be oriented in the same direction as the $\overrightarrow{p_jp_i}$ vector and it will push the points apart, trying to put them in a configuration where the distance between them is equal to the spring's rest length. 
+
+Generally, a linear spring's elastic force is written as:
+\begin{equation}
+\label{elastic_force}
+F_{p_i}^{spring}(p_i,p_j) =  - \mathrm{K_l}\frac{\|p_i - p_j\|| - L_0}{L_0^2} \frac{(p_i - p_j)}{\| p_i - p_j\|}
+\end{equation}
+where $\mathrm{K_l}$ is the spring's stiffness coefficient. 
+
+\paragraph{Tetrahedral cell volume preserving force}
+A deformable object defined as a closed surface can be discretized by dividing its interior volume into tetrahedral cells. These cells can be used to enforce local constraints from which forces are derived and applied to each of the four vertices. All neighbouring cells will contribute with their own force components to the total accumulated force at a certain vertex where these cells are all adjacent. Apart from linear springs that can be set along the edges of the tetrahedra, it is desirable to enforce local constraints aimed at preserving the volumes under deformation. Such forces are easy to introduce by deriving them from a volume preserving constraint function that is defined on the four vertices of the tetrahedron. The constraint function requires computing the volume of the deformed cell and compare it to the initial volume of the undeformed cell by subtracting them:
+\begin{equation}
+\label{voume_constraint}
+C_V(p_i, p_j, p_k, p_l) = \frac{\frac{1}{6}\left\langle p_j - p_i, (p_k - p_i) \times (p_l - p_i)\right\rangle - V_0}{V_0}
+\end{equation}
+Subsequently, the volume preserving potential is:
+\begin{equation}
+\label{volume_potential}
+E_V(p_i, p_j, p_k, p_l) = \frac{1}{2} C_v(p_i, p_j,p_k,p_l)^2
+\end{equation}
+Using the method described in the previous section, we compute the force at the $p_i$ vertex by using the $\frac{\partial}{\partial p_i}$ operator:
+\begin{equation}
+\label{volume_force}
+F_{V_{p_i}}(p_i, p_j, p_k, p_l) = - \frac{\partial}{\partial p_i} E_V(p_i, p_j, p_k, p_l)
+\end{equation}
+Expanding equation \ref{volume_force}, we observe that only the volume function component needs to be derived with respect to the $p_i$ component:
+\begin{align*}
+F_{V_{p_i}}(p_i, p_j, p_k, p_l) & = & - \frac{\frac{1}{6}\left\langle p_j - p_i, (p_k - p_i) \times (p_l - p_i)\right\rangle - V_0}{V_0} \cdot \\
+& & \cdot \frac{1}{6V_0} \frac{\partial}{\partial p_i}{\left\langle p_j - p_i, (p_k - p_i) \times (p_l - p_i)\right\rangle}
+\end{align*}
+
+The derivative factor further evaluates to the following expression:
+\begin{align*}
+	\frac{\partial}{\partial p_i} \left\langle p_j - p_i, (p_k - p_i) \times (p_l - p_i)\right\rangle & = & - (p_k - p_i) \times (p_l - p_i) + \\
+	& & + (p_j - p_i)^{\top} \frac{\partial}{\partial p_i}(p_i \times (p_k - p_l))
+\end{align*}
+It is useful to look at an expression involving the derivative operator and both the dot and cross vector products:
+$$ 
+\mathbf{w} \cdot \frac{\partial}{\partial \mathbf{u}} (\mathbf{u} \times \mathbf{v}) = 
+\left(
+\begin{array}{ccc}
+\mathbf{w}_x & \mathbf{w}_y & \mathbf{w}_z
+\end{array}
+\right) ^ \top
+\frac{\partial}{\partial \mathbf{u}} 
+\left(
+\begin{array}{c}
+\mathbf{u}_y \mathbf{v}_z - \mathbf{u}_z \mathbf{v}_y \\
+\mathbf{u}_z \mathbf{v}_x - \mathbf{u}_x \mathbf{v}_z \\
+\mathbf{u}_x \mathbf{v}_y - \mathbf{u}_y \mathbf{v}_x
+\end{array}
+\right)
+$$
+and this expression becomes:
+$$
+\mathbf{w} \cdot \frac{\partial}{\partial \mathbf{u}} (\mathbf{u} \times \mathbf{v}) = 
+\left(
+\begin{array}{ccc}
+\mathbf{w}_x & \mathbf{w}_y & \mathbf{w}_z
+\end{array}
+\right) ^ \top
+\left(
+\begin{array}{ccc}
+0 & \mathbf{v}_z & - \mathbf{v}_y \\
+- \mathbf{v}_z & 0 &  \mathbf{v}_x \\
+ \mathbf{v}_y & -  \mathbf{v}_x & 0
+ \end{array}
+\right)
+$$
+Hence, we obtain this final identity:
+\begin{equation}
+\label{derivative_dot_cross}
+\mathbf{w} \cdot \frac{\partial}{\partial \mathbf{u}} (\mathbf{u} \times \mathbf{v}) = - \mathbf{w} \times \mathbf{v}
+\end{equation}
+Using the previous identity, we can now write the derivative of the volume function component as:
+
+\begin{equation}
+	\frac{\partial}{\partial p_i} \left\langle p_j - p_i, (p_k - p_i) \times (p_l - p_i)\right\rangle = - (p_k - p_i) \times (p_l - p_i) - (p_j - p_i) \times (p_k - p_l)
+\end{equation}
+and after expanding and conveniently rearranging the right hand side, we get this final expression:
+\begin{equation}
+\label{final_dot_cross_derivative}
+	\frac{\partial}{\partial p_i} \left\langle p_j - p_i, (p_k - p_i) \times (p_l - p_i)\right\rangle = (p_k - p_l) \times (p_j - p_l)
+\end{equation}
+Plugging the result from the above equation in the expression of the volume preserving force \ref{volume_force}, we can write down the expanded formula of this force:
+
+\begin{equation}
+\label{volume_preserving_force}
+F_{V_{p_i}}(p_i, p_j, p_k, p_l) = \frac{K_V}{6V_0^2}\left[\frac{1}{6}(p_j - p_i) \cdot (p_k - p_i) \times (p_l - p_i) - V_0\right] (p_j - p_l) \times (p_k - p_l)
+\end{equation}
+where $K_V$ is an added-in stiffness coefficient. Consistently shifting the vertices of the tetrahedral cells in the expression of this force, we can find the formulas for the remaining corners of the tetrahedral cell.
+
+To better understand and check the result expressed in equation \ref{volume_preserving_force}, we can analyse the tetrahedral cell in figure \ref{fig_volumetric_force}.
+
+\begin{figure}[h!]
+\label{fig_volumetric_force}
+\caption{Tetrahedral cell being deformed }
+\centering
+\includegraphics[width=0.75\textwidth]{"figs/volumetric_force"}
+\end{figure}
+The tetrahedron $(p_i, p_j, p_k, p_l)$ is consistently named since the vectors $\overrightarrow{pj - pi}$ and $\overrightarrow{(p_k - pi) \times (p_l - p_i)}$ are in the same half space determined by the $(p_i, p_k, p_l)$ plane. When the tetrahedron is compressed, the difference between the current and the initial volumes is a negative number, hence the orientation of the volumetric force in the center figure. If the tetrahedron is inflated, the difference between the current and the initial volumes will be a positive scalar, hence the force will be pointing exactly along the $\overrightarrow{(p_j-p_l) \times (p_k-p_l)}$ vector. The orientations of the volumetric forces in either configurations offer an intuitive behaviour: the $p_i$ point is dragged away from and, respectively, towards the $(p_j,p_k,p_l)$ face, enlarging or shrinking the volume of the cell to counteract compression or expansion.
+
+
+Additionally, other constraint-based forces can be derived (e.g. area preserving forces for the triangular faces of a tetrahedron or angle preserving forces).
+\end{document}
