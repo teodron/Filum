@@ -144,5 +144,12 @@ namespace Filum
 		void PerformUpdateStep();
 
 		void Perturb();
+
+		void Left();
+		void Right();
+		void Up();
+		void Down();
+		void Forward();
+		void Back();
 	};
 }

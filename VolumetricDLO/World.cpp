@@ -94,6 +94,30 @@ void World::Keyboard(unsigned char key, int x, int y)
 	{
 		World::GetInstance()->dlo->Perturb();
 	}
+	if (key == 'j')
+	{
+		World::GetInstance()->dlo->Left();
+	}
+	if (key == 'l')
+	{
+		World::GetInstance()->dlo->Right();
+	}
+	if (key == 'i')
+	{
+		World::GetInstance()->dlo->Up();
+	}
+	if (key == 'k')
+	{
+		World::GetInstance()->dlo->Down();
+	}
+	if (key == 'u')
+	{
+		World::GetInstance()->dlo->Forward();
+	}
+	if (key == 'm')
+	{
+		World::GetInstance()->dlo->Back();
+	}
 }
 
 void World::Init()

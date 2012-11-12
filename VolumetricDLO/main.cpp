@@ -75,15 +75,15 @@ int _tmain(int argc, char* argv[])
 	MassPoint* pk = new MassPoint(vec3<Real>(0,1,0));
 	MassPoint* pl = new MassPoint(vec3<Real>(0,0,1));
 	TetCell tet(pi, pj, pk, pl);
-	tet.SetKl(0.3); tet.SetKv(0.1);
+	tet.SetKl(0.3); tet.SetKv(1);
 
 	tet.Move(vec3<Real>(1.2,1.2,1.2));
 	tet.ResetDr();
-	cout<< tet.InitialVolume() << "  " <<tet.Volume() <<endl;
-	tet.ComputeLengthConstraintContributions(0.1);
-	//tet.UpdateForces();
-	tet.UpdatePosDr();
-	cout<< tet.InitialVolume() << "  " <<tet.Volume() <<endl;
+	cout<< tet.InitialVolume() << " ** " <<tet.Volume() <<endl;
+	//tet.ComputeLengthConstraintContributions(0.1);
+	tet.UpdateForces();
+	//tet.UpdatePosDr();
+	cout<< tet.InitialVolume() << " **  " <<tet.Volume() <<endl;
 	/**/
 	cin.get();
 	
@@ -95,9 +95,9 @@ int _tmain(int argc, char* argv[])
 		r.push_back(vec3<Real>(3*cos(idx / 3.), 3*sin(idx / 3.), idx / 5.));
 
 	VolumetricDOO dlo(r, 0.2, 20);
-	dlo.SetKl(20);
-	dlo.SetKv(20);
-	dlo.setKt(50);
+	dlo.SetKl(100);
+	dlo.SetKv(100);
+	dlo.setKt(100);
 	dlo.SetDampingCoefficient(0.5);
 	dlo.SetLengthConstraintFraction(0.02);
 

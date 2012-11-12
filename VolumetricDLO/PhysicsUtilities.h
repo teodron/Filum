@@ -2,6 +2,16 @@
 #include "stdafx.h"
 namespace Filum
 {
+	/**
+	* \brief Signum template function
+	* \param val - the value for which the sign is computed
+	* \returns 1 0 or -1, according to the sign of the value
+	*/
+	template <typename T> int sgn(T val)
+	{
+		return (T(0) < val) - (val < T(0));
+	}
+
 	/** 
 	* \brief Computes the volume of a tetrahedron
 	* The volume is an orientation dependent quantity and it is positive
@@ -43,15 +53,11 @@ namespace Filum
 	inline vec3<Real> FVol(Real kV, Real  V,Real V0, const vec3<Real>& pi, const vec3<Real>& pj,
 						              const vec3<Real>& pk, const vec3<Real>& pl)
 	{
-		double sign = 1;
-		if ( (V<0 && V0 > 0) || (V>0 && V0 < 0))
-			cout << V << V0 << endl;
-		/*if (V < 0)
-		{
-			V = fabs(V); 
-			sign = -1;
-		}*/
-		return sign * kV / (6.0*V0*V0) * (V - V0) * cross(pj - pl, pk - pl);
+		// volumetric force
+		// return  kV / (6.0*V0*V0) * (V - V0) * cross(pj - pl, pk - pl);
+		// nonlinear spring
+		return ( kV / (6.0*V0*V0) * (V - V0) - kV * ( sgn(V0) * (V0 * V0) / fabs(V) - V)) 
+			   * cross(pj - pl, pk - pl);
 	}
 
 	/**

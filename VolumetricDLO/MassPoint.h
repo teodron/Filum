@@ -195,18 +195,11 @@ namespace Filum
 		void SetMass(Real mass) { this->mass = mass;}
 
 		/// resets the force accumulator
-<<<<<<< HEAD
 		void ResetForce() 
 		{ 
 			this->f = this->df;
 			this->df = zeroVec; 
 		}
-=======
-		void ResetForce() { this->f = this->df;
-
-		this->df = zeroVec; }
->>>>>>> CODE REVIEW
-
 		/// resets the displacement accumulator
 		void ResetDisplacement() { this->dr = zeroVec; }
 

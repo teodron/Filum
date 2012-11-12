@@ -347,5 +347,30 @@ void VolumetricDOO::SetKv(Real value)
 
 void VolumetricDOO::Perturb()
 {
-	P[0].Perturb(vec3<Real>(0,0,.01));
+	P[0].Perturb(vec3<Real>(0,0,.1));
+}
+
+void VolumetricDOO::Back()
+{
+	P[0].Perturb(vec3<Real>(-0.01,0,0));
+}
+void VolumetricDOO::Forward()
+{
+	P[0].Perturb(vec3<Real>(0.01,0,0));
+}
+void VolumetricDOO::Left()
+{
+	P[0].Perturb(vec3<Real>(0,-0.01,0));
+}
+void VolumetricDOO::Right()
+{
+	P[0].Perturb(vec3<Real>(0,0.01,0));
+}
+void VolumetricDOO::Up()
+{
+	P[0].Perturb(vec3<Real>(0,0,0.01));
+}
+void VolumetricDOO::Down()
+{
+	P[0].Perturb(vec3<Real>(0,0,-0.01));
 }
